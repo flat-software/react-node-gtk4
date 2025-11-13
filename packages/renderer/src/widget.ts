@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js"
+import Gtk from "@girs/gtk-4.0"
 import Node from "./node.js"
 
 export default abstract class AbstractWidget<
@@ -21,20 +21,20 @@ export default abstract class AbstractWidget<
   }
 
   setHandler(handlerName: string, handler: any): void {
-    const oldHandler = this.handlers[handlerName]
+    // const oldHandler = this.handlers[handlerName]
 
-    if (oldHandler) {
-      this.node.off(handlerName, oldHandler)
-      delete this.handlers[handlerName]
-    }
+    // if (oldHandler) {
+    //   this.node.off(handlerName, oldHandler)
+    //   delete this.handlers[handlerName]
+    // }
 
-    if (handler) {
-      const newHandler = (...args: any[]) => {
-        return handler(this.node, ...args)
-      }
+    // if (handler) {
+    //   const newHandler = (...args: any[]) => {
+    //     return handler(this.node, ...args)
+    //   }
 
-      this.node.on(handlerName, newHandler)
-      this.handlers[handlerName] = newHandler
-    }
+    //   this.node.on(handlerName, newHandler)
+    //   this.handlers[handlerName] = newHandler
+    // }
   }
 }

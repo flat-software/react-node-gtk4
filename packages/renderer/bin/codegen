@@ -1,23 +1,22 @@
 #!/bin/sh
-
 set -e
 
-# Go to the root of the project
+# Go to the root of the project.
 cd "$(dirname "$0")/.."
 
-# Clean up the generated files
+# Clean up the generated files.
 rm -rf ./src/generated
 rm -rf ./__tests__/generated
 mkdir -p ./src/generated/widgets
 mkdir -p ./__tests__/generated/widgets
 
-# Generate the GIR types
+# Generate the GIR types.
 pnpm girs:generate
 rm -f ./src/generated/girs/*-import.js
 
-# Generate the types
+# Generate the types.
 pnpm exec codegen .
 
-# Format the generated files
+# Format the generated files.
 pnpm exec prettier --write ./src/generated/**/*.{ts,tsx,js} --ignore-path .prettierignore
 pnpm exec prettier --write ./__tests__/generated/**/*.{ts,tsx,js} --ignore-path .prettierignore

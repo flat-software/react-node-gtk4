@@ -46,23 +46,23 @@
     ],
     "devDependencies": {
         "@types/ejs": "3.1.5",
-        "@types/eslint": "8.56.6",
-        "@types/lodash": "4.17.7",
-        "@types/node": "22.5.0",
+        "@types/eslint": "9.6.1",
+        "@types/lodash": "4.17.20",
+        "@types/node": "24.10.1",
         "@types/xml2js": "0.4.14",
-        "@typescript-eslint/eslint-plugin": "8.2.0",
-        "@typescript-eslint/parser": "8.2.0",
-        "eslint": "8.57.0",
-        "eslint-config-prettier": "9.1.0",
-        "eslint-plugin-prettier": "5.2.1",
-        "prettier": "3.3.3",
-        "rimraf": "6.0.1",
-        "typescript": "5.5.4"
+        "@typescript-eslint/eslint-plugin": "8.46.4",
+        "@typescript-eslint/parser": "8.46.4",
+        "eslint": "9.39.1",
+        "eslint-config-prettier": "10.1.8",
+        "eslint-plugin-prettier": "5.5.4",
+        "prettier": "3.6.2",
+        "rimraf": "6.1.0",
+        "typescript": "5.9.3"
     },
     "dependencies": {
         "colorette": "2.0.20",
         "ejs": "3.1.10",
-        "fast-xml-parser": "4.4.1",
+        "fast-xml-parser": "5.3.1",
         "lodash": "4.17.21"
     }
 }

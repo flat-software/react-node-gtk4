@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js"
+import Gtk from "@girs/gtk-4.0"
 
 export default class Node<T = any> {
   children: Node[] = []
