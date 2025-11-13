@@ -1,13 +1,13 @@
 {
-  "name": "@react-native-gtk4/codegen",
+  "name": "@react-node-gtk4/codegen",
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "bin": {
-    "codegen": "dist/index.js"
-  },
+  "bin": "dist/index.js",
   "scripts": {
-    "build": "tsup-node src/index.ts"
+    "ts": "tsc --build --watch",
+    "tsbuild": "tsc --build",
+    "build": "tsup-node ./src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -26,11 +26,12 @@
   },
   "homepage": "https://github.com/eugeniodepalo/react-native-gtk4",
   "devDependencies": {
-    "@ts-for-gir/lib": "workspace:*",
-    "@types/node": "22.5.0",
-    "prettier": "3.3.3",
-    "remeda": "2.11.0",
-    "tsup": "8.2.4",
-    "typescript": "5.5.4"
+    "@ts-for-gir/lib": "workspace:",
+    "@types/ejs": "^3",
+    "@types/lodash": "^4",
+    "@types/node": "24.10.1",
+    "remeda": "2.32.0",
+    "tsup": "8.5.1",
+    "typescript": "5.9.3"
   }
 }

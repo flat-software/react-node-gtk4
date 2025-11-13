@@ -2,7 +2,9 @@
   "compilerOptions": {
     "outDir": "dist",
     "target": "ESNext",
-    "module": "Preserve",
+    "module": "ESNext",
+    "allowImportingTsExtensions": true,
+    "emitDeclarationOnly": true,
     "moduleResolution": "Bundler",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -12,7 +14,13 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
-    }
-  }
+      "@/*": [
+        "src/*"
+      ]
+    },
+  },
+  "include": [
+    "src",
+    "tsup.config.ts",
+  ]
 }

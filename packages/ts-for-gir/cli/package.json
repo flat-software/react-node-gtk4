@@ -12,14 +12,14 @@
         "node": ">=18"
     },
     "scripts": {
-        "start": "pnpm node --max_old_space_size=9216 lib/start.js",
-        "start:dev": "pnpm node --max_old_space_size=9216 --loader ts-node/esm src/start.ts",
-        "build": "pnpm lint && pnpm build:ts && pnpm chmod",
+        "start": "node --max_old_space_size=9216 lib/start.js",
+        "start:dev": "node --max_old_space_size=9216 --loader ts-node/esm src/start.ts",
+        "build": "yarn build:ts && yarn chmod",
         "chmod": "chmod +x ./lib/start.js",
         "build:ts": "tsc",
-        "clear": "pnpm clear:build",
+        "clear": "yarn clear:build",
         "clear:build": "rimraf ./lib",
-        "watch": "pnpm build:ts --watch",
+        "watch": "yarn build:ts --watch",
         "lint": "eslint . --ext .ts,.tsx --fix"
     },
     "repository": {

@@ -6,6 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "ts": "tsc --build --watch",
+    "tsb": "tsc --build",
     "build": "tsup-node src/index.ts",
     "lint": "eslint src",
     "test": "jest",
@@ -46,9 +47,8 @@
     "@babel/preset-env": "7.28.5",
     "@babel/preset-react": "7.28.5",
     "@babel/preset-typescript": "7.28.5",
-    "@girs/gtk-4.0": "^4.20.1-4.0.0-beta.38",
     "@react-node-gtk4/codegen": "workspace:*",
-    "@ts-for-gir/cli": "4.0.0-beta.38",
+    "@ts-for-gir/cli": "workspace:",
     "@types/jest": "30.0.0",
     "@types/lodash": "4.17.20",
     "@types/node": "24.10.1",

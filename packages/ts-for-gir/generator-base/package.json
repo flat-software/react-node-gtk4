@@ -9,11 +9,11 @@
         "node": ">=18"
     },
     "scripts": {
-        "build": "pnpm lint && pnpm build:ts",
+        "build": "yarn build:ts",
         "build:ts": "tsc",
-        "clear": "pnpm clear:build",
+        "clear": "yarn clear:build",
         "clear:build": "rimraf ./lib",
-        "watch": "pnpm build:ts --watch",
+        "watch": "yarn build:ts --watch",
         "lint": "eslint . --ext .ts,.tsx --fix"
     },
     "repository": {

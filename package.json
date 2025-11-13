@@ -8,9 +8,9 @@
     "examples/*"
   ],
   "scripts": {
-    "build": "turbo build -F react-node-gtk4",
-    "test": "turbo test -F react-node-gtk4",
-    "codegen": "turbo codegen -F react-node-gtk4",
+    "build": "turbo build -F @react-node-gtk4/renderer",
+    "test": "turbo test -F @react-node-gtk4/renderer",
+    "codegen": "turbo codegen -F @react-node-gtk4/renderer",
     "publish": "pnpm publish -F react-node-gtk4"
   },
   "devDependencies": {
@@ -18,10 +18,5 @@
     "prettier-plugin-organize-imports": "^4.3.0",
     "turbo": "2.6.1",
     "typescript": "^5.9.3"
-  },
-  "dependenciesMeta": {
-    "@ts-for-gir/lib@4.0.0-beta.38": {
-      "unplugged": true
-    }
   }
 }

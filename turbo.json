@@ -1,6 +1,8 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalEnv": ["NODE_ENV"],
+  "globalEnv": [
+    "NODE_ENV"
+  ],
   "globalPassThroughEnv": [
     "DISPLAY",
     "XDG_RUNTIME_DIR",
@@ -9,23 +11,40 @@
   ],
   "tasks": {
     "codegen": {
-      "dependsOn": ["^build"],
-      "inputs": ["girs/**", "bin/codegen"],
-      "outputs": ["src/generated/**", "__tests__/generated/**"],
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "girs/**",
+        "bin/codegen"
+      ],
+      "outputs": [
+        "src/generated/**",
+        "__tests__/generated/**"
+      ],
       "outputLogs": "new-only"
     },
     "build": {
-      "dependsOn": ["^build", "codegen"],
-      "outputs": ["dist/**"],
+      "dependsOn": [
+        "^build",
+        "codegen"
+      ],
+      "outputs": [
+        "dist/**"
+      ],
       "outputLogs": "new-only"
     },
     "start": {
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "persistent": true,
       "cache": false
     },
     "test": {
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "cache": false
     }
   }

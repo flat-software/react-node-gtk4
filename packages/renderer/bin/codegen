@@ -6,17 +6,17 @@ cd "$(dirname "$0")/.."
 
 # Clean up the generated files.
 rm -rf ./src/generated
-rm -rf ./__tests__/generated
+rm -rf ./src/generated/__tests__
 mkdir -p ./src/generated/widgets
-mkdir -p ./__tests__/generated/widgets
+mkdir -p ./src/generated/__tests__/widgets
 
 # Generate the GIR types.
-pnpm girs:generate
+yarn girs:generate
 rm -f ./src/generated/girs/*-import.js
 
 # Generate the types.
-pnpm exec codegen .
+node ../codegen/dist/index.js .
 
 # Format the generated files.
-pnpm exec prettier --write ./src/generated/**/*.{ts,tsx,js} --ignore-path .prettierignore
-pnpm exec prettier --write ./__tests__/generated/**/*.{ts,tsx,js} --ignore-path .prettierignore
+yarn prettier --write ./src/generated/**/*.{ts,tsx,js} --ignore-path .prettierignore
+yarn prettier --write ./src/generated/__tests__/**/*.{ts,tsx,js} --ignore-path .prettierignore
