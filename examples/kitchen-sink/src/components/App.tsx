@@ -1,55 +1,55 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react"
 import {
+  AboutDialog,
+  ActionBar,
   ApplicationWindow,
   Box,
   Button,
+  Calendar,
+  CenterBox,
+  CheckButton,
+  ColorDialogButton,
   ColumnView,
+  DropDown,
+  EmojiChooser,
+  Entry,
+  Expander,
+  FontDialogButton,
+  Frame,
   Grid,
   Gtk,
+  HeaderBar,
   Label,
-  Notebook,
-  Overlay,
-  Stack,
   LevelBar,
   ListBox,
   ListBoxRow,
+  ListProvider,
+  ListView,
   MenuButton,
+  Notebook,
+  Overlay,
+  PageSetupUnixDialog,
   Paned,
-  Expander,
-  CheckButton,
-  HeaderBar,
   Popover,
-  Revealer,
-  Entry,
+  PopoverMenuBar,
+  PrintUnixDialog,
   ProgressBar,
+  Revealer,
   Scale,
   SearchBar,
+  SpinButton,
   Spinner,
+  Stack,
   Switch,
   TextView,
-  AboutDialog,
-  CenterBox,
-  useApplication,
-  ActionBar,
-  ColorDialogButton,
-  EmojiChooser,
-  FontDialogButton,
-  PageSetupUnixDialog,
-  PrintUnixDialog,
-  DropDown,
-  useActionGroup,
-  useMenu,
-  useInlineStylesheet,
-  PopoverMenuBar,
-  Frame,
-  ListView,
-  ListProvider,
-  TreeProvider,
   TreeExpander,
-  Calendar,
-  SpinButton,
+  TreeProvider,
   createPortal,
-} from "react-native-gtk4"
+  useActionGroup,
+  useApplication,
+  useInlineStylesheet,
+  useMenu,
+} from "@react-node-gtk4/renderer";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
 
 enum Column {
   Name = 0,
@@ -57,116 +57,116 @@ enum Column {
 }
 
 export default function App() {
-  const { quit, application } = useApplication()
-  const [count, setCount] = useState(0)
-  const [revealed, setRevealed] = useState(false)
-  const [popoverOpen, setPopoverOpen] = useState(false)
-  const [entryText, setEntryText] = useState("")
-  const [searchText, setSearchText] = useState("")
-  const [switchActive, setSwitchActive] = useState(false)
-  const [searchModeEnabled, setSearchModeEnabled] = useState(false)
-  const [showAboutDialog, setShowAboutDialog] = useState(false)
-  const [showTitlebar, setShowTitlebar] = useState(true)
-  const [stackVisibleChildName, setStackVisibleChildName] = useState("child1")
-  const [notebookPage, setNotebookPage] = useState(0)
-  const [showActionBarStart, setShowActionBarStart] = useState(true)
-  const [showActionBarEnd, setShowActionBarEnd] = useState(true)
-  const [actionBarText, setActionBarText] = useState("")
-  const [selectedRadio, setSelectedRadio] = useState(0)
-  const [emojiChooserOpen, setEmojiChooserOpen] = useState(false)
-  const [selectedEmoji, setSelectedEmoji] = useState("😊")
-  const [showPageSetupDialog, setShowPageSetupDialog] = useState(false)
-  const [showPrintDialog, setShowPrintDialog] = useState(false)
-  const [levelBarValue, setLevelBarValue] = useState(0.0)
-  const [scaleValue, setScaleValue] = useState(0.0)
-  const [listViewSelection, setListViewSelection] = useState([1, 3])
-  const [columnViewSelection, setColumnViewSelection] = useState([2])
-  const [dropDownSelectedItem, setDropDownSelectedItem] = useState(0)
-  const [treeViewSelection, setTreeViewSelection] = useState([1, 3])
-  const [selectedDay, setSelectedDay] = useState(1)
-  const [calendarMonth, setCalendarMonth] = useState(1)
-  const [calendarYear, setCalendarYear] = useState(new Date().getFullYear())
-  const [containerBox, setContentBox] = useState<Gtk.Box | null>(null)
+  const {quit, application} = useApplication();
+  const [count, setCount] = useState(0);
+  const [revealed, setRevealed] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const [entryText, setEntryText] = useState("");
+  const [searchText, setSearchText] = useState("");
+  const [switchActive, setSwitchActive] = useState(false);
+  const [searchModeEnabled, setSearchModeEnabled] = useState(false);
+  const [showAboutDialog, setShowAboutDialog] = useState(false);
+  const [showTitlebar, setShowTitlebar] = useState(true);
+  const [stackVisibleChildName, setStackVisibleChildName] = useState("child1");
+  const [notebookPage, setNotebookPage] = useState(0);
+  const [showActionBarStart, setShowActionBarStart] = useState(true);
+  const [showActionBarEnd, setShowActionBarEnd] = useState(true);
+  const [actionBarText, setActionBarText] = useState("");
+  const [selectedRadio, setSelectedRadio] = useState(0);
+  const [emojiChooserOpen, setEmojiChooserOpen] = useState(false);
+  const [selectedEmoji, setSelectedEmoji] = useState("😊");
+  const [showPageSetupDialog, setShowPageSetupDialog] = useState(false);
+  const [showPrintDialog, setShowPrintDialog] = useState(false);
+  const [levelBarValue, setLevelBarValue] = useState(0.0);
+  const [scaleValue, setScaleValue] = useState(0.0);
+  const [listViewSelection, setListViewSelection] = useState([1, 3]);
+  const [columnViewSelection, setColumnViewSelection] = useState([2]);
+  const [dropDownSelectedItem, setDropDownSelectedItem] = useState(0);
+  const [treeViewSelection, setTreeViewSelection] = useState([1, 3]);
+  const [selectedDay, setSelectedDay] = useState(1);
+  const [calendarMonth, setCalendarMonth] = useState(1);
+  const [calendarYear, setCalendarYear] = useState(new Date().getFullYear());
+  const [containerBox, setContentBox] = useState<Gtk.Box | null>(null);
 
   const listItems = useMemo(() => {
-    return Array.from(Array(500).keys()).map((i) => `Item ${i}`)
-  }, [])
+    return Array.from(Array(500).keys()).map(i => `Item ${i}`);
+  }, []);
 
   const columnViewItems = useMemo(() => {
-    return Array.from(Array(5).keys()).map((i) => ({
+    return Array.from(Array(5).keys()).map(i => ({
       name: `Name ${i}`,
       surname: `Surname ${i}`,
-    }))
-  }, [])
+    }));
+  }, []);
 
   const treeViewItems = useMemo(() => {
-    return Array.from(Array(5).keys()).map((i) =>
-      Array.from(Array(5).keys()).map((j) =>
-        Array.from(Array(5).keys()).map((k) => `${i}.${j}.${k}`)
+    return Array.from(Array(5).keys()).map(i =>
+      Array.from(Array(5).keys()).map(j =>
+        Array.from(Array(5).keys()).map(k => `${i}.${j}.${k}`)
       )
-    )
-  }, [])
+    );
+  }, []);
 
   const textViewBuffer = useMemo(() => {
-    const value = new Gtk.TextBuffer()
-    value.setText("Text Buffer", -1)
-    const anchor = value.createChildAnchor(value.getEndIter())
-    return { value, anchor }
-  }, [])
+    const value = new Gtk.TextBuffer();
+    value.setText("Text Buffer", -1);
+    const anchor = value.createChildAnchor(value.getEndIter());
+    return {value, anchor};
+  }, []);
 
   const spinButtonAdjustment = useMemo(() => {
     const adjustment = new Gtk.Adjustment({
       lower: 0,
       upper: 100,
-    })
+    });
 
-    adjustment.setStepIncrement(1)
+    adjustment.setStepIncrement(1);
 
-    return adjustment
-  }, [])
+    return adjustment;
+  }, []);
 
   const renderDropDownItem = useCallback(
     (item: string | null) => <Label label={item ?? ""} />,
     []
-  )
+  );
 
   const renderCell = useCallback(
-    (value: { name: string; surname: string } | null, column: number) => {
+    (value: {name: string; surname: string} | null, column: number) => {
       switch (column) {
         case Column.Name:
-          return <Label label={value?.name ?? ""} />
+          return <Label label={value?.name ?? ""} />;
         case Column.Description:
-          return <Label label={value?.surname ?? ""} />
+          return <Label label={value?.surname ?? ""} />;
         default:
-          throw new Error(`Unexpected column: ${column}`)
+          throw new Error(`Unexpected column: ${column}`);
       }
     },
     []
-  )
+  );
 
   const renderTreeItem = useCallback(
     (value: string | null, item: Gtk.ListItem) => {
       return (
         <Box>
-          <TreeExpander listRow={item.item as Gtk.TreeListRow} />
+          <TreeExpander />
           <Label label={value ?? ""} />
         </Box>
-      )
+      );
     },
     []
-  )
+  );
 
   const actionGroup = useActionGroup(
     {
       increaseCount: () => {
-        setCount((count) => count + 1)
+        setCount(count => count + 1);
       },
       decreaseCount: () => {
-        setCount((count) => count - 1)
+        setCount(count => count - 1);
       },
     },
     []
-  )
+  );
 
   const menu = useMenu(
     [
@@ -203,7 +203,7 @@ export default function App() {
       },
     ],
     []
-  )
+  );
 
   const menuBar = useMenu(
     [
@@ -249,7 +249,7 @@ export default function App() {
       },
     ],
     []
-  )
+  );
 
   useInlineStylesheet(`
     .emoji-label {
@@ -274,27 +274,27 @@ export default function App() {
 
     levelbar block.veryHigh {
       background-color: #00ff00;
-    }   
-  `)
+    }
+  `);
 
   useEffect(() => {
-    let timeout: number
+    let timeout: NodeJS.Timeout;
 
     const increaseValue = () => {
-      setLevelBarValue((value) => (value + 0.01) % 1.0)
-      timeout = setTimeout(increaseValue, 100)
-    }
+      setLevelBarValue(value => (value + 0.01) % 1.0);
+      timeout = setTimeout(increaseValue, 100);
+    };
 
-    increaseValue()
+    increaseValue();
 
     application.on("shutdown", () => {
-      clearTimeout(timeout)
-    })
+      clearTimeout(timeout);
+    });
 
     return () => {
-      clearTimeout(timeout)
-    }
-  }, [])
+      clearTimeout(timeout);
+    };
+  }, []);
 
   return (
     <ApplicationWindow
@@ -328,8 +328,8 @@ export default function App() {
                 hexpand
                 vexpand
                 visibleChildName={stackVisibleChildName ?? ""}
-                onNotifyVisibleChildName={(stack) => {
-                  setStackVisibleChildName(stack.visibleChildName ?? "")
+                onNotifyVisibleChildName={stack => {
+                  setStackVisibleChildName(stack.visibleChildName ?? "");
                 }}
               >
                 <Stack.Sidebar hexpand vexpand />
@@ -359,8 +359,8 @@ export default function App() {
                 <ActionBar.Item>
                   <Entry
                     text={actionBarText}
-                    onChanged={(entry) => {
-                      setActionBarText(entry.text ?? "")
+                    onChanged={entry => {
+                      setActionBarText(entry.text ?? "");
                     }}
                     placeholderText="Type here..."
                   />
@@ -385,19 +385,19 @@ export default function App() {
                   <EmojiChooser
                     open={emojiChooserOpen}
                     onEmojiPicked={(_, emoji) => {
-                      setSelectedEmoji(emoji ?? "")
+                      setSelectedEmoji(emoji ?? "");
                     }}
                     onShow={() => {
-                      setEmojiChooserOpen(true)
+                      setEmojiChooserOpen(true);
                     }}
                     onHide={() => {
-                      setEmojiChooserOpen(false)
+                      setEmojiChooserOpen(false);
                     }}
                   >
                     <Button
                       label="Emoji Chooser"
                       onClicked={() => {
-                        setEmojiChooserOpen(!emojiChooserOpen)
+                        setEmojiChooserOpen(!emojiChooserOpen);
                       }}
                     />
                   </EmojiChooser>
@@ -418,9 +418,9 @@ export default function App() {
               hexpand
               vexpand
               page={notebookPage}
-              onChangeCurrentPage={(notebook) => {
-                setNotebookPage(notebook.getCurrentPage())
-                return false
+              onChangeCurrentPage={notebook => {
+                setNotebookPage(notebook.getCurrentPage());
+                return false;
               }}
             >
               <Notebook.Tab label="Tab 1">
@@ -433,16 +433,16 @@ export default function App() {
             <Button
               label={`Button ${count}`}
               onClicked={() => {
-                setCount((count) => count + 1)
+                setCount(count => count + 1);
                 setTimeout(() => {
-                  setCount((count) => count - 1)
-                }, 1000)
+                  setCount(count => count - 1);
+                }, 1000);
               }}
             />
             <Button
               label="Toggle Titlebar"
               onClicked={() => {
-                setShowTitlebar(!showTitlebar)
+                setShowTitlebar(!showTitlebar);
               }}
             />
             <ListProvider.Container>
@@ -456,17 +456,17 @@ export default function App() {
                 vexpand
                 selectionMode={Gtk.SelectionMode.MULTIPLE}
                 columns={[
-                  { title: "Name", expand: true },
-                  { title: "Surname", expand: true },
+                  {title: "Name", expand: true},
+                  {title: "Surname", expand: true},
                 ]}
                 renderCell={renderCell}
                 selection={columnViewSelection}
                 onSelectionChanged={(
                   ids,
-                  items: { name: string; surname: string }[]
+                  items: {name: string; surname: string}[]
                 ) => {
-                  console.log(items)
-                  setColumnViewSelection(ids)
+                  console.log(items);
+                  setColumnViewSelection(ids);
                 }}
               />
             </ListProvider.Container>
@@ -491,8 +491,8 @@ export default function App() {
                 renderItem={renderTreeItem}
                 selection={treeViewSelection}
                 onSelectionChanged={(ids, items) => {
-                  console.log(items)
-                  setTreeViewSelection(ids)
+                  console.log(items);
+                  setTreeViewSelection(ids);
                 }}
               />
             </TreeProvider.Container>
@@ -536,34 +536,34 @@ export default function App() {
               showFillLevel
               range={[0, 1]}
               onChangeValue={(_node, _scroll, value) => {
-                setScaleValue(value ?? 0)
-                return false
+                setScaleValue(value ?? 0);
+                return false;
               }}
               value={scaleValue}
               marks={[
-                { value: 0, position: Gtk.PositionType.BOTTOM, label: "0" },
-                { value: 0.5, position: Gtk.PositionType.TOP, label: "0.5" },
-                { value: 1, position: Gtk.PositionType.BOTTOM, label: "1" },
+                {value: 0, position: Gtk.PositionType.BOTTOM, label: "0"},
+                {value: 0.5, position: Gtk.PositionType.TOP, label: "0.5"},
+                {value: 1, position: Gtk.PositionType.BOTTOM, label: "1"},
               ]}
             />
             <SearchBar searchModeEnabled={searchModeEnabled}>
               <Entry
                 text={searchText}
-                onChanged={(entry) => {
-                  setSearchText(entry.text ?? "")
+                onChanged={entry => {
+                  setSearchText(entry.text ?? "");
                 }}
               />
             </SearchBar>
             <Button
               label="Toggle Search Mode"
               onClicked={() => {
-                setSearchModeEnabled(!searchModeEnabled)
+                setSearchModeEnabled(!searchModeEnabled);
               }}
             />
             <Entry
               text={entryText}
-              onChanged={(entry) => {
-                setEntryText(entry.text ?? "")
+              onChanged={entry => {
+                setEntryText(entry.text ?? "");
               }}
               placeholderText="Type here..."
             />
@@ -596,8 +596,8 @@ export default function App() {
             <Box>
               <Switch
                 active={switchActive}
-                onActivate={(node) => {
-                  setSwitchActive(node.active)
+                onActivate={node => {
+                  setSwitchActive(node.active);
                 }}
               />
             </Box>
@@ -614,8 +614,8 @@ export default function App() {
               vexpand
               renderItem={renderDropDownItem}
               onSelectedItemChanged={(id, item) => {
-                console.log(item)
-                setDropDownSelectedItem(id)
+                console.log(item);
+                setDropDownSelectedItem(id);
               }}
               selectedItem={dropDownSelectedItem}
             >
@@ -631,12 +631,12 @@ export default function App() {
                 renderItem={renderDropDownItem}
                 selection={listViewSelection}
                 onSelectionChanged={(ids, items) => {
-                  console.log(items)
-                  setListViewSelection(ids)
+                  console.log(items);
+                  setListViewSelection(ids);
                 }}
               >
                 <ListProvider.List>
-                  {Array.from(Array(5).keys()).map((i) => (
+                  {Array.from(Array(5).keys()).map(i => (
                     <ListProvider.Item key={i} value={`Item ${i}`} />
                   ))}
                 </ListProvider.List>
@@ -671,11 +671,11 @@ export default function App() {
                   hexpand
                   vexpand
                   onResponse={() => {
-                    setShowPageSetupDialog(false)
+                    setShowPageSetupDialog(false);
                   }}
                   onCloseRequest={() => {
-                    setShowPageSetupDialog(false)
-                    return false
+                    setShowPageSetupDialog(false);
+                    return false;
                   }}
                 />
               ) : null}
@@ -685,11 +685,11 @@ export default function App() {
                   hexpand
                   vexpand
                   onResponse={() => {
-                    setShowPrintDialog(false)
+                    setShowPrintDialog(false);
                   }}
                   onCloseRequest={() => {
-                    setShowPrintDialog(false)
-                    return false
+                    setShowPrintDialog(false);
+                    return false;
                   }}
                 />
               ) : null}
@@ -701,14 +701,14 @@ export default function App() {
               day={selectedDay}
               month={calendarMonth}
               year={calendarYear}
-              onDaySelected={(calendar) => {
-                setSelectedDay(calendar.day)
+              onDaySelected={calendar => {
+                setSelectedDay(calendar.day);
               }}
-              onNotifyMonth={(calendar) => {
-                setCalendarMonth(calendar.month)
+              onNotifyMonth={calendar => {
+                setCalendarMonth(calendar.month);
               }}
-              onNotifyYear={(calendar) => {
-                setCalendarYear(calendar.year)
+              onNotifyYear={calendar => {
+                setCalendarYear(calendar.year);
               }}
             />
             <SpinButton range={[0, 80]} adjustment={spinButtonAdjustment} />
@@ -729,7 +729,7 @@ export default function App() {
             </Expander>
             <Button
               onClicked={() => {
-                setRevealed(!revealed)
+                setRevealed(!revealed);
               }}
               label="Reveal"
             />
@@ -742,16 +742,16 @@ export default function App() {
               vexpand
               content={<Label label="Popover" />}
               onShow={() => {
-                setPopoverOpen(true)
+                setPopoverOpen(true);
               }}
               onHide={() => {
-                setPopoverOpen(false)
+                setPopoverOpen(false);
               }}
             >
               <Button
                 label="Popover"
                 onClicked={() => {
-                  setPopoverOpen(!popoverOpen)
+                  setPopoverOpen(!popoverOpen);
                 }}
               />
             </Popover>
@@ -760,7 +760,7 @@ export default function App() {
                 showAboutDialog ? "Hide About Dialog" : "Show About Dialog"
               }
               onClicked={() => {
-                setShowAboutDialog(!showAboutDialog)
+                setShowAboutDialog(!showAboutDialog);
               }}
             />
             <MenuButton
@@ -782,8 +782,8 @@ export default function App() {
           comments="Comments"
           copyright="Copyright"
           onCloseRequest={() => {
-            setShowAboutDialog(false)
-            return false
+            setShowAboutDialog(false);
+            return false;
           }}
           creditSections={[
             {
@@ -794,5 +794,5 @@ export default function App() {
         />
       ) : null}
     </ApplicationWindow>
-  )
+  );
 }

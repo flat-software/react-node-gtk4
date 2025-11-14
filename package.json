@@ -8,15 +8,12 @@
     "examples/*"
   ],
   "scripts": {
-    "build": "turbo build -F @react-node-gtk4/renderer",
-    "test": "turbo test -F @react-node-gtk4/renderer",
-    "codegen": "turbo codegen -F @react-node-gtk4/renderer",
-    "publish": "pnpm publish -F react-node-gtk4"
+    "ts": "tsc --build --watch",
+    "build": "tsc --build"
   },
   "devDependencies": {
-    "prettier": "^3.6.2",
-    "prettier-plugin-organize-imports": "^4.3.0",
-    "turbo": "2.6.1",
-    "typescript": "^5.9.3"
+    "prettier": "3.6.2",
+    "prettier-plugin-organize-imports": "4.3.0",
+    "typescript": "5.9.3"
   }
 }

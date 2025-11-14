@@ -4,8 +4,6 @@ const config = {
   bracketSpacing: false,
   arrowParens: "avoid",
   trailingComma: "es5",
-  tailwindFunctions: ["tiwi"],
-  tailwindPreserveWhitespace: true,
   plugins: ["prettier-plugin-organize-imports"],
 };
 

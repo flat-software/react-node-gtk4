@@ -1,0 +1,16 @@
+{
+  "name": "@react-node-gtk4/codegen",
+  "version": "1.0.0",
+  "license": "MPL-2.0",
+  "type": "module",
+  "scripts": {
+    "ts": "tsc --build --watch",
+    "build": "tsc --build",
+    "codegen": ""
+  },
+  "devDependencies": {
+    "@ts-for-gir/lib": "3.3.0",
+    "remeda": "2.32.0",
+    "typescript": "5.9.3"
+  }
+}

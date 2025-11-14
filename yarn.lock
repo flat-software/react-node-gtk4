@@ -2249,23 +2249,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-node-gtk4/codegen@workspace:*, @react-node-gtk4/codegen@workspace:packages/codegen":
+"@react-node-gtk4/codegen@workspace:*, @react-node-gtk4/codegen@workspace:packages/rng-codegen":
   version: 0.0.0-use.local
-  resolution: "@react-node-gtk4/codegen@workspace:packages/codegen"
+  resolution: "@react-node-gtk4/codegen@workspace:packages/rng-codegen"
   dependencies:
-    "@ts-for-gir/lib": "workspace:"
-    "@types/ejs": "npm:^3"
-    "@types/lodash": "npm:^4"
-    "@types/node": "npm:24.10.1"
+    "@ts-for-gir/lib": "npm:3.3.0"
     remeda: "npm:2.32.0"
-    tsup: "npm:8.5.1"
     typescript: "npm:5.9.3"
-  bin:
-    codegen: dist/index.js
   languageName: unknown
   linkType: soft
 
-"@react-node-gtk4/renderer@workspace:packages/renderer":
+"@react-node-gtk4/renderer@workspace:*, @react-node-gtk4/renderer@workspace:packages/renderer":
   version: 0.0.0-use.local
   resolution: "@react-node-gtk4/renderer@workspace:packages/renderer"
   dependencies:
@@ -2278,8 +2272,8 @@ __metadata:
     "@types/jest": "npm:30.0.0"
     "@types/lodash": "npm:4.17.20"
     "@types/node": "npm:24.10.1"
-    "@types/react": "npm:19.2.4"
-    "@types/react-reconciler": "npm:0.32.3"
+    "@types/react": "npm:18.3.4"
+    "@types/react-reconciler": "npm:0.28.8"
     "@typescript-eslint/eslint-plugin": "npm:8.46.4"
     "@typescript-eslint/parser": "npm:8.46.4"
     babel-jest: "npm:30.2.0"
@@ -2289,8 +2283,8 @@ __metadata:
     jest: "npm:30.2.0"
     lodash: "npm:4.17.21"
     prettier: "npm:3.6.2"
-    react: "npm:^19.2.0"
-    react-reconciler: "npm:^0.33.0"
+    react: "npm:18.3.1"
+    react-reconciler: "npm:0.29.2"
     remeda: "npm:2.32.0"
     ts-jest: "npm:29.4.5"
     ts-jest-resolver: "npm:2.0.1"
@@ -2555,7 +2549,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ts-for-gir/lib@workspace:, @ts-for-gir/lib@workspace:*, @ts-for-gir/lib@workspace:packages/ts-for-gir/lib":
+"@ts-for-gir/lib@npm:3.3.0, @ts-for-gir/lib@workspace:*, @ts-for-gir/lib@workspace:packages/ts-for-gir/lib":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir/lib@workspace:packages/ts-for-gir/lib"
   dependencies:
@@ -2657,7 +2651,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ejs@npm:3.1.5, @types/ejs@npm:^3":
+"@types/ejs@npm:3.1.5":
   version: 3.1.5
   resolution: "@types/ejs@npm:3.1.5"
   checksum: 10c0/13d994cf0323d7e0ad33b9384914ccd3b4cd8bf282eced3649b1621b66ee7c784ac2d120a9d7b1f43d6f873518248fb8c3221b06a649b847860b9c2389a0b0ed
@@ -2742,7 +2736,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.17.20, @types/lodash@npm:^4":
+"@types/lodash@npm:4.17.20":
   version: 4.17.20
   resolution: "@types/lodash@npm:4.17.20"
   checksum: 10c0/98cdd0faae22cbb8079a01a3bb65aa8f8c41143367486c1cbf5adc83f16c9272a2a5d2c1f541f61d0d73da543c16ee1d21cf2ef86cb93cd0cc0ac3bced6dd88f
@@ -2758,21 +2752,38 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-reconciler@npm:0.32.3":
-  version: 0.32.3
-  resolution: "@types/react-reconciler@npm:0.32.3"
-  peerDependencies:
-    "@types/react": "*"
-  checksum: 10c0/8d6485c6da3aa6d84b5c320c4cf9737e67511cd6c7ebfb7252ec032fd1cfb0515d3a2c06054491603c6ab040202694ff5ad125cd840e1da9e76d7447cef53dff
+"@types/prop-types@npm:*":
+  version: 15.7.15
+  resolution: "@types/prop-types@npm:15.7.15"
+  checksum: 10c0/b59aad1ad19bf1733cf524fd4e618196c6c7690f48ee70a327eb450a42aab8e8a063fbe59ca0a5701aebe2d92d582292c0fb845ea57474f6a15f6994b0e260b2
   languageName: node
   linkType: hard
 
-"@types/react@npm:19.2.4":
+"@types/react-reconciler@npm:0.28.8":
+  version: 0.28.8
+  resolution: "@types/react-reconciler@npm:0.28.8"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: 10c0/ca95cffcdf58591679c6c87dcc6f2c50cef9c6b2772d089ec0c695567656f34a30a0f2592f391d99b0e877f94afd67347082c55eb1dc5cb8000e23c8efc0fafc
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:*":
   version: 19.2.4
   resolution: "@types/react@npm:19.2.4"
   dependencies:
     csstype: "npm:^3.0.2"
   checksum: 10c0/c878262c4bce047e53a44ef644088fce359ebdfdca7060a4ac1717c8362563b9506a7ebae145977836e95d5948b8f8b426dcd516044c3a3c0563a6f1b60408ce
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:18.3.4":
+  version: 18.3.4
+  resolution: "@types/react@npm:18.3.4"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 10c0/5c52e1e6f540cff21e3c2a5212066d02e005f6fb21e4a536a29097fae878db9f407cd7a4b43778f51359349c5f692e08bc77ddb5f5cecbfca9ca4d4e3c91a48e
   languageName: node
   linkType: hard
 
@@ -4175,10 +4186,10 @@ __metadata:
   resolution: "download-example@workspace:examples/download"
   dependencies:
     "@types/node": "npm:24.10.1"
-    "@types/react": "npm:19.2.4"
+    "@types/react": "npm:18.3.4"
     axios: "npm:1.13.2"
     node-gtk: "npm:1.0.0"
-    react: "npm:19.2.0"
+    react: "npm:18.3.1"
     react-node-gtk4: "workspace:*"
     typescript: "npm:5.9.3"
   languageName: unknown
@@ -4865,9 +4876,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "file-dialogs@workspace:examples/file-dialogs"
   dependencies:
-    "@types/react": "npm:19.2.4"
+    "@types/react": "npm:18.3.4"
     node-gtk: "npm:1.0.0"
-    react: "npm:19.2.0"
+    react: "npm:18.3.1"
     react-node-gtk4: "workspace:*"
     typescript: "npm:5.9.3"
   languageName: unknown
@@ -4945,9 +4956,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "flatpak-example@workspace:examples/flatpak"
   dependencies:
-    "@types/react": "npm:19.2.4"
+    "@types/react": "npm:18.3.4"
     node-gtk: "npm:1.0.0"
-    react: "npm:19.2.0"
+    react: "npm:18.3.1"
     react-node-gtk4: "workspace:*"
     typescript: "npm:5.9.3"
   languageName: unknown
@@ -6584,10 +6595,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "kitchen-sink-example@workspace:examples/kitchen-sink"
   dependencies:
-    "@types/react": "npm:19.2.4"
+    "@react-node-gtk4/renderer": "workspace:*"
+    "@types/react": "npm:18.3.4"
     node-gtk: "npm:1.0.0"
-    react: "npm:19.2.0"
-    react-node-gtk4: "workspace:*"
     typescript: "npm:5.9.3"
   languageName: unknown
   linkType: soft
@@ -6707,7 +6717,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -7044,9 +7054,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "multiple-windows-example@workspace:examples/multiple-windows"
   dependencies:
-    "@types/react": "npm:19.2.4"
+    "@types/react": "npm:18.3.4"
     node-gtk: "npm:1.0.0"
-    react: "npm:19.2.0"
+    react: "npm:18.3.1"
     react-node-gtk4: "workspace:*"
     typescript: "npm:5.9.3"
   languageName: unknown
@@ -7612,7 +7622,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-organize-imports@npm:^4.3.0":
+"prettier-plugin-organize-imports@npm:4.3.0":
   version: 4.3.0
   resolution: "prettier-plugin-organize-imports@npm:4.3.0"
   peerDependencies:
@@ -7626,7 +7636,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.6.2, prettier@npm:^3.6.2":
+"prettier@npm:3.6.2":
   version: 3.6.2
   resolution: "prettier@npm:3.6.2"
   bin:
@@ -7738,28 +7748,30 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-node-gtk4@workspace:."
   dependencies:
-    prettier: "npm:^3.6.2"
-    prettier-plugin-organize-imports: "npm:^4.3.0"
-    turbo: "npm:2.6.1"
-    typescript: "npm:^5.9.3"
+    prettier: "npm:3.6.2"
+    prettier-plugin-organize-imports: "npm:4.3.0"
+    typescript: "npm:5.9.3"
   languageName: unknown
   linkType: soft
 
-"react-reconciler@npm:^0.33.0":
-  version: 0.33.0
-  resolution: "react-reconciler@npm:0.33.0"
+"react-reconciler@npm:0.29.2":
+  version: 0.29.2
+  resolution: "react-reconciler@npm:0.29.2"
   dependencies:
-    scheduler: "npm:^0.27.0"
+    loose-envify: "npm:^1.1.0"
+    scheduler: "npm:^0.23.2"
   peerDependencies:
-    react: ^19.2.0
-  checksum: 10c0/3f7b27ea8d0ff4c8bf0e402a285e1af9b7d0e6f4c1a70a28f4384938bc1130bc82a90a31df0b79ef5e380e2e55e2598bd90b4dbf802b1203d735ba0355817d3a
+    react: ^18.3.1
+  checksum: 10c0/94f48ddc348a974256cf13c859f5a94efdb0cd72e04c51b1a4d5c72a8b960ccd35df2196057ee6a4cbcb26145e12b01e3f9ba3b183fddb901414db36a07cbf43
   languageName: node
   linkType: hard
 
-"react@npm:19.2.0, react@npm:^19.2.0":
-  version: 19.2.0
-  resolution: "react@npm:19.2.0"
-  checksum: 10c0/1b6d64eacb9324725bfe1e7860cb7a6b8a34bc89a482920765ebff5c10578eb487e6b46b2f0df263bd27a25edbdae2c45e5ea5d81ae61404301c1a7192c38330
+"react@npm:18.3.1":
+  version: 18.3.1
+  resolution: "react@npm:18.3.1"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+  checksum: 10c0/283e8c5efcf37802c9d1ce767f302dd569dd97a70d9bb8c7be79a789b9902451e0d16334b05d73299b20f048cbc3c7d288bbbde10b701fa194e2089c237dbea3
   languageName: node
   linkType: hard
 
@@ -8165,10 +8177,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:^0.27.0":
-  version: 0.27.0
-  resolution: "scheduler@npm:0.27.0"
-  checksum: 10c0/4f03048cb05a3c8fddc45813052251eca00688f413a3cee236d984a161da28db28ba71bd11e7a3dd02f7af84ab28d39fb311431d3b3772fed557945beb00c452
+"scheduler@npm:^0.23.2":
+  version: 0.23.2
+  resolution: "scheduler@npm:0.23.2"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+  checksum: 10c0/26383305e249651d4c58e6705d5f8425f153211aef95f15161c151f7b8de885f24751b377e4a0b3dd42cce09aad3f87a61dab7636859c0d89b7daf1a1e2a5c78
   languageName: node
   linkType: hard
 
@@ -8316,9 +8330,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "simple-example@workspace:examples/simple"
   dependencies:
-    "@types/react": "npm:19.2.4"
+    "@types/react": "npm:18.3.4"
     node-gtk: "npm:1.0.0"
-    react: "npm:19.2.0"
+    react: "npm:18.3.1"
     react-node-gtk4: "workspace:*"
     typescript: "npm:5.9.3"
   languageName: unknown
@@ -8590,8 +8604,8 @@ __metadata:
   resolution: "stylesheet-example@workspace:examples/stylesheet"
   dependencies:
     "@types/node": "npm:24.10.1"
-    "@types/react": "npm:19.2.4"
-    react: "npm:19.2.0"
+    "@types/react": "npm:18.3.4"
+    react: "npm:18.3.1"
     react-node-gtk4: "workspace:*"
     typescript: "npm:5.9.3"
   languageName: unknown
@@ -8916,77 +8930,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:2.6.1":
-  version: 2.6.1
-  resolution: "turbo-darwin-64@npm:2.6.1"
-  conditions: os=darwin & cpu=x64
-  languageName: node
-  linkType: hard
-
-"turbo-darwin-arm64@npm:2.6.1":
-  version: 2.6.1
-  resolution: "turbo-darwin-arm64@npm:2.6.1"
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"turbo-linux-64@npm:2.6.1":
-  version: 2.6.1
-  resolution: "turbo-linux-64@npm:2.6.1"
-  conditions: os=linux & cpu=x64
-  languageName: node
-  linkType: hard
-
-"turbo-linux-arm64@npm:2.6.1":
-  version: 2.6.1
-  resolution: "turbo-linux-arm64@npm:2.6.1"
-  conditions: os=linux & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"turbo-windows-64@npm:2.6.1":
-  version: 2.6.1
-  resolution: "turbo-windows-64@npm:2.6.1"
-  conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"turbo-windows-arm64@npm:2.6.1":
-  version: 2.6.1
-  resolution: "turbo-windows-arm64@npm:2.6.1"
-  conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"turbo@npm:2.6.1":
-  version: 2.6.1
-  resolution: "turbo@npm:2.6.1"
-  dependencies:
-    turbo-darwin-64: "npm:2.6.1"
-    turbo-darwin-arm64: "npm:2.6.1"
-    turbo-linux-64: "npm:2.6.1"
-    turbo-linux-arm64: "npm:2.6.1"
-    turbo-windows-64: "npm:2.6.1"
-    turbo-windows-arm64: "npm:2.6.1"
-  dependenciesMeta:
-    turbo-darwin-64:
-      optional: true
-    turbo-darwin-arm64:
-      optional: true
-    turbo-linux-64:
-      optional: true
-    turbo-linux-arm64:
-      optional: true
-    turbo-windows-64:
-      optional: true
-    turbo-windows-arm64:
-      optional: true
-  bin:
-    turbo: bin/turbo
-  checksum: 10c0/9875f8d85c5e1b26fbf95dec77b91a1f05ee4545b754469c6ddabe55759289bef02a08693380439d4443db72003e576df30b5852cbfa0da703c08b6e84c557a5
-  languageName: node
-  linkType: hard
-
 "type-check@npm:^0.4.0, type-check@npm:~0.4.0":
   version: 0.4.0
   resolution: "type-check@npm:0.4.0"
@@ -9070,7 +9013,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.9.3, typescript@npm:^5.9.3":
+"typescript@npm:5.9.3":
   version: 5.9.3
   resolution: "typescript@npm:5.9.3"
   bin:
@@ -9080,7 +9023,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.9.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>":
   version: 5.9.3
   resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
   bin:

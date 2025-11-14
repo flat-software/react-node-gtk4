@@ -117,7 +117,7 @@ const hostConfig: HostConfig<
   resetAfterCommit() {
     return null;
   },
-  /* istanbul ignore next */ preparePortalMount() {},
+  preparePortalMount() {},
   scheduleTimeout(fn, delay) {
     return setTimeout(fn, delay);
   },
@@ -131,8 +131,8 @@ const hostConfig: HostConfig<
     return null;
   },
   beforeActiveInstanceBlur() {},
-  /* istanbul ignore next */ afterActiveInstanceBlur() {},
-  /* istanbul ignore next */ prepareScopeUpdate() {},
+  afterActiveInstanceBlur() {},
+  prepareScopeUpdate() {},
   getInstanceFromScope() {
     return null;
   },
