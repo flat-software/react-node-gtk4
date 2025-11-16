@@ -1,36 +1,35 @@
-import React, { useEffect } from "react"
-import { forwardRef } from "react"
-import Gtk from "@/generated/girs/node-gtk-4.0.js"
-import { SpinButton } from "../generated/intrinsics.js"
-import useForwardedRef from "../hooks/useForwardedRef.js"
-import _ from "lodash"
+import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import _ from "lodash";
+import React, {forwardRef, useEffect} from "react";
+import {SpinButton} from "../generated/intrinsics.js";
+import useForwardedRef from "../hooks/useForwardedRef.js";
 
 type Props = React.JSX.IntrinsicElements["SpinButton"] & {
-  range?: [number, number]
-}
+  range?: [number, number];
+};
 
 export default React.memo(
   forwardRef<Gtk.SpinButton, Props>(function SpinButtonComponent(
-    { range = [], ...props },
+    {range = [], ...props},
     ref
   ) {
-    const [innerRef, setInnerRef] = useForwardedRef(ref)
+    const [innerRef, setInnerRef] = useForwardedRef(ref);
 
     useEffect(() => {
-      const spinButton = innerRef.current
+      const spinButton = innerRef.current;
 
       if (!spinButton) {
-        return
+        return;
       }
 
-      spinButton.setRange(range[0] ?? 0, range[1] ?? 0)
+      spinButton.setRange(range[0] ?? 0, range[1] ?? 0);
 
       return () => {
-        spinButton.setRange(0, 0)
-      }
-    }, [range])
+        spinButton.setRange(0, 0);
+      };
+    }, [range]);
 
-    return <SpinButton ref={setInnerRef} {...props} />
+    return <SpinButton ref={setInnerRef} {...props} />;
   }),
   _.isEqual
-)
+);

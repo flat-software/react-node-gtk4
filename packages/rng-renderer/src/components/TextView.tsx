@@ -1,17 +1,22 @@
-import React, { useContext, useEffect, useState } from "react"
-import { forwardRef, createContext } from "react"
-import Gtk from "@/generated/girs/node-gtk-4.0.js"
-import { TextView } from "../generated/intrinsics.js"
-import useForwardedRef from "../hooks/useForwardedRef.js"
+import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import {TextView} from "@/generated/intrinsics.js";
+import useForwardedRef from "@/hooks/useForwardedRef.js";
+import React, {
+  createContext,
+  forwardRef,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
-const Context = createContext<Gtk.TextView | null>(null)
+const Context = createContext<Gtk.TextView | null>(null);
 
 const Container = forwardRef<
   Gtk.TextView,
   React.JSX.IntrinsicElements["TextView"]
->(function TextViewContainer({ children, ...props }, ref) {
-  const [textView, setTextView] = useState<Gtk.TextView | null>(null)
-  const [, setInnerRef] = useForwardedRef(ref, setTextView)
+>(function TextViewContainer({children, ...props}, ref) {
+  const [textView, setTextView] = useState<Gtk.TextView | null>(null);
+  const [, setInnerRef] = useForwardedRef(ref, setTextView);
 
   return (
     <TextView ref={setInnerRef} {...props}>
@@ -19,13 +24,13 @@ const Container = forwardRef<
         <Context.Provider value={textView}>{children}</Context.Provider>
       ) : null}
     </TextView>
-  )
-})
+  );
+});
 
 interface OverlayProps {
-  children: React.ReactElement & { ref?: React.Ref<Gtk.Widget> }
-  x?: number
-  y?: number
+  children: React.ReactElement & {ref?: React.Ref<Gtk.Widget>};
+  x?: number;
+  y?: number;
 }
 
 const Overlay = function TextViewOverlay({
@@ -33,70 +38,70 @@ const Overlay = function TextViewOverlay({
   x = 0,
   y = 0,
 }: OverlayProps) {
-  const textView = useContext(Context)
-  const [childRef, setChildRef] = useForwardedRef(children.ref)
+  const textView = useContext(Context);
+  const [childRef, setChildRef] = useForwardedRef(children.ref);
 
   if (!textView) {
-    throw new Error("TextView.Overlay must be a child of TextView.Container")
+    throw new Error("TextView.Overlay must be a child of TextView.Container");
   }
 
   useEffect(() => {
-    const child = childRef.current
+    const child = childRef.current;
 
     if (!child) {
-      return
+      return;
     }
 
-    textView.addOverlay(child, x, y)
+    textView.addOverlay(child, x, y);
 
     return () => {
       if (child.parent === textView) {
-        textView.remove(child)
+        textView.remove(child);
       }
-    }
-  }, [textView, x, y])
+    };
+  }, [textView, x, y]);
 
   return React.cloneElement(children, {
     ref: setChildRef,
-  })
-}
+  });
+};
 
 interface AnchorProps {
-  children: React.ReactElement & { ref?: React.Ref<Gtk.Widget> }
-  anchor: Gtk.TextChildAnchor
+  children: React.ReactElement & {ref?: React.Ref<Gtk.Widget>};
+  anchor: Gtk.TextChildAnchor;
 }
 
-const Anchor = function TextViewAnchor({ children, anchor }: AnchorProps) {
-  const textView = useContext(Context)
-  const [childRef, setChildRef] = useForwardedRef(children.ref)
+const Anchor = function TextViewAnchor({children, anchor}: AnchorProps) {
+  const textView = useContext(Context);
+  const [childRef, setChildRef] = useForwardedRef(children.ref);
 
   if (!textView) {
-    throw new Error("TextView.Anchor must be a child of TextView.Container")
+    throw new Error("TextView.Anchor must be a child of TextView.Container");
   }
 
   useEffect(() => {
-    const child = childRef.current
+    const child = childRef.current;
 
     if (!child) {
-      return
+      return;
     }
 
-    textView.addChildAtAnchor(child, anchor)
+    textView.addChildAtAnchor(child, anchor);
 
     return () => {
       if (child.parent === textView) {
-        textView.remove(child)
+        textView.remove(child);
       }
-    }
-  }, [textView, anchor])
+    };
+  }, [textView, anchor]);
 
   return React.cloneElement(children, {
     ref: setChildRef,
-  })
-}
+  });
+};
 
 export default {
   Container,
   Overlay,
   Anchor,
-}
+};

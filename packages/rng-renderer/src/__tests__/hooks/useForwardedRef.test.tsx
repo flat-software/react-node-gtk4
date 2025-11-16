@@ -1,57 +1,57 @@
-import useForwardedRef from "@/hooks/useForwardedRef.js"
-import React from "react"
+import useForwardedRef from "@/hooks/useForwardedRef.js";
+import React from "react";
 
-jest.mock("react")
+jest.mock("react");
 
-const MockedReact = React as jest.Mocked<typeof React>
+const MockedReact = React as jest.Mocked<typeof React>;
 
 describe("useForwardedRef", () => {
-  const value = "node"
+  const value = "node";
 
   beforeEach(() => {
-    MockedReact.useRef.mockImplementation(() => ({ current: null }))
-    MockedReact.useCallback.mockImplementation((callback) => callback)
-  })
+    MockedReact.useRef.mockImplementation(() => ({current: null}));
+    MockedReact.useCallback.mockImplementation(callback => callback);
+  });
 
   it("should set the inner ref", () => {
-    const ref = { current: null }
+    const ref = {current: null};
 
-    const [innerRef, setInnerRef] = useForwardedRef<string>(ref)
+    const [innerRef, setInnerRef] = useForwardedRef<string>(ref);
 
-    setInnerRef(value)
+    setInnerRef(value);
 
-    expect(innerRef.current).toBe(value)
-  })
+    expect(innerRef.current).toBe(value);
+  });
 
   it("should call the provided callback", () => {
-    const callback = jest.fn()
-    const ref = { current: null }
+    const callback = jest.fn();
+    const ref = {current: null};
 
-    const [innerRef, setInnerRef] = useForwardedRef(ref, callback)
+    const [innerRef, setInnerRef] = useForwardedRef(ref, callback);
 
-    setInnerRef(value)
+    setInnerRef(value);
 
-    expect(innerRef.current).toBe(null)
-    expect(callback).toHaveBeenCalledWith(value)
-  })
+    expect(innerRef.current).toBe(null);
+    expect(callback).toHaveBeenCalledWith(value);
+  });
 
   it("should call the provided ref function", () => {
-    const ref = jest.fn()
+    const ref = jest.fn();
 
-    const [, setInnerRef] = useForwardedRef(ref)
+    const [, setInnerRef] = useForwardedRef(ref);
 
-    setInnerRef(value)
+    setInnerRef(value);
 
-    expect(ref).toHaveBeenCalledWith(value)
-  })
+    expect(ref).toHaveBeenCalledWith(value);
+  });
 
   it("should update the provided ref object", () => {
-    const ref = { current: null }
+    const ref = {current: null};
 
-    const [, setInnerRef] = useForwardedRef<string>(ref)
+    const [, setInnerRef] = useForwardedRef<string>(ref);
 
-    setInnerRef(value)
+    setInnerRef(value);
 
-    expect(ref.current).toBe(value)
-  })
-})
+    expect(ref.current).toBe(value);
+  });
+});

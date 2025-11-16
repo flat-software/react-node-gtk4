@@ -14,7 +14,12 @@ export function render(...args: Parameters<typeof renderer.render>) {
 export function findBy<T extends Gtk.Widget>(
   ...args: Parameters<typeof renderer.findBy>
 ) {
-  return renderer.findBy<T>(...args);
+  const widget = renderer.findBy<T>(...args);
+  if (!widget) {
+    throw new Error("Widget not found");
+  }
+
+  return widget;
 }
 
 export function findAllBy<T extends Gtk.Widget>(

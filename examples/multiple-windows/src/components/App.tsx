@@ -1,16 +1,16 @@
-import React, { useState } from "react"
+import React, {useState} from "react";
 import {
   ApplicationWindow,
   Box,
   Button,
   Gtk,
   useApplication,
-} from "react-native-gtk4"
+} from "react-native-gtk4";
 
 export default function App() {
-  const [count, setCount] = useState(0)
-  const { quit } = useApplication()
-  const [showDecrementWindow, setShowDecrementWindow] = useState(true)
+  const [count, setCount] = useState(0);
+  const {quit} = useApplication();
+  const [showDecrementWindow, setShowDecrementWindow] = useState(true);
 
   return (
     <>
@@ -20,7 +20,7 @@ export default function App() {
           <Button
             label="Increment Counter"
             onClicked={() => {
-              setCount((count) => count + 1)
+              setCount(count => count + 1);
             }}
           />
         </Box>
@@ -29,8 +29,8 @@ export default function App() {
         <ApplicationWindow
           title="Decrement"
           onCloseRequest={() => {
-            setShowDecrementWindow(false)
-            return true
+            setShowDecrementWindow(false);
+            return true;
           }}
         >
           <Box orientation={Gtk.Orientation.VERTICAL}>
@@ -38,12 +38,12 @@ export default function App() {
             <Button
               label="Decrement Counter"
               onClicked={() => {
-                setCount((count) => count - 1)
+                setCount(count => count - 1);
               }}
             />
           </Box>
         </ApplicationWindow>
       ) : null}
     </>
-  )
+  );
 }

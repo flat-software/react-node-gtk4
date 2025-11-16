@@ -25,29 +25,25 @@ export class GirClass extends GirElement<GirClassElement> {
     return this._gir.findClassByName(parentName);
   }
 
+  get jsxName() {
+    if (!this.parent || this.type.namespace === "Gtk") {
+      return this.name;
+    }
+
+    return this.type.namespace + this.name;
+  }
+
   get parentImport(): Import {
     if (!this.parent) {
       return {
         name: "AbstractWidget",
-        importName: "AbstractWidget",
         moduleName: "@/abstractWidget.js",
       };
     }
 
-    const importName =
-      this.parent.type.namespace === this.type.namespace
-        ? this.parent.name
-        : this.parent.type.namespace + this.parent.name;
-
-    const moduleName =
-      this.parent.type.namespace === this.type.namespace
-        ? `./${R.toCamelCase(this.parent.name)}.js`
-        : `../${R.toCamelCase(this.parent.type.namespace)}/${R.toCamelCase(this.parent.name)}.js`;
-
     return {
-      name: this.parent.name,
-      importName,
-      moduleName,
+      name: this.parent.jsxName,
+      moduleName: `./${R.toCamelCase(this.parent.jsxName)}.js`,
     };
   }
 

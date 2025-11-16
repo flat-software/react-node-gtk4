@@ -16,9 +16,9 @@ export function jsx(gir: Gir) {
 
   for (const widgetClass of gir.widgetClasses) {
     if (widgetClass.parent) {
-      ts += `${widgetClass.name}: React.JSX.IntrinsicElements["${widgetClass.parent.name}"] & {\n`;
+      ts += `${widgetClass.jsxName}: React.JSX.IntrinsicElements["${widgetClass.parent.jsxName}"] & {\n`;
     } else {
-      ts += `${widgetClass.name}: {\n`;
+      ts += `${widgetClass.jsxName}: {\n`;
     }
 
     ts += `  ref?: React.Ref<${widgetClass.type.name}>\n`;

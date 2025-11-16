@@ -1,27 +1,27 @@
-import { useCallback, useRef } from "react"
+import {useCallback, useRef} from "react";
 
 export default function useForwardedRef<T>(
   ref?: React.ForwardedRef<T | null>,
   callback?: (node: T | null) => void
 ): [React.MutableRefObject<T | null>, (node: T | null) => void] {
-  const innerRef = useRef<T | null>(null)
+  const innerRef = useRef<T | null>(null);
 
   const setInnerRef = useCallback(
     (node: T | null) => {
       if (callback) {
-        callback(node)
+        callback(node);
       } else {
-        innerRef.current = node
+        innerRef.current = node;
       }
 
       if (typeof ref === "function") {
-        ref(node)
+        ref(node);
       } else if (ref) {
-        ref.current = node
+        ref.current = node;
       }
     },
     [callback, ref]
-  )
+  );
 
-  return [innerRef, setInnerRef]
+  return [innerRef, setInnerRef];
 }

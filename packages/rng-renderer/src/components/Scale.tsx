@@ -1,34 +1,33 @@
-import React, { useEffect } from "react"
-import { forwardRef } from "react"
-import Gtk from "@/generated/girs/node-gtk-4.0.js"
-import { Scale } from "../generated/intrinsics.js"
-import _ from "lodash"
-import useForwardedRef from "../hooks/useForwardedRef.js"
+import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import _ from "lodash";
+import React, {forwardRef, useEffect} from "react";
+import {Scale} from "../generated/intrinsics.js";
+import useForwardedRef from "../hooks/useForwardedRef.js";
 
 interface ScaleMark {
-  label: string
-  value: number
-  position?: Gtk.PositionType
+  label: string;
+  value: number;
+  position?: Gtk.PositionType;
 }
 
 type Props = Omit<React.JSX.IntrinsicElements["Scale"], "children"> & {
-  marks?: ScaleMark[]
-  value?: number
-  range: [number, number]
-}
+  marks?: ScaleMark[];
+  value?: number;
+  range: [number, number];
+};
 
 export default React.memo(
   forwardRef<Gtk.Scale | null, Props>(function ScaleComponent(
-    { marks, range, value, ...props },
+    {marks, range, value, ...props},
     ref
   ) {
-    const [innerRef, setInnerRef] = useForwardedRef(ref)
+    const [innerRef, setInnerRef] = useForwardedRef(ref);
 
     useEffect(() => {
-      const scale = innerRef.current
+      const scale = innerRef.current;
 
       if (!scale || !marks) {
-        return
+        return;
       }
 
       for (const mark of marks) {
@@ -36,43 +35,43 @@ export default React.memo(
           mark.value,
           mark.position ?? Gtk.PositionType.BOTTOM,
           mark.label
-        )
+        );
       }
 
       return () => {
-        scale.clearMarks()
-      }
-    }, [marks])
+        scale.clearMarks();
+      };
+    }, [marks]);
 
     useEffect(() => {
-      const scale = innerRef.current
+      const scale = innerRef.current;
 
       if (!scale) {
-        return
+        return;
       }
 
-      scale.setRange(range[0], range[1])
+      scale.setRange(range[0], range[1]);
 
       return () => {
-        scale.setRange(0, 0)
-      }
-    }, [range[0], range[1]])
+        scale.setRange(0, 0);
+      };
+    }, [range[0], range[1]]);
 
     useEffect(() => {
-      const scale = innerRef.current
+      const scale = innerRef.current;
 
       if (!scale) {
-        return
+        return;
       }
 
-      scale.setValue(value ?? 0)
+      scale.setValue(value ?? 0);
 
       return () => {
-        scale.setValue(0)
-      }
-    }, [value])
+        scale.setValue(0);
+      };
+    }, [value]);
 
-    return <Scale ref={setInnerRef} {...props}></Scale>
+    return <Scale ref={setInnerRef} {...props}></Scale>;
   }),
   _.isEqual
-)
+);

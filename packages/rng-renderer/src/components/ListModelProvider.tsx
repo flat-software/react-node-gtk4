@@ -1,21 +1,21 @@
-import React, { createContext, useMemo, useState } from "react"
-import Gio from "@/generated/girs/node-gio-2.0"
+import Gio from "@/generated/girs/node-gio-2.0.js";
+import React, {createContext, useMemo, useState} from "react";
 
 export interface ListModelContext {
-  items: Record<string, unknown>
-  setItems: React.Dispatch<React.SetStateAction<Record<string, unknown>>>
-  model: Gio.ListModel
+  items: Record<string, unknown>;
+  setItems: React.Dispatch<React.SetStateAction<Record<string, unknown>>>;
+  model: Gio.ListModel;
 }
 
-export const ListModelContext = createContext<ListModelContext | null>(null)
+export const ListModelContext = createContext<ListModelContext | null>(null);
 
 interface ContainerProps {
-  children: React.ReactNode
-  model: Gio.ListModel
+  children: React.ReactNode;
+  model: Gio.ListModel;
 }
 
-export default function ListModelProvider({ children, model }: ContainerProps) {
-  const [items, setItems] = useState<Record<string, unknown>>({})
+export default function ListModelProvider({children, model}: ContainerProps) {
+  const [items, setItems] = useState<Record<string, unknown>>({});
 
   const value = useMemo(
     () => ({
@@ -24,11 +24,11 @@ export default function ListModelProvider({ children, model }: ContainerProps) {
       model,
     }),
     [items, setItems, model]
-  )
+  );
 
   return (
     <ListModelContext.Provider value={value}>
       {children}
     </ListModelContext.Provider>
-  )
+  );
 }

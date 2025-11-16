@@ -1,20 +1,25 @@
-import React, { createContext, useContext, useEffect, useState } from "react"
-import { forwardRef } from "react"
-import Gtk from "@/generated/girs/node-gtk-4.0.js"
-import { createPortal } from "../portal.js"
-import { PopoverMenuBar } from "../generated/intrinsics.js"
-import useForwardedRef from "../hooks/useForwardedRef.js"
+import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import React, {
+  createContext,
+  forwardRef,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import {PopoverMenuBar} from "../generated/intrinsics.js";
+import useForwardedRef from "../hooks/useForwardedRef.js";
+import {createPortal} from "../portal.js";
 
 type Props = Omit<React.JSX.IntrinsicElements["PopoverMenuBar"], "children"> & {
-  children?: React.ReactElement & { ref?: React.Ref<Gtk.Widget> }
-}
+  children?: React.ReactElement & {ref?: React.Ref<Gtk.Widget>};
+};
 
-const Context = createContext<Gtk.PopoverMenuBar | null>(null)
+const Context = createContext<Gtk.PopoverMenuBar | null>(null);
 
 const Container = forwardRef<Gtk.PopoverMenuBar, Props>(
-  function PopoverMenuBarComponent({ children, ...props }, ref) {
-    const [popover, setPopover] = useState<Gtk.PopoverMenuBar | null>(null)
-    const [, setInnerRef] = useForwardedRef(ref, setPopover)
+  function PopoverMenuBarComponent({children, ...props}, ref) {
+    const [popover, setPopover] = useState<Gtk.PopoverMenuBar | null>(null);
+    const [, setInnerRef] = useForwardedRef(ref, setPopover);
 
     return (
       <>
@@ -25,13 +30,13 @@ const Container = forwardRef<Gtk.PopoverMenuBar, Props>(
           : null}
         <PopoverMenuBar ref={setInnerRef} {...props} />
       </>
-    )
+    );
   }
-)
+);
 
 interface ItemProps {
-  id: string
-  children: React.ReactElement & { ref?: React.Ref<Gtk.Widget> }
+  id: string;
+  children: React.ReactElement & {ref?: React.Ref<Gtk.Widget>};
 }
 
 const Item = function PopoverMenuBarItemComponent({
@@ -39,30 +44,30 @@ const Item = function PopoverMenuBarItemComponent({
   id,
   ...props
 }: ItemProps) {
-  const popover = useContext(Context)
-  const [innerRef, setInnerRef] = useForwardedRef(children.ref)
+  const popover = useContext(Context);
+  const [innerRef, setInnerRef] = useForwardedRef(children.ref);
 
   useEffect(() => {
-    const child = innerRef.current
+    const child = innerRef.current;
 
     if (!popover || !child) {
-      return
+      return;
     }
 
-    popover.addChild(child, id)
+    popover.addChild(child, id);
 
     return () => {
-      popover.removeChild(child)
-    }
-  }, [popover, id])
+      popover.removeChild(child);
+    };
+  }, [popover, id]);
 
   return React.cloneElement(children, {
     ref: setInnerRef,
     ...props,
-  })
-}
+  });
+};
 
 export default {
   Container,
   Item,
-}
+};

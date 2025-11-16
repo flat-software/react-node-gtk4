@@ -1,5 +1,5 @@
 import {AbstractWidget} from "@/abstractWidget.js";
-import {FlowBox} from "@/generated/widgets/gtk/flowBox.js";
+import {FlowBox} from "@/generated/widgets/flowBox.js";
 
 const parent = {
   appendChild: FlowBox.prototype.appendChild,

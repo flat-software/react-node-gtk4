@@ -1,4 +1,4 @@
-import {ApplicationWindow} from "@/generated/widgets/gtk/applicationWindow.js";
+import {ApplicationWindow} from "@/generated/widgets/applicationWindow.js";
 
 const parent = {
   commitMount: ApplicationWindow.prototype.commitMount,

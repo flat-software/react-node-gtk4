@@ -1,27 +1,26 @@
-import React, { useState } from "react"
-import { forwardRef } from "react"
-import Gtk from "@/generated/girs/node-gtk-4.0.js"
-import { Paned } from "../generated/intrinsics.js"
-import useForwardedRef from "../hooks/useForwardedRef.js"
+import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import React, {forwardRef, useState} from "react";
+import {Paned} from "../generated/intrinsics.js";
+import useForwardedRef from "../hooks/useForwardedRef.js";
 
 type Props = Omit<
   React.JSX.IntrinsicElements["Paned"],
   "children" | "startChild" | "endChild"
 > & {
   children: [
-    React.ReactElement & { ref?: React.Ref<Gtk.Widget> },
-    React.ReactElement & { ref?: React.Ref<Gtk.Widget> },
-  ]
-}
+    React.ReactElement & {ref?: React.Ref<Gtk.Widget>},
+    React.ReactElement & {ref?: React.Ref<Gtk.Widget>},
+  ];
+};
 
 export default forwardRef<Gtk.Paned, Props>(function PanedComponent(
-  { children, ...props },
+  {children, ...props},
   ref
 ) {
-  const [startChild, setStartChild] = useState<Gtk.Widget | null>(null)
-  const [endChild, setEndChild] = useState<Gtk.Widget | null>(null)
-  const [, setStartChildRef] = useForwardedRef(children[0].ref, setStartChild)
-  const [, setEndChildRef] = useForwardedRef(children[1].ref, setEndChild)
+  const [startChild, setStartChild] = useState<Gtk.Widget | null>(null);
+  const [endChild, setEndChild] = useState<Gtk.Widget | null>(null);
+  const [, setStartChildRef] = useForwardedRef(children[0].ref, setStartChild);
+  const [, setEndChildRef] = useForwardedRef(children[1].ref, setEndChild);
 
   return (
     <Paned ref={ref} startChild={startChild} endChild={endChild} {...props}>
@@ -32,5 +31,5 @@ export default forwardRef<Gtk.Paned, Props>(function PanedComponent(
         ref: setEndChildRef,
       })}
     </Paned>
-  )
-})
+  );
+});

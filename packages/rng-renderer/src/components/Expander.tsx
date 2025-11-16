@@ -1,24 +1,23 @@
-import React, { useState } from "react"
-import { forwardRef } from "react"
-import Gtk from "@/generated/girs/node-gtk-4.0.js"
-import { Expander } from "../generated/intrinsics.js"
-import { createPortal } from "../portal.js"
-import useForwardedRef from "../hooks/useForwardedRef.js"
+import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import React, {forwardRef, useState} from "react";
+import {Expander} from "../generated/intrinsics.js";
+import useForwardedRef from "../hooks/useForwardedRef.js";
+import {createPortal} from "../portal.js";
 
 type Props = Omit<
   React.JSX.IntrinsicElements["Expander"],
   "labelWidget" | "label"
 > & {
-  label?: string | (React.ReactElement & { ref?: React.Ref<Gtk.Widget> }) | null
-}
+  label?: string | (React.ReactElement & {ref?: React.Ref<Gtk.Widget>}) | null;
+};
 
 export default forwardRef<Gtk.Expander, Props>(function ExpanderComponent(
-  { label, ...props },
+  {label, ...props},
   ref
 ) {
-  const [labelWidget, setLabelWidget] = useState<Gtk.Widget | null>(null)
-  const labelElement = typeof label !== "string" ? label : null
-  const [, setLabelRef] = useForwardedRef(labelElement?.ref, setLabelWidget)
+  const [labelWidget, setLabelWidget] = useState<Gtk.Widget | null>(null);
+  const labelElement = typeof label !== "string" ? label : null;
+  const [, setLabelRef] = useForwardedRef(labelElement?.ref, setLabelWidget);
 
   return (
     <>
@@ -31,9 +30,9 @@ export default forwardRef<Gtk.Expander, Props>(function ExpanderComponent(
         : null}
       <Expander
         ref={ref}
-        {...(typeof label === "string" ? { label } : { labelWidget })}
+        {...(typeof label === "string" ? {label} : {labelWidget})}
         {...props}
       />
     </>
-  )
-})
+  );
+});

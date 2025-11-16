@@ -1,5 +1,5 @@
 import {AbstractWidget} from "@/abstractWidget.js";
-import {Box} from "@/generated/widgets/gtk/box.js";
+import {Box} from "@/generated/widgets/box.js";
 
 const parent = {
   appendChild: Box.prototype.appendChild,

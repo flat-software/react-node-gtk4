@@ -1,87 +1,87 @@
-import React, { useState } from "react"
-import axios from "axios"
-import { spawn } from "child_process"
+import axios from "axios";
+import {spawn} from "child_process";
+import fs from "fs";
+import React, {useState} from "react";
 import {
   ApplicationWindow,
-  Button,
   Box,
-  Label,
-  Entry,
-  ProgressBar,
-  GLib,
+  Button,
   CenterBox,
+  Entry,
+  GLib,
   Gtk,
+  Label,
+  ProgressBar,
   useApplication,
-} from "react-native-gtk4"
-import fs from "fs"
+} from "react-native-gtk4";
 
-const homeDir = GLib.getHomeDir()
+const homeDir = GLib.getHomeDir();
 
 const isValidUrl = (url: string) => {
   try {
-    new URL(url)
-    return true
+    new URL(url);
+    return true;
   } catch (error) {
-    return false
+    return false;
   }
-}
+};
 
 const App = () => {
-  const [url, setUrl] = useState("")
-  const [progress, setProgress] = useState(0)
-  const [error, setError] = useState<string | null>(null)
-  const { quit } = useApplication()
+  const [url, setUrl] = useState("");
+  const [progress, setProgress] = useState(0);
+  const [error, setError] = useState<string | null>(null);
+  const {quit} = useApplication();
 
   const downloadFile = async () => {
-    setProgress(0)
-    setError(null)
+    setProgress(0);
+    setError(null);
 
     try {
       const response = await axios({
         url,
         method: "GET",
         responseType: "stream",
-      })
+      });
 
-      const filePath = `${homeDir}/Downloads/${url.split("/").pop()}`
-      const totalLength = response.headers["content-length"]
-      let writer: fs.WriteStream
+      const filePath = `${homeDir}/Downloads/${url.split("/").pop()}`;
+      const totalLength = response.headers["content-length"];
+      let writer: fs.WriteStream;
 
-      writer = fs.createWriteStream(filePath)
+      writer = fs.createWriteStream(filePath);
 
       writer.on("error", (error: any) => {
-        setError(error.toString())
-      })
+        setError(error.toString());
+      });
 
       writer.on("ready", () => {
         response.data.on("data", (chunk: any) => {
-          writer.write(chunk)
-          setProgress(writer.bytesWritten / totalLength)
-        })
+          writer.write(chunk);
+          setProgress(writer.bytesWritten / totalLength);
+        });
 
         response.data.on("end", () => {
-          writer.end()
+          writer.end();
 
-          const subprocess = spawn("xdg-open", [filePath])
+          const subprocess = spawn("xdg-open", [filePath]);
 
           subprocess.on("close", () => {
-            setProgress(0)
-            setUrl("")
-          })
+            setProgress(0);
+            setUrl("");
+          });
 
           subprocess.on("error", (error: any) => {
-            setError(error.toString())
-          })
-        })
+            setError(error.toString());
+          });
+        });
 
         response.data.on("error", (error: any) => {
-          setError(error.toString())
-        })
-      })
+          setError(error.toString());
+        });
+      });
     } catch (error: any) {
-      setError(() => error.toString())
+      setError(() => error.toString());
     }
-  }
+  };
 
   return (
     <ApplicationWindow title="URL Downloader" onCloseRequest={quit}>
@@ -102,8 +102,8 @@ const App = () => {
           <Label label="Enter URL to download" />
           <Entry
             text={url}
-            onChanged={(entry) => {
-              setUrl(entry.text ?? "")
+            onChanged={entry => {
+              setUrl(entry.text ?? "");
             }}
           />
           <ProgressBar fraction={progress} showText />
@@ -116,7 +116,7 @@ const App = () => {
         </Box>
       </CenterBox>
     </ApplicationWindow>
-  )
-}
+  );
+};
 
-export default App
+export default App;

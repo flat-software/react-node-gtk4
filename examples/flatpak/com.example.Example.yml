@@ -18,7 +18,7 @@
       {
         "name": "node",
         "buildsystem": "simple",
-        "build-options": { "build-args": ["--share=network"] },
+        "build-options": {"build-args": ["--share=network"]},
         "cleanup": ["/include", "/lib/pkgconfig", "/share"],
         "build-commands":
           [
@@ -31,18 +31,18 @@
       {
         "name": "npm",
         "buildsystem": "simple",
-        "build-options": { "build-args": ["--share=network"] },
+        "build-options": {"build-args": ["--share=network"]},
         "build-commands": ["/app/bin/npm install -g npm@latest"],
       },
       {
         "name": "pnpm",
         "buildsystem": "simple",
-        "build-options": { "build-args": ["--share=network"] },
+        "build-options": {"build-args": ["--share=network"]},
         "build-commands": ["/app/bin/npm install -g pnpm@latest"],
       },
       {
         "name": "flatpak-example",
-        "build-options": { "build-args": ["--share=network"] },
+        "build-options": {"build-args": ["--share=network"]},
         "buildsystem": "simple",
         "build-commands": ["examples/flatpak/scripts/build.sh"],
         "cleanup":
@@ -53,7 +53,7 @@
             "pnpm-lock.yaml",
             "data",
           ],
-        "sources": [{ "type": "dir", "path": "../.." }],
+        "sources": [{"type": "dir", "path": "../.."}],
       },
     ],
 }

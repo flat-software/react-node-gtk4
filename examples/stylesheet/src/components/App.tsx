@@ -1,18 +1,18 @@
-import React, { useState } from "react"
+import React, {useState} from "react";
 import {
   ApplicationWindow,
   Box,
   Button,
   Gtk,
-  useStylesheet,
   useApplication,
-} from "react-native-gtk4"
+  useStylesheet,
+} from "react-native-gtk4";
 
 export default function App() {
-  const [count, setCount] = useState(0)
-  const { quit } = useApplication()
+  const [count, setCount] = useState(0);
+  const {quit} = useApplication();
 
-  useStylesheet("data/styles.css")
+  useStylesheet("data/styles.css");
 
   return (
     <ApplicationWindow title="Hello World" onCloseRequest={quit}>
@@ -22,10 +22,10 @@ export default function App() {
           cssClasses={["custom-button"]}
           label="Click Me"
           onClicked={() => {
-            setCount((count) => count + 1)
+            setCount(count => count + 1);
           }}
         />
       </Box>
     </ApplicationWindow>
-  )
+  );
 }

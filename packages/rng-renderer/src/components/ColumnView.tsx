@@ -1,33 +1,38 @@
-import React, { ForwardedRef, useState, useCallback, useEffect } from "react"
-import { forwardRef } from "react"
-import Gtk from "@/generated/girs/node-gtk-4.0.js"
-import { ColumnView } from "../generated/intrinsics.js"
-import useForwardedRef from "../hooks/useForwardedRef.js"
-import useListItemFactory from "../hooks/useListItemFactory.js"
-import useSelection, { OnSelectionChanged } from "../hooks/useSelection.js"
-import _ from "lodash"
+import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import _ from "lodash";
+import React, {
+  ForwardedRef,
+  forwardRef,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
+import {ColumnView} from "../generated/intrinsics.js";
+import useForwardedRef from "../hooks/useForwardedRef.js";
+import useListItemFactory from "../hooks/useListItemFactory.js";
+import useSelection, {OnSelectionChanged} from "../hooks/useSelection.js";
 
-type Column = Omit<Gtk.ColumnViewColumn.ConstructorProperties, "model" | "id">
+type Column = Omit<Gtk.ColumnViewColumn.ConstructorProperties, "model" | "id">;
 
 type RenderCellFunction<T> = (
   item: T | null,
   column: number,
   listItem: Gtk.ListItem
-) => React.ReactElement & React.RefAttributes<Gtk.Widget>
+) => React.ReactElement & React.RefAttributes<Gtk.Widget>;
 
 type Props<T> = Omit<React.JSX.IntrinsicElements["ColumnView"], "model"> & {
-  columns: Column[]
-  selectionMode?: Gtk.SelectionMode
-  selection?: number[]
-  onSelectionChanged?: (indexes: number[], selection: T[]) => void
-  renderCell: RenderCellFunction<T>
-}
+  columns: Column[];
+  selectionMode?: Gtk.SelectionMode;
+  selection?: number[];
+  onSelectionChanged?: (indexes: number[], selection: T[]) => void;
+  renderCell: RenderCellFunction<T>;
+};
 
 interface ColumnProps<T> {
-  index: number
-  column: Column
-  view: Gtk.ColumnView
-  renderCell: RenderCellFunction<T>
+  index: number;
+  column: Column;
+  view: Gtk.ColumnView;
+  renderCell: RenderCellFunction<T>;
 }
 
 const Column = React.memo(function ColumnComponent<T>({
@@ -38,28 +43,28 @@ const Column = React.memo(function ColumnComponent<T>({
 }: ColumnProps<T>) {
   const render = useCallback(
     (item: T | null, listItem: Gtk.ListItem) => {
-      return renderCell(item, index, listItem)
+      return renderCell(item, index, listItem);
     },
     [index, renderCell]
-  )
+  );
 
-  const factory = useListItemFactory(render)
+  const factory = useListItemFactory(render);
 
   useEffect(() => {
     const columnViewColumn = new Gtk.ColumnViewColumn({
       ...column,
       factory,
-    })
+    });
 
-    view.insertColumn(index, columnViewColumn)
+    view.insertColumn(index, columnViewColumn);
 
     return () => {
-      view.removeColumn(columnViewColumn)
-    }
-  }, [])
+      view.removeColumn(columnViewColumn);
+    };
+  }, []);
 
-  return null
-}, _.isEqual)
+  return null;
+}, _.isEqual);
 
 export default forwardRef<Gtk.ColumnView, Props<any>>(
   function ColumnViewComponent<T>(
@@ -73,14 +78,14 @@ export default forwardRef<Gtk.ColumnView, Props<any>>(
     }: Props<T>,
     ref: ForwardedRef<Gtk.ColumnView>
   ) {
-    const [columnView, setColumnView] = useState<Gtk.ColumnView | null>(null)
-    const [, setInnerRef] = useForwardedRef(ref, setColumnView)
+    const [columnView, setColumnView] = useState<Gtk.ColumnView | null>(null);
+    const [, setInnerRef] = useForwardedRef(ref, setColumnView);
 
     const selectionModel = useSelection({
       selectionMode,
       selection,
       onSelectionChanged: onSelectionChanged as OnSelectionChanged,
-    })
+    });
 
     return (
       <ColumnView model={selectionModel} ref={setInnerRef} {...props}>
@@ -96,6 +101,6 @@ export default forwardRef<Gtk.ColumnView, Props<any>>(
             ))
           : null}
       </ColumnView>
-    )
+    );
   }
-)
+);

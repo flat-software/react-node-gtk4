@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {PrintUnixDialog} from "@/generated/widgets/gtk/printUnixDialog.js";
+import {PrintUnixDialog} from "@/generated/widgets/printUnixDialog.js";
 
 const parent = {
   commitMount: PrintUnixDialog.prototype.commitMount,

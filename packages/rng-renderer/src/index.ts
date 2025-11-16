@@ -1,5 +1,6 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import Container from "./container.js";
+import "./generated/jsx.js";
 import "./overrides.js";
 import {createReconciler} from "./reconciler.js";
 import {createRootNode} from "./rootNode.js";
@@ -10,6 +11,7 @@ export {default as GLib} from "@/generated/girs/node-glib-2.0.js";
 export {default as GObject} from "@/generated/girs/node-gobject-2.0.js";
 export {default as Gtk} from "@/generated/girs/node-gtk-4.0.js";
 export {default as Pango} from "@/generated/girs/node-pango-1.0.js";
+export * from "./generated/intrinsics.js";
 export * from "./hooks.js";
 export * from "./portal.js";
 export {createReconciler, createRootNode};

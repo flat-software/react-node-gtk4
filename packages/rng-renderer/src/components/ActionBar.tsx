@@ -1,20 +1,25 @@
-import React, { useContext, useEffect, useState, createContext } from "react"
-import { forwardRef } from "react"
-import Gtk from "@/generated/girs/node-gtk-4.0.js"
-import { ActionBar } from "../generated/intrinsics.js"
-import useForwardedRef from "../hooks/useForwardedRef.js"
+import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import React, {
+  createContext,
+  forwardRef,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import {ActionBar} from "../generated/intrinsics.js";
+import useForwardedRef from "../hooks/useForwardedRef.js";
 
-type Position = "start" | "center" | "end"
+type Position = "start" | "center" | "end";
 
-const Context = createContext<Gtk.ActionBar | null>(null)
-const PositionContext = createContext<Position>("start")
+const Context = createContext<Gtk.ActionBar | null>(null);
+const PositionContext = createContext<Position>("start");
 
 const Container = forwardRef<
   Gtk.ActionBar,
   Omit<React.JSX.IntrinsicElements["ActionBar"], "centerWidget">
->(function ActionBarContainer({ children, ...props }, ref) {
-  const [actionBar, setActionBar] = useState<Gtk.ActionBar | null>(null)
-  const [, setInnerRef] = useForwardedRef(ref, setActionBar)
+>(function ActionBarContainer({children, ...props}, ref) {
+  const [actionBar, setActionBar] = useState<Gtk.ActionBar | null>(null);
+  const [, setInnerRef] = useForwardedRef(ref, setActionBar);
 
   return (
     <ActionBar ref={setInnerRef} {...props}>
@@ -22,54 +27,54 @@ const Container = forwardRef<
         <Context.Provider value={actionBar}>{children}</Context.Provider>
       ) : null}
     </ActionBar>
-  )
-})
+  );
+});
 
 interface ItemProps {
-  children: React.ReactElement & { ref?: React.Ref<Gtk.Widget> }
+  children: React.ReactElement & {ref?: React.Ref<Gtk.Widget>};
 }
 
-const Item = function ActionBarItem({ children }: ItemProps) {
-  const actionBar = useContext(Context)
-  const position = useContext(PositionContext)
-  const [childRef, setChildRef] = useForwardedRef(children.ref)
+const Item = function ActionBarItem({children}: ItemProps) {
+  const actionBar = useContext(Context);
+  const position = useContext(PositionContext);
+  const [childRef, setChildRef] = useForwardedRef(children.ref);
 
   if (!actionBar) {
-    throw new Error("ActionBar.Item must be a child of ActionBar.Container")
+    throw new Error("ActionBar.Item must be a child of ActionBar.Container");
   }
 
   useEffect(() => {
     if (!childRef.current) {
-      return
+      return;
     }
 
-    const child = childRef.current
+    const child = childRef.current;
 
     switch (position) {
       case "start":
-        actionBar.packStart(child)
-        break
+        actionBar.packStart(child);
+        break;
       case "center":
-        actionBar.setCenterWidget(child)
-        break
+        actionBar.setCenterWidget(child);
+        break;
       case "end":
-        actionBar.packEnd(child)
-        break
+        actionBar.packEnd(child);
+        break;
     }
 
     return () => {
-      actionBar.remove(child)
-    }
-  }, [childRef.current, position])
+      actionBar.remove(child);
+    };
+  }, [childRef.current, position]);
 
   return React.cloneElement(children, {
     ref: setChildRef,
-  })
-}
+  });
+};
 
 interface SectionProps {
-  children: React.ReactElement
-  position?: Position
+  children: React.ReactElement;
+  position?: Position;
 }
 
 const Section = function ActionBarSection({
@@ -80,11 +85,11 @@ const Section = function ActionBarSection({
     <PositionContext.Provider value={position}>
       {children}
     </PositionContext.Provider>
-  )
-}
+  );
+};
 
 export default {
   Container,
   Section,
   Item,
-}
+};

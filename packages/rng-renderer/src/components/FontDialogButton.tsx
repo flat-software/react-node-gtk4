@@ -1,19 +1,18 @@
-import React, { useMemo } from "react"
-import { forwardRef } from "react"
-import Gtk from "@/generated/girs/node-gtk-4.0.js"
-import { FontDialogButton } from "../generated/intrinsics.js"
-import _ from "lodash"
+import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import _ from "lodash";
+import React, {forwardRef, useMemo} from "react";
+import {FontDialogButton} from "../generated/intrinsics.js";
 
 type Props = Omit<React.JSX.IntrinsicElements["FontDialogButton"], "dialog"> &
-  Partial<Gtk.FontDialog>
+  Partial<Gtk.FontDialog>;
 
 export default forwardRef<Gtk.FontDialogButton, Props>(
   function FontDialogButtonComponent(
-    { title, modal = true, filter, fontMap, language, ...props },
+    {title, modal = true, filter, fontMap, language, ...props},
     ref
   ) {
     if (!Gtk.FontDialog) {
-      return null
+      return null;
     }
 
     const dialog = useMemo(
@@ -31,8 +30,8 @@ export default forwardRef<Gtk.FontDialogButton, Props>(
           )
         ),
       [title, modal, filter, fontMap, language]
-    )
+    );
 
-    return <FontDialogButton ref={ref} dialog={dialog} {...props} />
+    return <FontDialogButton ref={ref} dialog={dialog} {...props} />;
   }
-)
+);

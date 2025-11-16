@@ -1,3 +1,4 @@
+import * as R from "remeda";
 import {Gir} from "../gir.ts";
 import {GirClass} from "../gir/class.ts";
 import {GirProperty} from "../gir/property.ts";
@@ -97,18 +98,18 @@ function getTestValue(prop: GirProperty, gir: Gir) {
 export function widgetTest(widgetClass: GirClass, gir: Gir) {
   let ts = "";
 
-  ts += `import { ${widgetClass.name} } from "../widgets.js"\n`;
+  ts += `import { ${widgetClass.jsxName} } from "../${R.toCamelCase(widgetClass.jsxName)}.js"\n`;
 
   for (const type of widgetClass.typeDependencies) {
     ts += `import ${type.import_.name} from "${type.import_.moduleName}"\n`;
   }
 
   ts += "\n";
-  ts += `describe("${widgetClass.name}", () => {\n`;
-  ts += `  let widget: ${widgetClass.name}\n`;
+  ts += `describe("${widgetClass.jsxName}", () => {\n`;
+  ts += `  let widget: ${widgetClass.jsxName}\n`;
   ts += "\n";
   ts += "  beforeEach(() => {\n";
-  ts += `    widget = new ${widgetClass.name}({}, ${widgetClass.name}.createNode(`;
+  ts += `    widget = new ${widgetClass.jsxName}({}, ${widgetClass.jsxName}.createNode(`;
 
   if (widgetClass.constructOnlyProps.length > 0) {
     ts += "{";
@@ -137,14 +138,14 @@ export function widgetTest(widgetClass: GirClass, gir: Gir) {
 
     ts +=
       "  new " +
-      widgetClass.name +
+      widgetClass.jsxName +
       "(props, " +
-      widgetClass.name +
+      widgetClass.jsxName +
       ".createNode(props))\n";
 
     const expectedProps = widgetClass.constructOnlyProps.reduce(
       (acc, prop) => {
-        acc[underscore(prop.rawName)] = `props.${prop.name}`;
+        acc[underscore(prop.rawName)] = `props.${prop.jsxName}`;
         return acc;
       },
       {} as Record<string, string>
@@ -209,22 +210,22 @@ export function widgetTest(widgetClass: GirClass, gir: Gir) {
 
   if (widgetClass.isContainer) {
     ts += "  test('should append child', () => {\n";
-    ts += `    const child = new ${widgetClass.name}({}, ${widgetClass.name}.createNode())\n`;
+    ts += `    const child = new ${widgetClass.jsxName}({}, ${widgetClass.jsxName}.createNode())\n`;
     ts += "    widget.appendChild(child)\n";
     ts += "    expect(widget.node.setChild).toHaveBeenCalledWith(child.node)\n";
     ts += "  })\n";
     ts += "\n";
 
     ts += "  test('should remove child', () => {\n";
-    ts += `    const child = new ${widgetClass.name}({}, ${widgetClass.name}.createNode())\n`;
+    ts += `    const child = new ${widgetClass.jsxName}({}, ${widgetClass.jsxName}.createNode())\n`;
     ts += "    widget.appendChild(child)\n";
     ts += "    widget.removeChild(child)\n";
     ts += "    expect(widget.node.setChild).toHaveBeenCalledWith(null)\n";
     ts += "  })\n";
 
     ts += "  test('should insert child before', () => {\n";
-    ts += `    const child = new ${widgetClass.name}({}, ${widgetClass.name}.createNode())\n`;
-    ts += `    const sibling = new ${widgetClass.name}({}, ${widgetClass.name}.createNode())\n`;
+    ts += `    const child = new ${widgetClass.jsxName}({}, ${widgetClass.jsxName}.createNode())\n`;
+    ts += `    const sibling = new ${widgetClass.jsxName}({}, ${widgetClass.jsxName}.createNode())\n`;
     ts += "    widget.appendChild(child)\n";
     ts += "    widget.insertBefore(sibling, child)\n";
     ts +=

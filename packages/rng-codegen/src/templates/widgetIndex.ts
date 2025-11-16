@@ -1,11 +1,11 @@
 import * as R from "remeda";
-import {GirClass} from "../gir/class.ts";
+import {Gir} from "../gir.ts";
 
-export function widgetIndex(widgetClasses: readonly GirClass[]) {
+export function widgetIndex(gir: Gir) {
   let ts = "";
 
-  for (const widgetClass of widgetClasses) {
-    ts += `export * from "./${R.toCamelCase(widgetClass.name)}.js"\n`;
+  for (const widgetClass of gir.widgetClasses) {
+    ts += `export * from "./widgets/${R.toCamelCase(widgetClass.jsxName)}.js"\n`;
   }
 
   return ts;

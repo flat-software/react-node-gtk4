@@ -1,4 +1,4 @@
-import {Window} from "@/generated/widgets/gtk/window.js";
+import {Window} from "@/generated/widgets/window.js";
 
 const parent = {
   commitMount: Window.prototype.commitMount,

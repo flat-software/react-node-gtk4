@@ -63,7 +63,9 @@ export class Gir {
   }
 
   get widgetClasses() {
-    return flatMap(this.modules, m => m.classes).filter(c => c.isWidget);
+    return flatMap(this.modules, m => m.classes).filter(
+      c => c.isWidget && c.jsxName !== "AdwMultiLayoutView"
+    );
   }
 
   get classes() {

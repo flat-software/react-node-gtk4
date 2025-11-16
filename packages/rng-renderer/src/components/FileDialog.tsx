@@ -1,8 +1,8 @@
-import { useEffect, useMemo } from "react"
-import Gtk from "@/generated/girs/node-gtk-4.0.js"
-import Gio from "@/generated/girs/node-gio-2.0"
-import useApplication from "../hooks/useApplication.js"
-import _ from "lodash"
+import Gio from "@/generated/girs/node-gio-2.0.js";
+import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import _ from "lodash";
+import {useEffect, useMemo} from "react";
+import useApplication from "../hooks/useApplication.js";
 
 type FileDialogProps = Partial<
   Pick<
@@ -16,21 +16,21 @@ type FileDialogProps = Partial<
     | "modal"
     | "title"
   >
->
+>;
 
 type Props = FileDialogProps & {
-  onCancelled?: () => void
-}
+  onCancelled?: () => void;
+};
 
 type SingleSelectionDialogProps = Props & {
-  selectionType?: "file" | "folder" | "save"
-  onFinished?: (selection: Gio.File | null) => void
-}
+  selectionType?: "file" | "folder" | "save";
+  onFinished?: (selection: Gio.File | null) => void;
+};
 
 type MultipleSelectionDialogProps = Props & {
-  selectionType?: "file" | "folder"
-  onFinished?: (selection: Gio.ListModel | null) => void
-}
+  selectionType?: "file" | "folder";
+  onFinished?: (selection: Gio.ListModel | null) => void;
+};
 
 const useFileDialog = ({
   acceptLabel,
@@ -57,7 +57,7 @@ const useFileDialog = ({
         },
         _.isUndefined
       )
-    )
+    );
   }, [
     acceptLabel,
     defaultFilter,
@@ -67,8 +67,8 @@ const useFileDialog = ({
     initialName,
     modal,
     title,
-  ])
-}
+  ]);
+};
 
 export function SingleFileDialog({
   selectionType = "file",
@@ -76,45 +76,45 @@ export function SingleFileDialog({
   onCancelled,
   ...props
 }: SingleSelectionDialogProps) {
-  const { application } = useApplication()
-  const dialog = useFileDialog(props)
+  const {application} = useApplication();
+  const dialog = useFileDialog(props);
 
   useEffect(() => {
-    const cancellable = new Gio.Cancellable()
+    const cancellable = new Gio.Cancellable();
 
     cancellable.connect(() => {
-      onCancelled?.()
-    })
+      onCancelled?.();
+    });
 
     const handleFinish = (fn: () => Gio.File | null) => {
       try {
-        const value = fn()
-        onFinished?.(value)
+        const value = fn();
+        onFinished?.(value);
       } catch (error) {
-        cancellable.cancel()
+        cancellable.cancel();
       }
-    }
+    };
 
     switch (selectionType) {
       case "file":
         dialog.open(null, cancellable, (_, result) => {
-          handleFinish(() => dialog.openFinish(result))
-        })
-        break
+          handleFinish(() => dialog.openFinish(result));
+        });
+        break;
       case "folder":
         dialog.selectFolder(null, cancellable, (_, result) => {
-          handleFinish(() => dialog.selectFolderFinish(result))
-        })
-        break
+          handleFinish(() => dialog.selectFolderFinish(result));
+        });
+        break;
       case "save":
         dialog.save(null, cancellable, (_, result) => {
-          handleFinish(() => dialog.saveFinish(result))
-        })
-        break
+          handleFinish(() => dialog.saveFinish(result));
+        });
+        break;
     }
-  }, [application, dialog, selectionType])
+  }, [application, dialog, selectionType]);
 
-  return null
+  return null;
 }
 
 export function MultipleFileDialog({
@@ -123,38 +123,38 @@ export function MultipleFileDialog({
   onCancelled,
   ...props
 }: MultipleSelectionDialogProps) {
-  const { application } = useApplication()
-  const dialog = useFileDialog(props)
+  const {application} = useApplication();
+  const dialog = useFileDialog(props);
 
   useEffect(() => {
-    const cancellable = new Gio.Cancellable()
+    const cancellable = new Gio.Cancellable();
 
     cancellable.connect(() => {
-      onCancelled?.()
-    })
+      onCancelled?.();
+    });
 
     const handleFinish = (fn: () => Gio.ListModel | null) => {
       try {
-        const value = fn()
-        onFinished?.(value)
+        const value = fn();
+        onFinished?.(value);
       } catch (error) {
-        cancellable.cancel()
+        cancellable.cancel();
       }
-    }
+    };
 
     switch (selectionType) {
       case "file":
         dialog.openMultiple(null, cancellable, (_, result) => {
-          handleFinish(() => dialog.openMultipleFinish(result))
-        })
-        break
+          handleFinish(() => dialog.openMultipleFinish(result));
+        });
+        break;
       case "folder":
         dialog.selectMultipleFolders(null, cancellable, (_, result) => {
-          handleFinish(() => dialog.selectMultipleFoldersFinish(result))
-        })
-        break
+          handleFinish(() => dialog.selectMultipleFoldersFinish(result));
+        });
+        break;
     }
-  }, [application, dialog, selectionType])
+  }, [application, dialog, selectionType]);
 
-  return null
+  return null;
 }

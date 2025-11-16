@@ -1,5 +1,5 @@
 // jest.config.ts
-import type { JestConfigWithTsJest } from "ts-jest"
+import type {JestConfigWithTsJest} from "ts-jest";
 
 const jestConfig: JestConfigWithTsJest = {
   testEnvironment: "node",
@@ -11,11 +11,11 @@ const jestConfig: JestConfigWithTsJest = {
     "^@/(.*)$": "<rootDir>/src/$1",
   },
   transform: {
-    "^.+\\.[jt]sx?$": ["ts-jest", { useESM: true }],
+    "^.+\\.[jt]sx?$": ["ts-jest", {useESM: true}],
   },
   restoreMocks: true,
   clearMocks: true,
   resetModules: true,
-}
+};
 
-export default jestConfig
+export default jestConfig;
