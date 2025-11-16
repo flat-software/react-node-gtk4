@@ -6,10 +6,14 @@
   "scripts": {
     "ts": "tsc --build --watch",
     "build": "tsc --build",
-    "codegen": ""
+    "codegen": "./bin/codegen",
+    "codegen:girs": "ts-for-gir generate Gtk-4.0 Adw-1 -o ../rng-renderer/src/generated/girs -g ./girs -e node",
+    "codegen:widgets": "node --experimental-transform-types ./src/index.ts ./girs ../rng-renderer"
   },
   "devDependencies": {
+    "@ts-for-gir/cli": "3.3.0",
     "@ts-for-gir/lib": "3.3.0",
+    "prettier": "3.6.2",
     "remeda": "2.32.0",
     "typescript": "5.9.3"
   }

@@ -1,5 +1,5 @@
-import {Gir} from "@/gir.js";
-import {Import} from "./import.js";
+import type {Gir} from "../gir.ts";
+import type {Import} from "./import.ts";
 
 const primitiveTypes = ["string", "boolean", "number", "void", "any"];
 

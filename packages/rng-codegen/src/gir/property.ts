@@ -1,11 +1,11 @@
-import {Gir} from "@/gir.js";
-import {GirPropertyElement} from "@ts-for-gir/lib";
-import {camelize} from "../helpers.js";
-import {GirClass} from "./class.js";
-import {GirElement} from "./element.js";
-import {GirInterface} from "./interface.js";
-import {GirSignal} from "./signal.js";
-import {GirType} from "./type.js";
+import type {GirPropertyElement} from "@ts-for-gir/lib";
+import type {Gir} from "../gir.ts";
+import {camelize} from "../helpers.ts";
+import type {GirClass} from "./class.ts";
+import {GirElement} from "./element.ts";
+import type {GirInterface} from "./interface.ts";
+import {GirSignal} from "./signal.ts";
+import {GirType} from "./type.ts";
 
 export class GirProperty extends GirElement<GirPropertyElement> {
   private _owner: GirClass | GirInterface | GirSignal;

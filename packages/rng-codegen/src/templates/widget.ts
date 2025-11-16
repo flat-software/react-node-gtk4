@@ -1,18 +1,18 @@
-import {GirClass} from "@/gir/class.js";
-import {camelize, underscore} from "../helpers.js";
+import {GirClass} from "../gir/class.ts";
+import {camelize, underscore} from "../helpers.ts";
 
-export default function (widgetClass: GirClass) {
+export function widget(widgetClass: GirClass) {
   let ts = "";
 
   ts += `import ${widgetClass.type.import_.name} from "${widgetClass.type.import_.moduleName}"\n`;
-  ts += `import ${widgetClass.parentImport.name} from "${widgetClass.parentImport.moduleName}"\n`;
+  ts += `import {${widgetClass.parentImport.name}} from "${widgetClass.parentImport.moduleName}"\n`;
 
   if (widgetClass.isContainer) {
-    ts += `import AbstractWidget from "../../widget.js"\n`;
+    ts += `import {AbstractWidget} from "../../abstractWidget.js"\n`;
   }
 
   ts += `\n`;
-  ts += `export default class ${widgetClass.name}<`;
+  ts += `export class ${widgetClass.name}<`;
   ts += `  T extends ${widgetClass.type.name} = ${widgetClass.type.name}`;
   ts += `> `;
   ts += `extends ${widgetClass.parentImport.name}<T> {\n`;

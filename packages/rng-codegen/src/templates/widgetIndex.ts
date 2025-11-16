@@ -1,10 +1,10 @@
-import {Gir} from "@/gir.js";
+import {Gir} from "../gir.ts";
 
-export default function (gir: Gir) {
+export function widgetIndex(gir: Gir) {
   let ts = "";
 
   for (const widgetClass of gir.widgetClasses) {
-    ts += `export { default as ${widgetClass.name} } from "./widgets/${widgetClass.name}.js"\n`;
+    ts += `export { default as ${widgetClass.name} } from "./widgets/${widgetClass.name}.ts"\n`;
   }
 
   return ts;

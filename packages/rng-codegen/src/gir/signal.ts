@@ -1,9 +1,9 @@
-import {GirPropertyElement, GirSignalElement} from "@ts-for-gir/lib";
+import type {GirPropertyElement, GirSignalElement} from "@ts-for-gir/lib";
 import {uniqueBy} from "remeda";
-import {camelize} from "../helpers.js";
-import {GirElement} from "./element.js";
-import {GirProperty} from "./property.js";
-import {GirType} from "./type.js";
+import {camelize} from "../helpers.ts";
+import {GirElement} from "./element.ts";
+import {GirProperty} from "./property.ts";
+import {GirType} from "./type.ts";
 
 export class GirSignal extends GirElement<GirSignalElement> {
   private _typeDependencies?: GirType[];

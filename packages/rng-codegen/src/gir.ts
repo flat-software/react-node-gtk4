@@ -1,14 +1,11 @@
-import {
-  GirModule as BaseGirModule,
-  GirBitfieldElement,
-  GirEnumElement,
-} from "@ts-for-gir/lib";
-import {uniqueBy} from "remeda";
-import {GirClass} from "./gir/class.js";
-import {GirInterface} from "./gir/interface.js";
-import {GirModule} from "./gir/module.js";
-import {GirType} from "./gir/type.js";
-import {ModuleLoader} from "./moduleLoader.js";
+import type {GirBitfieldElement, GirEnumElement} from "@ts-for-gir/lib";
+import {GirModule as BaseGirModule} from "@ts-for-gir/lib";
+import {flatMap, uniqueBy} from "remeda";
+import type {GirClass} from "./gir/class.ts";
+import type {GirInterface} from "./gir/interface.ts";
+import {GirModule} from "./gir/module.ts";
+import type {GirType} from "./gir/type.ts";
+import {ModuleLoader} from "./moduleLoader.ts";
 
 export class Gir {
   private _baseModules: BaseGirModule[];
@@ -19,12 +16,12 @@ export class Gir {
   private _bitfields?: GirBitfieldElement[];
   private _typeDependencies?: GirType[];
 
-  static async parse(rootDir: string) {
+  static async parse(girsDir: string) {
     const moduleLoader = new ModuleLoader({
       environment: "node",
       root: "",
       outdir: "",
-      girDirectories: [`${rootDir}/girs`],
+      girDirectories: [girsDir],
       verbose: false,
       noNamespace: false,
       noComments: false,
@@ -37,9 +34,11 @@ export class Gir {
       packageYarn: false,
     });
 
-    const loadedModules = await moduleLoader.getModulesResolved(["Gtk-4.0"]);
+    const loadedModules = await moduleLoader.getModulesResolved([
+      "Gtk-4.0",
+      "Adw-1",
+    ]);
     const modules = loadedModules.map(m => m.module);
-
     return new Gir(modules);
   }
 
@@ -64,7 +63,7 @@ export class Gir {
   }
 
   get widgetClasses() {
-    return this.modules[0]!.classes.filter(c => c.isWidget);
+    return flatMap(this.modules, m => m.classes).filter(c => c.isWidget);
   }
 
   get classes() {

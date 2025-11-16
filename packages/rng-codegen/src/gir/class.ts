@@ -1,11 +1,11 @@
-import {GirClassElement} from "@ts-for-gir/lib";
+import type {GirClassElement} from "@ts-for-gir/lib";
 import {last, uniqueBy} from "remeda";
-import {GirElement} from "./element.js";
-import {Import} from "./import.js";
-import {GirInterface} from "./interface.js";
-import {GirProperty} from "./property.js";
-import {GirSignal} from "./signal.js";
-import {GirType} from "./type.js";
+import {GirElement} from "./element.ts";
+import type {Import} from "./import.ts";
+import type {GirInterface} from "./interface.ts";
+import {GirProperty} from "./property.ts";
+import {GirSignal} from "./signal.ts";
+import type {GirType} from "./type.ts";
 
 export class GirClass extends GirElement<GirClassElement> {
   private _typeDependencies?: GirType[];
@@ -29,13 +29,13 @@ export class GirClass extends GirElement<GirClassElement> {
     if (!this.parent) {
       return {
         name: "AbstractWidget",
-        moduleName: "@/widget.js",
+        moduleName: "@/abstractWidget.js",
       };
     }
 
     return {
       name: this.parent.name,
-      moduleName: `./${this.parent.name}.js`,
+      moduleName: `./${this.parent.type.namespace + this.parent.name}.js`,
     };
   }
 

@@ -1,7 +1,7 @@
-import {GirInterfaceElement} from "@ts-for-gir/lib";
-import {GirElement} from "./element.js";
-import {GirProperty} from "./property.js";
-import {GirSignal} from "./signal.js";
+import type {GirInterfaceElement} from "@ts-for-gir/lib";
+import {GirElement} from "./element.ts";
+import {GirProperty} from "./property.ts";
+import {GirSignal} from "./signal.ts";
 
 export class GirInterface extends GirElement<GirInterfaceElement> {
   private _props?: GirProperty[];

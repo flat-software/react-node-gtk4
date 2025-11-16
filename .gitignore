@@ -1,5 +1,6 @@
 .vscode
 .turbo
+build
 
 # Logs
 logs

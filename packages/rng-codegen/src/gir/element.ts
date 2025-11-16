@@ -1,7 +1,7 @@
-import {Gir} from "@/gir.js";
-import {GirAnyElement} from "@ts-for-gir/lib";
-import {GirModule} from "./module.js";
-import {GirType} from "./type.js";
+import type {GirAnyElement} from "@ts-for-gir/lib";
+import type {Gir} from "../gir.ts";
+import {GirModule} from "./module.ts";
+import {GirType} from "./type.ts";
 
 export abstract class GirElement<T extends GirAnyElement> {
   protected _element: T;

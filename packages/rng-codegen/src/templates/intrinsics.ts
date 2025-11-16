@@ -1,6 +1,6 @@
-import {Gir} from "@/gir.js";
+import {Gir} from "../gir.ts";
 
-export default function (gir: Gir) {
+export function intrinsics(gir: Gir) {
   let ts = "";
 
   for (const widgetClass of gir.widgetClasses) {

@@ -1,0 +1,71 @@
+import Gtk from "@/generated/girs/node-gtk-4.0.js"
+import {Widget} from "./GtkWidget.js"
+
+export class ScaleButton<  T extends Gtk.ScaleButton = Gtk.ScaleButton> extends Widget<T> {
+  static createNode() {
+    return new Gtk.ScaleButton({
+  })
+}
+set(propName: string, newValue: any) {
+  super.set(propName, newValue)
+  switch (propName) {
+case "adjustment":
+this.node.setAdjustment(newValue)
+break
+case "hasFrame":
+this.node.setHasFrame(newValue)
+break
+case "icons":
+this.node.setIcons(newValue)
+break
+case "value":
+this.node.setValue(newValue)
+break
+case "name":
+this.node.name = newValue
+break
+case "accessibleRole":
+this.node.accessibleRole = newValue
+break
+case "orientation":
+this.node.setOrientation(newValue)
+break
+      case "onPopdown":
+        this.setHandler("popdown", newValue)
+        break
+      case "onPopup":
+        this.setHandler("popup", newValue)
+        break
+      case "onValueChanged":
+        this.setHandler("value-changed", newValue)
+        break
+      case "onNotifyActive":
+        this.setHandler("notify::active", newValue)
+        break
+      case "onNotifyAdjustment":
+        this.setHandler("notify::adjustment", newValue)
+        break
+      case "onNotifyHasFrame":
+        this.setHandler("notify::hasFrame", newValue)
+        break
+      case "onNotifyIcons":
+        this.setHandler("notify::icons", newValue)
+        break
+      case "onNotifyValue":
+        this.setHandler("notify::value", newValue)
+        break
+      case "onNotifyName":
+        this.setHandler("notify::name", newValue)
+        break
+      case "onNotifyAccessibleRole":
+        this.setHandler("notify::accessibleRole", newValue)
+        break
+      case "onNotifyOrientation":
+        this.setHandler("notify::orientation", newValue)
+        break
+      /* istanbul ignore next */
+      default:
+        break
+    }
+  }
+}

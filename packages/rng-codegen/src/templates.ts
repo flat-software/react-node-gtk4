@@ -1,7 +1,5 @@
-import intrinsics from "./templates/intrinsics.js";
-import jsx from "./templates/jsx.js";
-import widget from "./templates/widget.js";
-import widgetIndex from "./templates/widgetIndex.js";
-import widgetTest from "./templates/widgetTest.js";
-
-export {intrinsics, jsx, widget, widgetIndex, widgetTest};
+export * from "./templates/intrinsics.ts";
+export * from "./templates/jsx.ts";
+export * from "./templates/widget.ts";
+export * from "./templates/widgetIndex.ts";
+export * from "./templates/widgetTest.ts";

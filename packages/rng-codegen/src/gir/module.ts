@@ -1,7 +1,7 @@
-import {Gir} from "@/gir.js";
-import {GirModule as BaseGirModule} from "@ts-for-gir/lib";
-import {GirClass} from "./class.js";
-import {GirInterface} from "./interface.js";
+import type {GirModule as BaseGirModule} from "@ts-for-gir/lib";
+import type {Gir} from "../gir.ts";
+import {GirClass} from "./class.ts";
+import {GirInterface} from "./interface.ts";
 
 export class GirModule {
   private _module: BaseGirModule;

@@ -5,13 +5,11 @@
   "compilerOptions": {
     "outDir": "./build",
     "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    }
+    "allowImportingTsExtensions": true,
+    "emitDeclarationOnly": true
   },
   "include": [
-    "src"
+    "src",
+    ""
   ]
 }

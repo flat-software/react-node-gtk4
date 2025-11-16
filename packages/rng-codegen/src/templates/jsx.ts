@@ -1,6 +1,6 @@
-import {Gir} from "@/gir.js";
+import {Gir} from "../gir.ts";
 
-export default function (gir: Gir) {
+export function jsx(gir: Gir) {
   let ts = "";
 
   ts += `import React from "react"\n`;
@@ -28,6 +28,7 @@ export default function (gir: Gir) {
     }
 
     for (const prop of widgetClass.writableProps) {
+      s;
       ts += `${prop.name}?: ${prop.type?.name}${
         prop.isArray ? "[]" : ""
       }${prop.isOptional ? " | null" : ""}\n`;

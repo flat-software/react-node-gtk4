@@ -1,8 +1,8 @@
-import {Gir} from "@/gir.js";
-import {GirClass} from "@/gir/class.js";
-import {GirProperty} from "@/gir/property.js";
-import {GirType} from "../gir/type.js";
-import {underscore} from "../helpers.js";
+import {Gir} from "../gir.ts";
+import {GirClass} from "../gir/class.ts";
+import {GirProperty} from "../gir/property.ts";
+import {GirType} from "../gir/type.ts";
+import {underscore} from "../helpers.ts";
 
 const primitiveTestValues = {
   string: '"Some String"',
@@ -94,10 +94,10 @@ function getTestValue(prop: GirProperty, gir: Gir) {
   return testValues[prop.type.name];
 }
 
-export default function (widgetClass: GirClass, gir: Gir) {
+export function widgetTest(widgetClass: GirClass, gir: Gir) {
   let ts = "";
 
-  ts += `import { ${widgetClass.name} } from "@/generated/widgets.js"\n`;
+  ts += `import { ${widgetClass.name} } from "@/generated/widgets.ts"\n`;
 
   for (const type of widgetClass.typeDependencies) {
     ts += `import ${type.import_.name} from "${type.import_.moduleName}"\n`;
