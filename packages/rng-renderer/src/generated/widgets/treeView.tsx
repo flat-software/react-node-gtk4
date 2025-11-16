@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gtk from "../girs/node-gtk-4.0.js";
 import {Widget} from "./widget.js";
 
 export class TreeView<T extends Gtk.TreeView = Gtk.TreeView> extends Widget<T> {

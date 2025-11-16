@@ -12,6 +12,9 @@
     },
     {
       "path": "packages/rng-renderer"
+    },
+    {
+      "path": "packages/app-store"
     }
   ]
 }

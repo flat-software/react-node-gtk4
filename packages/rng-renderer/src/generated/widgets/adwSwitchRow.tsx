@@ -1,4 +1,4 @@
-import Adw from "@/generated/girs/node-adw-1.js";
+import Adw from "../girs/node-adw-1.js";
 import {AdwActionRow} from "./adwActionRow.js";
 
 export class AdwSwitchRow<

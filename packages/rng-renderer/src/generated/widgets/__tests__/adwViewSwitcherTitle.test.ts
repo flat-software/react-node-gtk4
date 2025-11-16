@@ -1,5 +1,5 @@
-import Adw from "@/generated/girs/node-adw-1.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Adw from "../../girs/node-adw-1.js";
+import Gtk from "../../girs/node-gtk-4.0.js";
 import {AdwViewSwitcherTitle} from "../adwViewSwitcherTitle.js";
 
 describe("AdwViewSwitcherTitle", () => {

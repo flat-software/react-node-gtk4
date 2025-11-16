@@ -2299,6 +2299,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rouge/store@workspace:packages/app-store":
+  version: 0.0.0-use.local
+  resolution: "@rouge/store@workspace:packages/app-store"
+  dependencies:
+    "@types/react": "npm:18.3.4"
+    node-gtk: "npm:1.0.0"
+    react: "npm:18.3.1"
+    react-node-gtk4: "workspace:*"
+    tslib: "npm:2.8.1"
+    typescript: "npm:5.9.3"
+  languageName: unknown
+  linkType: soft
+
 "@sinclair/typebox@npm:^0.27.8":
   version: 0.27.8
   resolution: "@sinclair/typebox@npm:0.27.8"

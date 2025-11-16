@@ -1,10 +1,10 @@
-import Adw from "@/generated/girs/node-adw-1.js";
-import Gdk from "@/generated/girs/node-gdk-4.0.js";
-import Gio from "@/generated/girs/node-gio-2.0.js";
-import GLib from "@/generated/girs/node-glib-2.0.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import Pango from "@/generated/girs/node-pango-1.0.js";
 import React from "react";
+import Adw from "../girs/node-adw-1.js";
+import Gdk from "../girs/node-gdk-4.0.js";
+import Gio from "../girs/node-gio-2.0.js";
+import GLib from "../girs/node-glib-2.0.js";
+import Gtk from "../girs/node-gtk-4.0.js";
+import Pango from "../girs/node-pango-1.0.js";
 
 declare module "react" {
   namespace JSX {

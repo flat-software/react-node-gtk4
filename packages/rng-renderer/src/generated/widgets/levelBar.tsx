@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gtk from "../girs/node-gtk-4.0.js";
 import {Widget} from "./widget.js";
 
 export class LevelBar<T extends Gtk.LevelBar = Gtk.LevelBar> extends Widget<T> {

@@ -1,10 +1,10 @@
-import Container from "@/container.js";
-import Gio from "@/generated/girs/node-gio-2.0.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Widget} from "@/generated/widgets/widget.js";
-import Node from "@/node.js";
-import "@/overrides.js";
-import {createRootNode} from "@/rootNode.js";
+import Container from "../container.js";
+import Gio from "../generated/girs/node-gio-2.0.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
+import {Widget} from "../generated/widgets/widget.js";
+import Node from "../node.js";
+import "../overrides.js";
+import {createRootNode} from "../rootNode.js";
 
 interface Predicate {
   text?: string;

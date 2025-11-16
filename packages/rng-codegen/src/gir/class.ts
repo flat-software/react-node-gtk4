@@ -37,7 +37,7 @@ export class GirClass extends GirElement<GirClassElement> {
     if (!this.parent) {
       return {
         name: "AbstractWidget",
-        moduleName: "@/abstractWidget.js",
+        moduleName: "../../abstractWidget.js",
       };
     }
 

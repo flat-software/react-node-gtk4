@@ -26,7 +26,7 @@ export class GirType {
 
   get import_(): Import {
     return {
-      moduleName: `@/generated/girs/${this.module.importName}.js`,
+      moduleName: `../girs/${this.module.importName}.js`,
       name: this.namespace,
     };
   }

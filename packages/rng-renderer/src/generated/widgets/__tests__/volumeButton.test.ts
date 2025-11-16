@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gtk from "../../girs/node-gtk-4.0.js";
 import {VolumeButton} from "../volumeButton.js";
 
 describe("VolumeButton", () => {

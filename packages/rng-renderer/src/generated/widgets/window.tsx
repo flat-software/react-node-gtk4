@@ -1,5 +1,5 @@
-import {AbstractWidget} from "@/abstractWidget.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import {AbstractWidget} from "../../abstractWidget.js";
+import Gtk from "../girs/node-gtk-4.0.js";
 import {Widget} from "./widget.js";
 
 export class Window<T extends Gtk.Window = Gtk.Window> extends Widget<T> {

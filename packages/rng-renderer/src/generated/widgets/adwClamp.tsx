@@ -1,5 +1,5 @@
-import {AbstractWidget} from "@/abstractWidget.js";
-import Adw from "@/generated/girs/node-adw-1.js";
+import {AbstractWidget} from "../../abstractWidget.js";
+import Adw from "../girs/node-adw-1.js";
 import {Widget} from "./widget.js";
 
 export class AdwClamp<T extends Adw.Clamp = Adw.Clamp> extends Widget<T> {

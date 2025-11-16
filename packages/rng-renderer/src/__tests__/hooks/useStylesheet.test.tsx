@@ -1,7 +1,7 @@
-import Gdk from "@/generated/girs/node-gdk-4.0.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import useStylesheet, {useInlineStylesheet} from "@/hooks/useStylesheet.js";
-import {render, setup} from "@/test-support/index.js";
+import Gdk from "../../generated/girs/node-gdk-4.0.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import useStylesheet, {useInlineStylesheet} from "../../hooks/useStylesheet.js";
+import {render, setup} from "../../test-support/index.js";
 
 let provider: Gtk.CssProvider;
 let display: Gdk.Display;

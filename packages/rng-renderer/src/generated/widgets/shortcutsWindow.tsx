@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gtk from "../girs/node-gtk-4.0.js";
 import {Window} from "./window.js";
 
 export class ShortcutsWindow<

@@ -1,4 +1,4 @@
-import Adw from "@/generated/girs/node-adw-1.js";
+import Adw from "../girs/node-adw-1.js";
 import {AdwEntryRow} from "./adwEntryRow.js";
 
 export class AdwPasswordEntryRow<

@@ -1,5 +1,5 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import Pango from "@/generated/girs/node-pango-1.0.js";
+import Gtk from "../../girs/node-gtk-4.0.js";
+import Pango from "../../girs/node-pango-1.0.js";
 import {ProgressBar} from "../progressBar.js";
 
 describe("ProgressBar", () => {

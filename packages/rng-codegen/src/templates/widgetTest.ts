@@ -101,7 +101,7 @@ export function widgetTest(widgetClass: GirClass, gir: Gir) {
   ts += `import { ${widgetClass.jsxName} } from "../${R.toCamelCase(widgetClass.jsxName)}.js"\n`;
 
   for (const type of widgetClass.typeDependencies) {
-    ts += `import ${type.import_.name} from "${type.import_.moduleName}"\n`;
+    ts += `import ${type.import_.name} from "../${type.import_.moduleName}"\n`;
   }
 
   ts += "\n";

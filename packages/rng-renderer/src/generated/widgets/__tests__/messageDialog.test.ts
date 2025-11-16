@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gtk from "../../girs/node-gtk-4.0.js";
 import {MessageDialog} from "../messageDialog.js";
 
 describe("MessageDialog", () => {

@@ -1,4 +1,4 @@
-import Adw from "@/generated/girs/node-adw-1.js";
+import Adw from "../girs/node-adw-1.js";
 import {Widget} from "./widget.js";
 
 export class AdwTabBar<T extends Adw.TabBar = Adw.TabBar> extends Widget<T> {
