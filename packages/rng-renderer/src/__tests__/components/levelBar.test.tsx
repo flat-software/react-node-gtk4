@@ -1,4 +1,4 @@
-import LevelBar, {DEFAULT_OFFSETS} from "@/components/LevelBar.js";
+import LevelBar, {DEFAULT_OFFSETS} from "@/components/levelBar.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import {findBy, render, setup} from "@/test-support/index.js";
 import {createRef} from "react";

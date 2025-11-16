@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {ListModelContext} from "../components/ListModelProvider.js";
+import {ListModelContext} from "../components/listModelProvider.js";
 
 export default function useListModel() {
   const model = useContext(ListModelContext);

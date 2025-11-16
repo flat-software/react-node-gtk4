@@ -1,5 +1,5 @@
-import ListModelProvider from "@/components/ListModelProvider.js";
-import TreeProvider from "@/components/TreeProvider.js";
+import ListModelProvider from "@/components/listModelProvider.js";
+import TreeProvider from "@/components/treeProvider.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import {Box} from "@/generated/intrinsics.js";
 import {GObject, Gio} from "@/index.js";

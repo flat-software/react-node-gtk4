@@ -1,4 +1,4 @@
-import FontDialogButton from "@/components/FontDialogButton.js";
+import FontDialogButton from "@/components/fontDialogButton.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import {Pango} from "@/index.js";
 import {findBy, render, setup} from "@/test-support/index.js";

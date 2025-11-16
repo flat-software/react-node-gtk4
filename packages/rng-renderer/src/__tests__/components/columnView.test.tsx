@@ -1,5 +1,5 @@
-import ColumnView from "@/components/ColumnView.js";
-import ListProvider from "@/components/ListProvider.js";
+import ColumnView from "@/components/columnView.js";
+import ListProvider from "@/components/listProvider.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import {Box} from "@/generated/intrinsics.js";
 import * as useListItemFactoryModule from "@/hooks/useListItemFactory.js";

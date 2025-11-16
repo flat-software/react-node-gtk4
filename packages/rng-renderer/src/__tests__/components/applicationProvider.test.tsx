@@ -1,7 +1,7 @@
 import ApplicationProvider, {
   ApplicationContext,
   withApplicationContext,
-} from "@/components/ApplicationProvider.js";
+} from "@/components/applicationProvider.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import {Box} from "@/generated/intrinsics.js";
 import useApplication from "@/hooks/useApplication.js";

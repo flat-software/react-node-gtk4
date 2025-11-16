@@ -1,4 +1,4 @@
-import Overlay from "@/components/Overlay.js";
+import Overlay from "@/components/overlay.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import {Button, Label} from "@/generated/intrinsics.js";
 import {findBy, render, setup} from "@/test-support/index.js";

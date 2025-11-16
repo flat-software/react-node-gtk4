@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {ApplicationContext} from "../components/ApplicationProvider.js";
+import {ApplicationContext} from "../components/applicationProvider.js";
 
 export default function useApplication() {
   const application = useContext(ApplicationContext);

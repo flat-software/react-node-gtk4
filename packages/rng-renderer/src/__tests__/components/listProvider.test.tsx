@@ -1,7 +1,7 @@
 import ListModelProvider, {
   ListModelContext,
-} from "@/components/ListModelProvider.js";
-import ListProvider from "@/components/ListProvider.js";
+} from "@/components/listModelProvider.js";
+import ListProvider from "@/components/listProvider.js";
 import Gio from "@/generated/girs/node-gio-2.0.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import {Box} from "@/generated/intrinsics.js";

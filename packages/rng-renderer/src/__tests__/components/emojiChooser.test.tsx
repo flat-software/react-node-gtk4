@@ -1,4 +1,4 @@
-import EmojiChooser from "@/components/EmojiChooser.js";
+import EmojiChooser from "@/components/emojiChooser.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import {findBy, render, setup} from "@/test-support/index.js";
 import {createRef} from "react";

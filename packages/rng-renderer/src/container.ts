@@ -1,5 +1,5 @@
 import Application from "./application.js";
-import {withApplicationContext} from "./components/ApplicationProvider.js";
+import {withApplicationContext} from "./components/applicationProvider.js";
 import {Reconciler} from "./reconciler.js";
 
 export default class Container<T> {

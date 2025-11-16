@@ -1,4 +1,4 @@
-import MenuButton from "@/components/MenuButton.js";
+import MenuButton from "@/components/menuButton.js";
 import Gio from "@/generated/girs/node-gio-2.0.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import {findBy, render, setup} from "@/test-support/index.js";

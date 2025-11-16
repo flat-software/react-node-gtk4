@@ -1,5 +1,5 @@
-import DropDown from "@/components/DropDown.js";
-import ListProvider from "@/components/ListProvider.js";
+import DropDown from "@/components/dropDown.js";
+import ListProvider from "@/components/listProvider.js";
 import GObject from "@/generated/girs/node-gobject-2.0.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import {Box} from "@/generated/intrinsics.js";

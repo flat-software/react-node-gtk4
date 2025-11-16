@@ -1,6 +1,6 @@
 import ApplicationProvider, {
   ApplicationContext,
-} from "@/components/ApplicationProvider.js";
+} from "@/components/applicationProvider.js";
 import useApplication from "@/hooks/useApplication.js";
 import {render, setup} from "@/test-support/index.js";
 
