@@ -1,5 +1,5 @@
-import {FlowBox} from "@/generated/widgets/flowBox.js";
-import "@/overrides/flowBox.js";
+import {FlowBox} from "../../generated/widgets/flowBox.js";
+import "../../overrides/flowBox.js";
 
 describe("FlowBox overrides", () => {
   let flowBox: FlowBox;

@@ -1,10 +1,10 @@
-import ListProvider from "@/components/listProvider.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Box} from "@/generated/intrinsics.js";
+import ListProvider from "../../components/listProvider.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import {Box} from "../../generated/intrinsics.js";
 import useListItemFactory, {
   ListItemFactoryRenderFunction,
-} from "@/hooks/useListItemFactory.js";
-import {render, setup} from "@/test-support/index.js";
+} from "../../hooks/useListItemFactory.js";
+import {render, setup} from "../../test-support/index.js";
 
 const MockedGtk = Gtk as jest.Mocked<typeof Gtk>;
 

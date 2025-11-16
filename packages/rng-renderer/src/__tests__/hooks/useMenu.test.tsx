@@ -1,7 +1,7 @@
-import Gio from "@/generated/girs/node-gio-2.0.js";
-import GLib from "@/generated/girs/node-glib-2.0.js";
-import useMenu, {MenuItem} from "@/hooks/useMenu.js";
-import {render, setup} from "@/test-support/index.js";
+import Gio from "../../generated/girs/node-gio-2.0.js";
+import GLib from "../../generated/girs/node-glib-2.0.js";
+import useMenu, {MenuItem} from "../../hooks/useMenu.js";
+import {render, setup} from "../../test-support/index.js";
 
 const MockedGio = Gio as jest.Mocked<typeof Gio>;
 

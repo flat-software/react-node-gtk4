@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gtk from "./generated/girs/node-gtk-4.0.js";
 import ReactReconciler, {HostConfig} from "react-reconciler";
 import {DefaultEventPriority} from "react-reconciler/constants.js";
 import * as R from "remeda";

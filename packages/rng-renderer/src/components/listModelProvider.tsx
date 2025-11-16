@@ -1,4 +1,4 @@
-import Gio from "@/generated/girs/node-gio-2.0.js";
+import Gio from "../generated/girs/node-gio-2.0.js";
 import {createContext, useMemo, useState} from "react";
 
 export interface ListModelContext {

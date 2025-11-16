@@ -1,11 +1,11 @@
-import DropDown from "@/components/dropDown.js";
-import ListProvider from "@/components/listProvider.js";
-import GObject from "@/generated/girs/node-gobject-2.0.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Box} from "@/generated/intrinsics.js";
-import * as useListItemFactoryModule from "@/hooks/useListItemFactory.js";
-import * as useListModelModule from "@/hooks/useListModel.js";
-import {findBy, fireEvent, render, setup} from "@/test-support/index.js";
+import DropDown from "../../components/dropDown.js";
+import ListProvider from "../../components/listProvider.js";
+import GObject from "../../generated/girs/node-gobject-2.0.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import {Box} from "../../generated/intrinsics.js";
+import * as useListItemFactoryModule from "../../hooks/useListItemFactory.js";
+import * as useListModelModule from "../../hooks/useListModel.js";
+import {findBy, fireEvent, render, setup} from "../../test-support/index.js";
 import {createRef} from "react";
 
 describe("DropDown", () => {

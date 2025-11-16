@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
 import {forwardRef, useMemo} from "react";
 import * as R from "remeda";
 import {FontDialogButton} from "../generated/intrinsics.js";

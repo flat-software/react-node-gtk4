@@ -1,10 +1,10 @@
-import Container from "@/container.js";
-import {Reconciler} from "@/reconciler.js";
+import Container from "../container.js";
+import {Reconciler} from "../reconciler.js";
 
 jest.mock("react");
-jest.mock("@/generated/widgets/Widget.js");
-jest.mock("@/generated/widgets/Window.js");
-jest.mock("@/reconciler.js");
+jest.mock("../generated/widgets/Widget.js");
+jest.mock("../generated/widgets/Window.js");
+jest.mock("../reconciler.js");
 
 const MockedReconciler = Reconciler as jest.Mocked<typeof Reconciler>;
 

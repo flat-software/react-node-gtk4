@@ -1,8 +1,8 @@
 import ApplicationProvider, {
   ApplicationContext,
-} from "@/components/applicationProvider.js";
-import useApplication from "@/hooks/useApplication.js";
-import {render, setup} from "@/test-support/index.js";
+} from "../../components/applicationProvider.js";
+import useApplication from "../../hooks/useApplication.js";
+import {render, setup} from "../../test-support/index.js";
 
 describe("useApplication", () => {
   let context: ApplicationContext;

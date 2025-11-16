@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gtk from "./generated/girs/node-gtk-4.0.js";
 import Application from "./application.js";
 import {Widget} from "./generated/widgets/widget.js";
 import Node from "./node.js";

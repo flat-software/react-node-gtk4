@@ -1,5 +1,5 @@
-import {AbstractWidget} from "@/abstractWidget.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import {AbstractWidget} from "../abstractWidget.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
 
 class Widget extends AbstractWidget {
   constructor() {

@@ -1,13 +1,13 @@
-import Application, {MAX_TIMEOUT} from "@/application.js";
-import GLib from "@/generated/girs/node-glib-2.0.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import gi from "@/generated/girs/node-gtk.js";
-import {ApplicationWindow} from "@/generated/widgets.js";
+import Application, {MAX_TIMEOUT} from "../application.js";
+import GLib from "../generated/girs/node-glib-2.0.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
+import gi from "../generated/girs/node-gtk.js";
+import {ApplicationWindow} from "../generated/widgets.js";
 
 jest.mock("react");
-jest.mock("@/generated/widgets/Widget.js");
-jest.mock("@/generated/widgets/Window.js");
-jest.mock("@/generated/widgets/ApplicationWindow.js");
+jest.mock("../generated/widgets/Widget.js");
+jest.mock("../generated/widgets/Window.js");
+jest.mock("../generated/widgets/ApplicationWindow.js");
 
 const mockedGLibMainLoopNew = GLib.MainLoop.new as jest.MockedFunction<
   typeof GLib.MainLoop.new

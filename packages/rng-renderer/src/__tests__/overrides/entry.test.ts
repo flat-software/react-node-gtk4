@@ -1,5 +1,5 @@
-import {Entry} from "@/generated/widgets/entry.js";
-import "@/overrides/entry.js";
+import {Entry} from "../../generated/widgets/entry.js";
+import "../../overrides/entry.js";
 
 describe("Entry overrides", () => {
   let entry: Entry;

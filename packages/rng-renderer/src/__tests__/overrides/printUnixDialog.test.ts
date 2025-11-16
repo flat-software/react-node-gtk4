@@ -1,6 +1,6 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {PrintUnixDialog} from "@/generated/widgets/printUnixDialog.js";
-import "@/overrides/printUnixDialog.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import {PrintUnixDialog} from "../../generated/widgets/printUnixDialog.js";
+import "../../overrides/printUnixDialog.js";
 
 describe("PrintUnixDialog overrides", () => {
   describe("commitMount", () => {

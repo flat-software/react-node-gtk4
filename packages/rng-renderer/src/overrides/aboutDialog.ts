@@ -1,5 +1,5 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {AboutDialog} from "@/generated/widgets/aboutDialog.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
+import {AboutDialog} from "../generated/widgets/aboutDialog.js";
 
 const parent = {
   commitMount: AboutDialog.prototype.commitMount,

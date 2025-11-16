@@ -1,6 +1,6 @@
-import AboutDialog from "@/components/aboutDialog.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {findBy, render, setup} from "@/test-support/index.js";
+import AboutDialog from "../../components/aboutDialog.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import {findBy, render, setup} from "../../test-support/index.js";
 import {createRef} from "react";
 
 describe("AboutDialog", () => {

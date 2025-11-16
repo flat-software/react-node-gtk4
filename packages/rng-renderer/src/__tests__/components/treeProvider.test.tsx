@@ -1,9 +1,9 @@
-import ListModelProvider from "@/components/listModelProvider.js";
-import TreeProvider from "@/components/treeProvider.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Box} from "@/generated/intrinsics.js";
-import {GObject, Gio} from "@/index.js";
-import {findBy, render, setup} from "@/test-support/index.js";
+import ListModelProvider from "../../components/listModelProvider.js";
+import TreeProvider from "../../components/treeProvider.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import {Box} from "../../generated/intrinsics.js";
+import {GObject, Gio} from "../../index.js";
+import {findBy, render, setup} from "../../test-support/index.js";
 import React from "react";
 
 const MockedGtk = Gtk as jest.Mocked<typeof Gtk>;

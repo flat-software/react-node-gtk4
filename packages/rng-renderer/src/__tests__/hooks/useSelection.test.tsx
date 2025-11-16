@@ -1,8 +1,8 @@
-import ListProvider from "@/components/listProvider.js";
-import GObject from "@/generated/girs/node-gobject-2.0.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import useSelection, {OnSelectionChanged} from "@/hooks/useSelection.js";
-import {render, setup} from "@/test-support/index.js";
+import ListProvider from "../../components/listProvider.js";
+import GObject from "../../generated/girs/node-gobject-2.0.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import useSelection, {OnSelectionChanged} from "../../hooks/useSelection.js";
+import {render, setup} from "../../test-support/index.js";
 
 const MockedGtk = Gtk as jest.Mocked<typeof Gtk>;
 

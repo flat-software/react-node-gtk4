@@ -1,5 +1,5 @@
-import GObject from "@/generated/girs/node-gobject-2.0.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import GObject from "../generated/girs/node-gobject-2.0.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
 import React, {createRef, useEffect, useMemo} from "react";
 import Container from "../container.js";
 import {Reconciler, createReconciler} from "../reconciler.js";

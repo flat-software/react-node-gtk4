@@ -1,6 +1,6 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {TextView} from "@/generated/intrinsics.js";
-import useForwardedRef from "@/hooks/useForwardedRef.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
+import {TextView} from "../generated/intrinsics.js";
+import useForwardedRef from "../hooks/useForwardedRef.js";
 import React, {
   createContext,
   forwardRef,

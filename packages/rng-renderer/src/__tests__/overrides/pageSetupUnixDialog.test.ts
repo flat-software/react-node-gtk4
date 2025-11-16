@@ -1,6 +1,6 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {PageSetupUnixDialog} from "@/generated/widgets/pageSetupUnixDialog.js";
-import "@/overrides/pageSetupUnixDialog.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import {PageSetupUnixDialog} from "../../generated/widgets/pageSetupUnixDialog.js";
+import "../../overrides/pageSetupUnixDialog.js";
 
 describe("PageSetupUnixDialog overrides", () => {
   describe("commitMount", () => {

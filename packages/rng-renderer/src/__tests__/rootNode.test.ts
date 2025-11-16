@@ -1,18 +1,18 @@
-import Application from "@/application.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Widget} from "@/generated/widgets/widget.js";
-import Node from "@/node.js";
-import {getWidgetClass} from "@/reconciler.js";
-import {createRootNode, ROOT_NODE_KEY, WithRootNode} from "@/rootNode.js";
+import Application from "../application.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
+import {Widget} from "../generated/widgets/widget.js";
+import Node from "../node.js";
+import {getWidgetClass} from "../reconciler.js";
+import {createRootNode, ROOT_NODE_KEY, WithRootNode} from "../rootNode.js";
 
 const mockedGetWidgetClass = getWidgetClass as jest.MockedFunction<
   typeof getWidgetClass
 >;
 
-jest.mock("@/application.js");
-jest.mock("@/generated/widgets/Widget.js");
-jest.mock("@/reconciler.js");
-jest.mock("@/node.js");
+jest.mock("../application.js");
+jest.mock("../generated/widgets/Widget.js");
+jest.mock("../reconciler.js");
+jest.mock("../node.js");
 
 describe("createRootNode", () => {
   it("creates an Application root node if input node is an instance of Gtk.Application", () => {

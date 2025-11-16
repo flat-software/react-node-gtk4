@@ -1,6 +1,6 @@
-import Gio from "@/generated/girs/node-gio-2.0.js";
-import useActionGroup from "@/hooks/useActionGroup.js";
-import {render, setup} from "@/test-support/index.js";
+import Gio from "../../generated/girs/node-gio-2.0.js";
+import useActionGroup from "../../hooks/useActionGroup.js";
+import {render, setup} from "../../test-support/index.js";
 
 const MockedGio = Gio as jest.Mocked<typeof Gio>;
 

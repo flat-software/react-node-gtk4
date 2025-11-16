@@ -1,5 +1,5 @@
-import Gdk from "@/generated/girs/node-gdk-4.0.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gdk from "../generated/girs/node-gdk-4.0.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
 import {useEffect, useMemo} from "react";
 
 function getDefaultDisplay() {

@@ -1,4 +1,4 @@
-import {Entry} from "@/generated/widgets/entry.js";
+import {Entry} from "../generated/widgets/entry.js";
 
 const parent = {
   set: Entry.prototype.set,

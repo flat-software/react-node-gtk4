@@ -1,5 +1,5 @@
-import {Box} from "@/generated/widgets/box.js";
-import "@/overrides/box.js";
+import {Box} from "../../generated/widgets/box.js";
+import "../../overrides/box.js";
 
 describe("Box overrides", () => {
   let box: Box;

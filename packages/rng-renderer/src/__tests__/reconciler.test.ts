@@ -1,31 +1,31 @@
-import Application from "@/application.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import * as widgets from "@/generated/widgets.js";
-import {createRootNode} from "@/rootNode.js";
+import Application from "../application.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
+import * as widgets from "../generated/widgets.js";
+import {createRootNode} from "../rootNode.js";
 import {DefaultEventPriority} from "react-reconciler/constants.js";
 
 describe("Reconciler", () => {
   let rootNode: Application;
   let Label: jest.Mocked<typeof widgets.Label>;
   let Widget: jest.Mocked<typeof widgets.Widget>;
-  let module: jest.Mocked<typeof import("@/reconciler.js")>;
+  let module: jest.Mocked<typeof import("../reconciler.js")>;
   let ReactReconciler: jest.MockedFunction<typeof import("react-reconciler")>;
 
   beforeEach(async () => {
     jest.doMock("react-reconciler");
-    jest.doMock("@/generated/widgets/Label.js");
-    jest.doMock("@/generated/widgets.js");
-    jest.doMock("@/rootNode.js");
+    jest.doMock("../generated/widgets/Label.js");
+    jest.doMock("../generated/widgets.js");
+    jest.doMock("../rootNode.js");
 
-    module = (await import("@/reconciler.js")) as jest.Mocked<
-      typeof import("@/reconciler.js")
+    module = (await import("../reconciler.js")) as jest.Mocked<
+      typeof import("../reconciler.js")
     >;
 
-    Label = (await import("@/generated/widgets/label.js")).Label as jest.Mocked<
+    Label = (await import("../generated/widgets/label.js")).Label as jest.Mocked<
       typeof widgets.Label
     >;
 
-    Widget = (await import("@/generated/widgets.js")).Widget as jest.Mocked<
+    Widget = (await import("../generated/widgets.js")).Widget as jest.Mocked<
       typeof widgets.Widget
     >;
 

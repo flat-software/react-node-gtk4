@@ -1,5 +1,5 @@
-import {Window} from "@/generated/widgets/window.js";
-import "@/overrides/window.js";
+import {Window} from "../../generated/widgets/window.js";
+import "../../overrides/window.js";
 
 describe("Window overrides", () => {
   describe("commitMount", () => {

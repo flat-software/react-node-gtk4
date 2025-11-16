@@ -1,7 +1,7 @@
-import ListModelProvider from "@/components/listModelProvider.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import useListModel from "@/hooks/useListModel.js";
-import {render, setup} from "@/test-support/index.js";
+import ListModelProvider from "../../components/listModelProvider.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import useListModel from "../../hooks/useListModel.js";
+import {render, setup} from "../../test-support/index.js";
 
 describe("useListModel", () => {
   let listModel: ReturnType<typeof useListModel>;

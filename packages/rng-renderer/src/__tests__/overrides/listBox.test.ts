@@ -1,5 +1,5 @@
-import {ListBox} from "@/generated/widgets/listBox.js";
-import "@/overrides/listBox.js";
+import {ListBox} from "../../generated/widgets/listBox.js";
+import "../../overrides/listBox.js";
 
 describe("ListBox overrides", () => {
   let listBox: ListBox;

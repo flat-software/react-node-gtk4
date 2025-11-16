@@ -4,7 +4,8 @@
   ],
   "compilerOptions": {
     "outDir": "build",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "allowJs": true
   },
   "include": [
     "src"

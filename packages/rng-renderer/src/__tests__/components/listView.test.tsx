@@ -1,8 +1,8 @@
-import ListProvider from "@/components/listProvider.js";
-import ListView from "@/components/listView.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Box} from "@/generated/intrinsics.js";
-import {findBy, render, setup} from "@/test-support/index.js";
+import ListProvider from "../../components/listProvider.js";
+import ListView from "../../components/listView.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import {Box} from "../../generated/intrinsics.js";
+import {findBy, render, setup} from "../../test-support/index.js";
 import {createRef} from "react";
 
 describe("ListView", () => {

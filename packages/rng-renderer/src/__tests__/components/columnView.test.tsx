@@ -1,9 +1,9 @@
-import ColumnView from "@/components/columnView.js";
-import ListProvider from "@/components/listProvider.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Box} from "@/generated/intrinsics.js";
-import * as useListItemFactoryModule from "@/hooks/useListItemFactory.js";
-import {findBy, render, setup} from "@/test-support/index.js";
+import ColumnView from "../../components/columnView.js";
+import ListProvider from "../../components/listProvider.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import {Box} from "../../generated/intrinsics.js";
+import * as useListItemFactoryModule from "../../hooks/useListItemFactory.js";
+import {findBy, render, setup} from "../../test-support/index.js";
 import {createRef} from "react";
 
 describe("ColumnView", () => {

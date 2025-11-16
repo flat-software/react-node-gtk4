@@ -1,5 +1,5 @@
-import {HeaderBar} from "@/generated/widgets/headerBar.js";
-import "@/overrides/headerBar.js";
+import {HeaderBar} from "../../generated/widgets/headerBar.js";
+import "../../overrides/headerBar.js";
 
 describe("HeaderBar overrides", () => {
   let headerBar: HeaderBar;

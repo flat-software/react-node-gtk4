@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
 import {ForwardedRef, forwardRef} from "react";
 import {ListView} from "../generated/intrinsics.js";
 import useListItemFactory, {

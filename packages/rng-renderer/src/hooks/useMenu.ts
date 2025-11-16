@@ -1,5 +1,5 @@
-import Gio from "@/generated/girs/node-gio-2.0.js";
-import GLib from "@/generated/girs/node-glib-2.0.js";
+import Gio from "../generated/girs/node-gio-2.0.js";
+import GLib from "../generated/girs/node-glib-2.0.js";
 import {useMemo} from "react";
 
 export interface MenuItem {

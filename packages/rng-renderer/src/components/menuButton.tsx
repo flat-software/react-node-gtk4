@@ -1,5 +1,5 @@
-import Gio from "@/generated/girs/node-gio-2.0.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gio from "../generated/girs/node-gio-2.0.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
 import {cloneElement, forwardRef, useEffect, useState} from "react";
 import {MenuButton} from "../generated/intrinsics.js";
 import useForwardedRef from "../hooks/useForwardedRef.js";

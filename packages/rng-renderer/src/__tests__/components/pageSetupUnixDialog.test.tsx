@@ -1,7 +1,7 @@
-import PageSetupUnixDialog from "@/components/pageSetupUnixDialog.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {ApplicationWindow} from "@/generated/intrinsics.js";
-import {findBy, render, setup} from "@/test-support/index.js";
+import PageSetupUnixDialog from "../../components/pageSetupUnixDialog.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import {ApplicationWindow} from "../../generated/intrinsics.js";
+import {findBy, render, setup} from "../../test-support/index.js";
 import {createRef} from "react";
 
 describe("PageSetupUnixDialog", () => {

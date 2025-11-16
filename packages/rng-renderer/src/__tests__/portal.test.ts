@@ -1,7 +1,7 @@
-import Gio from "@/generated/girs/node-gio-2.0.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {createPortal, REACT_PORTAL_TYPE} from "@/portal.js";
-import {createRootNode} from "@/rootNode.js";
+import Gio from "../generated/girs/node-gio-2.0.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
+import {createPortal, REACT_PORTAL_TYPE} from "../portal.js";
+import {createRootNode} from "../rootNode.js";
 
 const mockedCreateRootNode = createRootNode as jest.MockedFunction<
   typeof createRootNode
@@ -9,7 +9,7 @@ const mockedCreateRootNode = createRootNode as jest.MockedFunction<
 
 const mockedGioApplicationGetDefault = Gio.Application.getDefault as jest.Mock;
 
-jest.mock("@/rootNode.js");
+jest.mock("../rootNode.js");
 
 describe("Portal", () => {
   let portal: any;

@@ -1,5 +1,5 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {PageSetupUnixDialog} from "@/generated/widgets/pageSetupUnixDialog.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
+import {PageSetupUnixDialog} from "../generated/widgets/pageSetupUnixDialog.js";
 
 const parent = {
   commitMount: PageSetupUnixDialog.prototype.commitMount,

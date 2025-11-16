@@ -1,7 +1,7 @@
-import {MultipleFileDialog, SingleFileDialog} from "@/components/fileDialog.js";
-import Gio from "@/generated/girs/node-gio-2.0.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {render, setup} from "@/test-support/index.js";
+import {MultipleFileDialog, SingleFileDialog} from "../../components/fileDialog.js";
+import Gio from "../../generated/girs/node-gio-2.0.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import {render, setup} from "../../test-support/index.js";
 
 const MockedGtk = Gtk as jest.Mocked<typeof Gtk>;
 

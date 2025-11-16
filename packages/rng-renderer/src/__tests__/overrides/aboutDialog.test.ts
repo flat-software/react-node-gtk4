@@ -1,6 +1,6 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {AboutDialog} from "@/generated/widgets/aboutDialog.js";
-import "@/overrides/aboutDialog.js";
+import Gtk from "../../generated/girs/node-gtk-4.0.js";
+import {AboutDialog} from "../../generated/widgets/aboutDialog.js";
+import "../../overrides/aboutDialog.js";
 
 describe("AboutDialog overrides", () => {
   describe("commitMount", () => {

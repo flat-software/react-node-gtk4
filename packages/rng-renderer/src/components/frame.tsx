@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
 import {cloneElement, forwardRef, useState} from "react";
 import {Frame} from "../generated/intrinsics.js";
 import useForwardedRef from "../hooks/useForwardedRef.js";

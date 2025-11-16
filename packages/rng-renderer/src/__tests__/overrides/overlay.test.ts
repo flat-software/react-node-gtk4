@@ -1,5 +1,5 @@
-import {Overlay} from "@/generated/widgets/overlay.js";
-import "@/overrides/overlay.js";
+import {Overlay} from "../../generated/widgets/overlay.js";
+import "../../overrides/overlay.js";
 
 describe("Overlay overrides", () => {
   let overlay: Overlay;

@@ -1,5 +1,5 @@
-import {AbstractWidget} from "@/abstractWidget.js";
-import {ListBox} from "@/generated/widgets/listBox.js";
+import {AbstractWidget} from "../abstractWidget.js";
+import {ListBox} from "../generated/widgets/listBox.js";
 
 const parent = {
   appendChild: ListBox.prototype.appendChild,

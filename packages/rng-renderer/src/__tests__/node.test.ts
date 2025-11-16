@@ -1,6 +1,6 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Widget, Window} from "@/generated/widgets.js";
-import Node from "@/node.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
+import {Widget, Window} from "../generated/widgets.js";
+import Node from "../node.js";
 
 describe("Node", () => {
   let node: Node;

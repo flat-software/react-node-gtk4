@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gtk from "./generated/girs/node-gtk-4.0.js";
 import Node from "./node.js";
 
 export abstract class AbstractWidget<

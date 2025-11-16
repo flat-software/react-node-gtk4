@@ -1,4 +1,4 @@
-import useForwardedRef from "@/hooks/useForwardedRef.js";
+import useForwardedRef from "../../hooks/useForwardedRef.js";
 import React from "react";
 
 jest.mock("react");

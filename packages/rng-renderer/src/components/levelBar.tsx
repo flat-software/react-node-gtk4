@@ -1,4 +1,4 @@
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
 import {forwardRef, memo, useEffect} from "react";
 import * as R from "remeda";
 import {LevelBar} from "../generated/intrinsics.js";

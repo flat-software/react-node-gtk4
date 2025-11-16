@@ -1,5 +1,5 @@
-import Gio from "@/generated/girs/node-gio-2.0.js";
-import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import Gio from "../generated/girs/node-gio-2.0.js";
+import Gtk from "../generated/girs/node-gtk-4.0.js";
 import {useEffect, useMemo} from "react";
 import * as R from "remeda";
 import useApplication from "../hooks/useApplication.js";
