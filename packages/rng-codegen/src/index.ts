@@ -28,7 +28,7 @@ async function main() {
 
   R.pipe(
     widgetClasses,
-    R.groupBy(wc => wc.type.namespace.toLowerCase()),
+    R.groupBy(wc => R.toCamelCase(wc.type.namespace)),
     R.entries(),
     R.forEach(([namespace, namespaceClasses]) => {
       const widgetPath = `src/generated/widgets/${namespace}`;
@@ -37,16 +37,22 @@ async function main() {
       createDirectory(widgetTestsPath);
 
       for (const widgetClass of namespaceClasses) {
+        const filename = R.toCamelCase(widgetClass.name);
         writeGeneratedFile(
-          `${widgetPath}/${widgetClass.name}.tsx`,
+          `${widgetPath}/${filename}.tsx`,
           templates.widget(widgetClass)
         );
 
         writeGeneratedFile(
-          `${widgetTestsPath}/${widgetClass.name}.test.ts`,
+          `${widgetTestsPath}/${filename}.test.ts`,
           templates.widgetTest(widgetClass, gir)
         );
       }
+
+      writeGeneratedFile(
+        `${widgetPath}/widgets.ts`,
+        templates.widgetIndex(namespaceClasses)
+      );
     })
   );
 

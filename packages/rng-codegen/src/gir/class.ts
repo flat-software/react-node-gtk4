@@ -1,5 +1,5 @@
 import type {GirClassElement} from "@ts-for-gir/lib";
-import {last, uniqueBy} from "remeda";
+import * as R from "remeda";
 import {GirElement} from "./element.ts";
 import type {Import} from "./import.ts";
 import type {GirInterface} from "./interface.ts";
@@ -19,7 +19,7 @@ export class GirClass extends GirElement<GirClassElement> {
     }
 
     const parentName =
-      last(this.data.parents.filter(p => p.type === "parent"))
+      R.last(this.data.parents.filter(p => p.type === "parent"))
         ?.qualifiedParentName || "";
 
     return this._gir.findClassByName(parentName);
@@ -33,14 +33,19 @@ export class GirClass extends GirElement<GirClassElement> {
       };
     }
 
+    const moduleName =
+      this.parent.type.namespace === this.type.namespace
+        ? `./${R.toCamelCase(this.parent.name)}.js`
+        : `../${R.toCamelCase(this.parent.type.namespace)}/${R.toCamelCase(this.parent.name)}.js`;
+
     return {
       name: this.parent.name,
-      moduleName: `./${this.parent.type.namespace + this.parent.name}.js`,
+      moduleName,
     };
   }
 
   get typeDependencies() {
-    return (this._typeDependencies ||= uniqueBy(
+    return (this._typeDependencies ||= R.uniqueBy(
       [
         ...this.writableProps.map(prop => prop.type),
         ...this.signals.flatMap(signal => signal.typeDependencies),
@@ -78,7 +83,7 @@ export class GirClass extends GirElement<GirClassElement> {
   }
 
   get props() {
-    return (this._props ||= uniqueBy(
+    return (this._props ||= R.uniqueBy(
       [
         ...this.data.properties.map(p => new GirProperty(p, this, this._gir)),
         ...this.interfaces.flatMap(i => i.props),
@@ -88,7 +93,7 @@ export class GirClass extends GirElement<GirClassElement> {
   }
 
   get signals() {
-    return (this._signals ||= uniqueBy(
+    return (this._signals ||= R.uniqueBy(
       [
         ...this.data.signals.map(s => new GirSignal(s, this._gir)),
         ...this.interfaces.flatMap(i => i.signals),

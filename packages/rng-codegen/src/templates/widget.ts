@@ -8,7 +8,7 @@ export function widget(widgetClass: GirClass) {
   ts += `import {${widgetClass.parentImport.name}} from "${widgetClass.parentImport.moduleName}"\n`;
 
   if (widgetClass.isContainer) {
-    ts += `import {AbstractWidget} from "../../abstractWidget.js"\n`;
+    ts += `import {AbstractWidget} from "@/abstractWidget.js"\n`;
   }
 
   ts += `\n`;

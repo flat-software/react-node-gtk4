@@ -28,7 +28,6 @@ export function jsx(gir: Gir) {
     }
 
     for (const prop of widgetClass.writableProps) {
-      s;
       ts += `${prop.name}?: ${prop.type?.name}${
         prop.isArray ? "[]" : ""
       }${prop.isOptional ? " | null" : ""}\n`;

@@ -1,10 +1,10 @@
-import {Gir} from "../gir.ts";
+import {GirClass} from "../gir/class.ts";
 
-export function widgetIndex(gir: Gir) {
+export function widgetIndex(widgetClasses: readonly GirClass[]) {
   let ts = "";
 
-  for (const widgetClass of gir.widgetClasses) {
-    ts += `export { default as ${widgetClass.name} } from "./widgets/${widgetClass.name}.ts"\n`;
+  for (const widgetClass of widgetClasses) {
+    ts += `export * from "./${widgetClass.name}.js"\n`;
   }
 
   return ts;

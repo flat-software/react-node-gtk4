@@ -3,21 +3,16 @@ set -e
 
 # Resolve the renderer package directory once so we can prefix all paths.
 DEST_DIR="$(cd "$(dirname "$0")/../../rng-renderer/src/generated" && pwd)"
-TESTS_DIR="${DEST_DIR}/__tests__"
 
 # Clean up the generated files.
 rm -rf "${DEST_DIR}"
-rm -rf "${TESTS_DIR}"
-mkdir -p "${DEST_DIR}/widgets"
-mkdir -p "${TESTS_DIR}/widgets"
 
 # Generate the GIR types.
 yarn codegen:girs
-rm -f "${DEST_DIR}/girs/*-import.js"
+rm -f "${DEST_DIR}"/girs/*-import.*
 
 # Generate the Widget types.
 yarn codegen:widgets
 
 # Format the generated files.
 yarn prettier --write "${DEST_DIR}/**/*.{ts,tsx,js}" --ignore-path .prettierignore
-yarn prettier --write "${TESTS_DIR}/**/*.{ts,tsx,js}" --ignore-path .prettierignore
