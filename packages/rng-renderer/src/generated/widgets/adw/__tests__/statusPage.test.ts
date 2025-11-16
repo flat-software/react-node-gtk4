@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {StatusPage} from "@/generated/widgets.ts";
+import {StatusPage} from "../widgets.js";
 
 describe("StatusPage", () => {
   let widget: StatusPage;

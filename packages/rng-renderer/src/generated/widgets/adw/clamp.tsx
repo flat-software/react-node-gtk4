@@ -1,8 +1,8 @@
 import {AbstractWidget} from "@/abstractWidget.js";
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Widget} from "../gtk/widget.js";
+import {Widget as GtkWidget} from "../gtk/widget.js";
 
-export class Clamp<T extends Adw.Clamp = Adw.Clamp> extends Widget<T> {
+export class Clamp<T extends Adw.Clamp = Adw.Clamp> extends GtkWidget<T> {
   static createNode() {
     return new Adw.Clamp({});
   }

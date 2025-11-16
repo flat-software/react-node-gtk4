@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {DrawingArea} from "@/generated/widgets.ts";
+import {DrawingArea} from "../widgets.js";
 
 describe("DrawingArea", () => {
   let widget: DrawingArea;

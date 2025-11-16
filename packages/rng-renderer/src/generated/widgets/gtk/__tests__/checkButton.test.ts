@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {CheckButton} from "@/generated/widgets.ts";
+import {CheckButton} from "../widgets.js";
 
 describe("CheckButton", () => {
   let widget: CheckButton;

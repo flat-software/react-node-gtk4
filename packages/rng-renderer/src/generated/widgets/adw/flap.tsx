@@ -1,7 +1,7 @@
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Widget} from "../gtk/widget.js";
+import {Widget as GtkWidget} from "../gtk/widget.js";
 
-export class Flap<T extends Adw.Flap = Adw.Flap> extends Widget<T> {
+export class Flap<T extends Adw.Flap = Adw.Flap> extends GtkWidget<T> {
   static createNode() {
     return new Adw.Flap({});
   }

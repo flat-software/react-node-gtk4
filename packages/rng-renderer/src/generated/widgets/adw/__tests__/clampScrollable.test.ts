@@ -1,6 +1,6 @@
 import Adw from "@/generated/girs/node-adw-1.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {ClampScrollable} from "@/generated/widgets.ts";
+import {ClampScrollable} from "../widgets.js";
 
 describe("ClampScrollable", () => {
   let widget: ClampScrollable;

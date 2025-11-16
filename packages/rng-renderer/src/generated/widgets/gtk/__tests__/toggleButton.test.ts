@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {ToggleButton} from "@/generated/widgets.ts";
+import {ToggleButton} from "../widgets.js";
 
 describe("ToggleButton", () => {
   let widget: ToggleButton;

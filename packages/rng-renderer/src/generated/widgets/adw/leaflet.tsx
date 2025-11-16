@@ -1,7 +1,7 @@
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Widget} from "../gtk/widget.js";
+import {Widget as GtkWidget} from "../gtk/widget.js";
 
-export class Leaflet<T extends Adw.Leaflet = Adw.Leaflet> extends Widget<T> {
+export class Leaflet<T extends Adw.Leaflet = Adw.Leaflet> extends GtkWidget<T> {
   static createNode() {
     return new Adw.Leaflet({});
   }

@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {ColorButton} from "@/generated/widgets.ts";
+import {ColorButton} from "../widgets.js";
 
 describe("ColorButton", () => {
   let widget: ColorButton;

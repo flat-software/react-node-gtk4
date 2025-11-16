@@ -1,6 +1,6 @@
 import Adw from "@/generated/girs/node-adw-1.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {PreferencesPage} from "@/generated/widgets.ts";
+import {PreferencesPage} from "../widgets.js";
 
 describe("PreferencesPage", () => {
   let widget: PreferencesPage;

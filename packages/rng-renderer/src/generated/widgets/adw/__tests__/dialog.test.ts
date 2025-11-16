@@ -1,6 +1,6 @@
 import Adw from "@/generated/girs/node-adw-1.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Dialog} from "@/generated/widgets.ts";
+import {Dialog} from "../widgets.js";
 
 describe("Dialog", () => {
   let widget: Dialog;

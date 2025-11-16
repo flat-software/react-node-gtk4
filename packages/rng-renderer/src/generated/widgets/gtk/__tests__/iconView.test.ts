@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {IconView} from "@/generated/widgets.ts";
+import {IconView} from "../widgets.js";
 
 describe("IconView", () => {
   let widget: IconView;

@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Bin} from "@/generated/widgets.ts";
+import {Bin} from "../widgets.js";
 
 describe("Bin", () => {
   let widget: Bin;

@@ -1,6 +1,6 @@
 import Adw from "@/generated/girs/node-adw-1.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {TabBar} from "@/generated/widgets.ts";
+import {TabBar} from "../widgets.js";
 
 describe("TabBar", () => {
   let widget: TabBar;

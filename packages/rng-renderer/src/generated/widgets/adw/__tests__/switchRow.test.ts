@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {SwitchRow} from "@/generated/widgets.ts";
+import {SwitchRow} from "../widgets.js";
 
 describe("SwitchRow", () => {
   let widget: SwitchRow;

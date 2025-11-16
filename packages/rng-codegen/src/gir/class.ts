@@ -29,9 +29,15 @@ export class GirClass extends GirElement<GirClassElement> {
     if (!this.parent) {
       return {
         name: "AbstractWidget",
+        importName: "AbstractWidget",
         moduleName: "@/abstractWidget.js",
       };
     }
+
+    const importName =
+      this.parent.type.namespace === this.type.namespace
+        ? this.parent.name
+        : this.parent.type.namespace + this.parent.name;
 
     const moduleName =
       this.parent.type.namespace === this.type.namespace
@@ -40,6 +46,7 @@ export class GirClass extends GirElement<GirClassElement> {
 
     return {
       name: this.parent.name,
+      importName,
       moduleName,
     };
   }

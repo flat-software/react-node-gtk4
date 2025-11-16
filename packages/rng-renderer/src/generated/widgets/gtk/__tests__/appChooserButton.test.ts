@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {AppChooserButton} from "@/generated/widgets.ts";
+import {AppChooserButton} from "../widgets.js";
 
 describe("AppChooserButton", () => {
   let widget: AppChooserButton;

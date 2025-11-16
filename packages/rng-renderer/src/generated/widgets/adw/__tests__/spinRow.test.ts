@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {SpinRow} from "@/generated/widgets.ts";
+import {SpinRow} from "../widgets.js";
 
 describe("SpinRow", () => {
   let widget: SpinRow;

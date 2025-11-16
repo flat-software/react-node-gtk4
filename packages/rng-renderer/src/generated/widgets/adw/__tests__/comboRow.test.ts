@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {ComboRow} from "@/generated/widgets.ts";
+import {ComboRow} from "../widgets.js";
 
 describe("ComboRow", () => {
   let widget: ComboRow;

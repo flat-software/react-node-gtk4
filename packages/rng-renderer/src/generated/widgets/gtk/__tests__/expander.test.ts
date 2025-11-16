@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Expander} from "@/generated/widgets.ts";
+import {Expander} from "../widgets.js";
 
 describe("Expander", () => {
   let widget: Expander;

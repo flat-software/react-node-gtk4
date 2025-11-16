@@ -1,10 +1,10 @@
 import {AbstractWidget} from "@/abstractWidget.js";
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Widget} from "../gtk/widget.js";
+import {Widget as GtkWidget} from "../gtk/widget.js";
 
 export class ToastOverlay<
   T extends Adw.ToastOverlay = Adw.ToastOverlay,
-> extends Widget<T> {
+> extends GtkWidget<T> {
   static createNode() {
     return new Adw.ToastOverlay({});
   }

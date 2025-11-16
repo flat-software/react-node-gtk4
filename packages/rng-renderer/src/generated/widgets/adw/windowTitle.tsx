@@ -1,9 +1,9 @@
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Widget} from "../gtk/widget.js";
+import {Widget as GtkWidget} from "../gtk/widget.js";
 
 export class WindowTitle<
   T extends Adw.WindowTitle = Adw.WindowTitle,
-> extends Widget<T> {
+> extends GtkWidget<T> {
   static createNode() {
     return new Adw.WindowTitle({});
   }

@@ -1,9 +1,9 @@
 import Adw from "@/generated/girs/node-adw-1.js";
-import {ListBoxRow} from "../gtk/listBoxRow.js";
+import {ListBoxRow as GtkListBoxRow} from "../gtk/listBoxRow.js";
 
 export class PreferencesRow<
   T extends Adw.PreferencesRow = Adw.PreferencesRow,
-> extends ListBoxRow<T> {
+> extends GtkListBoxRow<T> {
   static createNode() {
     return new Adw.PreferencesRow({});
   }

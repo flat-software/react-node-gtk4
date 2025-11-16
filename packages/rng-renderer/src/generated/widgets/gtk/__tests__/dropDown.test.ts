@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {DropDown} from "@/generated/widgets.ts";
+import {DropDown} from "../widgets.js";
 
 describe("DropDown", () => {
   let widget: DropDown;

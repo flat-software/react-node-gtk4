@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Overlay} from "@/generated/widgets.ts";
+import {Overlay} from "../widgets.js";
 
 describe("Overlay", () => {
   let widget: Overlay;

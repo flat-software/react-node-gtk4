@@ -1,9 +1,9 @@
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Widget} from "../gtk/widget.js";
+import {Widget as GtkWidget} from "../gtk/widget.js";
 
 export class HeaderBar<
   T extends Adw.HeaderBar = Adw.HeaderBar,
-> extends Widget<T> {
+> extends GtkWidget<T> {
   static createNode() {
     return new Adw.HeaderBar({});
   }

@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {ShortcutsGroup} from "@/generated/widgets.ts";
+import {ShortcutsGroup} from "../widgets.js";
 
 describe("ShortcutsGroup", () => {
   let widget: ShortcutsGroup;

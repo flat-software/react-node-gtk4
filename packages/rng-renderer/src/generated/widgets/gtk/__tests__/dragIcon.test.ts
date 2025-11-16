@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {DragIcon} from "@/generated/widgets.ts";
+import {DragIcon} from "../widgets.js";
 
 describe("DragIcon", () => {
   let widget: DragIcon;

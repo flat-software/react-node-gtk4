@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {FontChooserWidget} from "@/generated/widgets.ts";
+import {FontChooserWidget} from "../widgets.js";
 
 describe("FontChooserWidget", () => {
   let widget: FontChooserWidget;

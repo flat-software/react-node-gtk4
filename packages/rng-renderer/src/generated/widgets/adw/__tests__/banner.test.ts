@@ -1,6 +1,6 @@
 import Adw from "@/generated/girs/node-adw-1.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Banner} from "@/generated/widgets.ts";
+import {Banner} from "../widgets.js";
 
 describe("Banner", () => {
   let widget: Banner;

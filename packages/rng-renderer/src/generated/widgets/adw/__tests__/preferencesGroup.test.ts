@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {PreferencesGroup} from "@/generated/widgets.ts";
+import {PreferencesGroup} from "../widgets.js";
 
 describe("PreferencesGroup", () => {
   let widget: PreferencesGroup;

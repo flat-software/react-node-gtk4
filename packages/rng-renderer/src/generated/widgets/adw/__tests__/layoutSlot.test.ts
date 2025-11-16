@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {LayoutSlot} from "@/generated/widgets.ts";
+import {LayoutSlot} from "../widgets.js";
 
 describe("LayoutSlot", () => {
   let widget: LayoutSlot;

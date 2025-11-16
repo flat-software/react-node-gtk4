@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {BreakpointBin} from "@/generated/widgets.ts";
+import {BreakpointBin} from "../widgets.js";
 
 describe("BreakpointBin", () => {
   let widget: BreakpointBin;

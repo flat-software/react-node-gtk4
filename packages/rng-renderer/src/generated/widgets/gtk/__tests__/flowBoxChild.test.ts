@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {FlowBoxChild} from "@/generated/widgets.ts";
+import {FlowBoxChild} from "../widgets.js";
 
 describe("FlowBoxChild", () => {
   let widget: FlowBoxChild;

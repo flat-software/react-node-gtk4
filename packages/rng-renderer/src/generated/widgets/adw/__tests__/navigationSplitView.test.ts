@@ -1,6 +1,6 @@
 import Adw from "@/generated/girs/node-adw-1.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {NavigationSplitView} from "@/generated/widgets.ts";
+import {NavigationSplitView} from "../widgets.js";
 
 describe("NavigationSplitView", () => {
   let widget: NavigationSplitView;

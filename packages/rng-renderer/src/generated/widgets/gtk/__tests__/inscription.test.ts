@@ -1,6 +1,6 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import Pango from "@/generated/girs/node-pango-1.0.js";
-import {Inscription} from "@/generated/widgets.ts";
+import {Inscription} from "../widgets.js";
 
 describe("Inscription", () => {
   let widget: Inscription;

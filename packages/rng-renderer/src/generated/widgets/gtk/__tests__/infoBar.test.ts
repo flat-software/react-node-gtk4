@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {InfoBar} from "@/generated/widgets.ts";
+import {InfoBar} from "../widgets.js";
 
 describe("InfoBar", () => {
   let widget: InfoBar;

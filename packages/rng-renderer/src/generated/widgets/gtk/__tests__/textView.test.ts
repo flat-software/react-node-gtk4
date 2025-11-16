@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {TextView} from "@/generated/widgets.ts";
+import {TextView} from "../widgets.js";
 
 describe("TextView", () => {
   let widget: TextView;

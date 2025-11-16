@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Spinner} from "@/generated/widgets.ts";
+import {Spinner} from "../widgets.js";
 
 describe("Spinner", () => {
   let widget: Spinner;

@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {FileChooserDialog} from "@/generated/widgets.ts";
+import {FileChooserDialog} from "../widgets.js";
 
 describe("FileChooserDialog", () => {
   let widget: FileChooserDialog;

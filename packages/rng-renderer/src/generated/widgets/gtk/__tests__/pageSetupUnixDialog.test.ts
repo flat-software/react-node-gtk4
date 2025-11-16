@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {PageSetupUnixDialog} from "@/generated/widgets.ts";
+import {PageSetupUnixDialog} from "../widgets.js";
 
 describe("PageSetupUnixDialog", () => {
   let widget: PageSetupUnixDialog;

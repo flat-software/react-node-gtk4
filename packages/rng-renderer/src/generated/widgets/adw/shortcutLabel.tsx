@@ -1,9 +1,9 @@
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Widget} from "../gtk/widget.js";
+import {Widget as GtkWidget} from "../gtk/widget.js";
 
 export class ShortcutLabel<
   T extends Adw.ShortcutLabel = Adw.ShortcutLabel,
-> extends Widget<T> {
+> extends GtkWidget<T> {
   static createNode() {
     return new Adw.ShortcutLabel({});
   }

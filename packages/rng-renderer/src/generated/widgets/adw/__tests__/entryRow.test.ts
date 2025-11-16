@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {EntryRow} from "@/generated/widgets.ts";
+import {EntryRow} from "../widgets.js";
 
 describe("EntryRow", () => {
   let widget: EntryRow;

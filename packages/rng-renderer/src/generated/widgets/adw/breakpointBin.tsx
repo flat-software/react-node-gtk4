@@ -1,10 +1,10 @@
 import {AbstractWidget} from "@/abstractWidget.js";
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Widget} from "../gtk/widget.js";
+import {Widget as GtkWidget} from "../gtk/widget.js";
 
 export class BreakpointBin<
   T extends Adw.BreakpointBin = Adw.BreakpointBin,
-> extends Widget<T> {
+> extends GtkWidget<T> {
   static createNode() {
     return new Adw.BreakpointBin({});
   }

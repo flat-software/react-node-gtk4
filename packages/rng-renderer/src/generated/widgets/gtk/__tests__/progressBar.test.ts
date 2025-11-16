@@ -1,6 +1,6 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import Pango from "@/generated/girs/node-pango-1.0.js";
-import {ProgressBar} from "@/generated/widgets.ts";
+import {ProgressBar} from "../widgets.js";
 
 describe("ProgressBar", () => {
   let widget: ProgressBar;

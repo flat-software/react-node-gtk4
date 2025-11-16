@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {ToggleGroup} from "@/generated/widgets.ts";
+import {ToggleGroup} from "../widgets.js";
 
 describe("ToggleGroup", () => {
   let widget: ToggleGroup;

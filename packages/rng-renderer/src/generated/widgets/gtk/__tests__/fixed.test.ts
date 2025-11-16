@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Fixed} from "@/generated/widgets.ts";
+import {Fixed} from "../widgets.js";
 
 describe("Fixed", () => {
   let widget: Fixed;

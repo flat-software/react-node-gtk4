@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Frame} from "@/generated/widgets.ts";
+import {Frame} from "../widgets.js";
 
 describe("Frame", () => {
   let widget: Frame;

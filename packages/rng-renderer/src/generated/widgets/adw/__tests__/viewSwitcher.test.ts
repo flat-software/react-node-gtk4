@@ -1,6 +1,6 @@
 import Adw from "@/generated/girs/node-adw-1.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {ViewSwitcher} from "@/generated/widgets.ts";
+import {ViewSwitcher} from "../widgets.js";
 
 describe("ViewSwitcher", () => {
   let widget: ViewSwitcher;

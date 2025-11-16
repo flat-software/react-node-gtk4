@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {LinkButton} from "@/generated/widgets.ts";
+import {LinkButton} from "../widgets.js";
 
 describe("LinkButton", () => {
   let widget: LinkButton;

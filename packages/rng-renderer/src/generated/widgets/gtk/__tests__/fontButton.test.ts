@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {FontButton} from "@/generated/widgets.ts";
+import {FontButton} from "../widgets.js";
 
 describe("FontButton", () => {
   let widget: FontButton;

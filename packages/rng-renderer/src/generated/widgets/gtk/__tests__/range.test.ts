@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Range} from "@/generated/widgets.ts";
+import {Range} from "../widgets.js";
 
 describe("Range", () => {
   let widget: Range;

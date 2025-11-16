@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {TreeView} from "@/generated/widgets.ts";
+import {TreeView} from "../widgets.js";
 
 describe("TreeView", () => {
   let widget: TreeView;

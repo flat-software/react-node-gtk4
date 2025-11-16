@@ -1,7 +1,7 @@
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Window} from "../gtk/window.js";
+import {Window as GtkWindow} from "../gtk/window.js";
 
-export class Window<T extends Adw.Window = Adw.Window> extends Window<T> {
+export class Window<T extends Adw.Window = Adw.Window> extends GtkWindow<T> {
   static createNode() {
     return new Adw.Window({});
   }

@@ -9,7 +9,7 @@ rm -rf "${DEST_DIR}"
 
 # Generate the GIR types.
 yarn codegen:girs
-rm -f "${DEST_DIR}"/girs/*-import.*
+rm -f "${DEST_DIR}"/girs/*-import.js*
 
 # Generate the Widget types.
 yarn codegen:widgets

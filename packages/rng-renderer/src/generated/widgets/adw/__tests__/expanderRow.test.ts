@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {ExpanderRow} from "@/generated/widgets.ts";
+import {ExpanderRow} from "../widgets.js";
 
 describe("ExpanderRow", () => {
   let widget: ExpanderRow;

@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Paned} from "@/generated/widgets.ts";
+import {Paned} from "../widgets.js";
 
 describe("Paned", () => {
   let widget: Paned;

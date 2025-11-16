@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {NavigationView} from "@/generated/widgets.ts";
+import {NavigationView} from "../widgets.js";
 
 describe("NavigationView", () => {
   let widget: NavigationView;

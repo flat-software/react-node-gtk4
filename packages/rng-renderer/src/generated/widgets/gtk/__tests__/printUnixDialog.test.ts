@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {PrintUnixDialog} from "@/generated/widgets.ts";
+import {PrintUnixDialog} from "../widgets.js";
 
 describe("PrintUnixDialog", () => {
   let widget: PrintUnixDialog;

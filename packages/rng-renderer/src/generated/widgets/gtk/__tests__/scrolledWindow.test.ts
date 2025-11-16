@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {ScrolledWindow} from "@/generated/widgets.ts";
+import {ScrolledWindow} from "../widgets.js";
 
 describe("ScrolledWindow", () => {
   let widget: ScrolledWindow;

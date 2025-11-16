@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {BottomSheet} from "@/generated/widgets.ts";
+import {BottomSheet} from "../widgets.js";
 
 describe("BottomSheet", () => {
   let widget: BottomSheet;

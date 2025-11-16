@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Assistant} from "@/generated/widgets.ts";
+import {Assistant} from "../widgets.js";
 
 describe("Assistant", () => {
   let widget: Assistant;

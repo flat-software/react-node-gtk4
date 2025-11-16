@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {MenuButton} from "@/generated/widgets.ts";
+import {MenuButton} from "../widgets.js";
 
 describe("MenuButton", () => {
   let widget: MenuButton;

@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {ComboBox} from "@/generated/widgets.ts";
+import {ComboBox} from "../widgets.js";
 
 describe("ComboBox", () => {
   let widget: ComboBox;

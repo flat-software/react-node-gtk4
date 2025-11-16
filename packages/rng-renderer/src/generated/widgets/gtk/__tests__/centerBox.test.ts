@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {CenterBox} from "@/generated/widgets.ts";
+import {CenterBox} from "../widgets.js";
 
 describe("CenterBox", () => {
   let widget: CenterBox;

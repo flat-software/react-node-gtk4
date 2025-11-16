@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {PopoverMenuBar} from "@/generated/widgets.ts";
+import {PopoverMenuBar} from "../widgets.js";
 
 describe("PopoverMenuBar", () => {
   let widget: PopoverMenuBar;

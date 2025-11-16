@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Revealer} from "@/generated/widgets.ts";
+import {Revealer} from "../widgets.js";
 
 describe("Revealer", () => {
   let widget: Revealer;

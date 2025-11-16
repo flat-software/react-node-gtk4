@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {MultiLayoutView} from "@/generated/widgets.ts";
+import {MultiLayoutView} from "../widgets.js";
 
 describe("MultiLayoutView", () => {
   let widget: MultiLayoutView;

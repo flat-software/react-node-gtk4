@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {ListBox} from "@/generated/widgets.ts";
+import {ListBox} from "../widgets.js";
 
 describe("ListBox", () => {
   let widget: ListBox;

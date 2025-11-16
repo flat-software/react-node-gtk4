@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Scale} from "@/generated/widgets.ts";
+import {Scale} from "../widgets.js";
 
 describe("Scale", () => {
   let widget: Scale;

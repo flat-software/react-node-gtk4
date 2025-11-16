@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {StackSidebar} from "@/generated/widgets.ts";
+import {StackSidebar} from "../widgets.js";
 
 describe("StackSidebar", () => {
   let widget: StackSidebar;

@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {SearchBar} from "@/generated/widgets.ts";
+import {SearchBar} from "../widgets.js";
 
 describe("SearchBar", () => {
   let widget: SearchBar;

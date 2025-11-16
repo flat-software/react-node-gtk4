@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {PreferencesDialog} from "@/generated/widgets.ts";
+import {PreferencesDialog} from "../widgets.js";
 
 describe("PreferencesDialog", () => {
   let widget: PreferencesDialog;

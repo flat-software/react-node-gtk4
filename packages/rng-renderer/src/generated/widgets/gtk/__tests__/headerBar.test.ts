@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {HeaderBar} from "@/generated/widgets.ts";
+import {HeaderBar} from "../widgets.js";
 
 describe("HeaderBar", () => {
   let widget: HeaderBar;

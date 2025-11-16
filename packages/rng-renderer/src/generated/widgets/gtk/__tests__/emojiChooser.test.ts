@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {EmojiChooser} from "@/generated/widgets.ts";
+import {EmojiChooser} from "../widgets.js";
 
 describe("EmojiChooser", () => {
   let widget: EmojiChooser;

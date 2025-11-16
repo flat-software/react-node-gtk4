@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {LevelBar} from "@/generated/widgets.ts";
+import {LevelBar} from "../widgets.js";
 
 describe("LevelBar", () => {
   let widget: LevelBar;

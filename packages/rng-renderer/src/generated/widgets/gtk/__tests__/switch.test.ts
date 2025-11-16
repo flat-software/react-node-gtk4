@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Switch} from "@/generated/widgets.ts";
+import {Switch} from "../widgets.js";
 
 describe("Switch", () => {
   let widget: Switch;

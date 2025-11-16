@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Scrollbar} from "@/generated/widgets.ts";
+import {Scrollbar} from "../widgets.js";
 
 describe("Scrollbar", () => {
   let widget: Scrollbar;

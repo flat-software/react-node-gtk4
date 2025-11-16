@@ -1,7 +1,7 @@
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Widget} from "../gtk/widget.js";
+import {Widget as GtkWidget} from "../gtk/widget.js";
 
-export class TabView<T extends Adw.TabView = Adw.TabView> extends Widget<T> {
+export class TabView<T extends Adw.TabView = Adw.TabView> extends GtkWidget<T> {
   static createNode() {
     return new Adw.TabView({});
   }

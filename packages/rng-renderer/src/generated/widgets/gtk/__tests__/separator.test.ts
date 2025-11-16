@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Separator} from "@/generated/widgets.ts";
+import {Separator} from "../widgets.js";
 
 describe("Separator", () => {
   let widget: Separator;

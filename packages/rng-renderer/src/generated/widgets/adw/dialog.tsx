@@ -1,8 +1,8 @@
 import {AbstractWidget} from "@/abstractWidget.js";
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Widget} from "../gtk/widget.js";
+import {Widget as GtkWidget} from "../gtk/widget.js";
 
-export class Dialog<T extends Adw.Dialog = Adw.Dialog> extends Widget<T> {
+export class Dialog<T extends Adw.Dialog = Adw.Dialog> extends GtkWidget<T> {
   static createNode() {
     return new Adw.Dialog({});
   }

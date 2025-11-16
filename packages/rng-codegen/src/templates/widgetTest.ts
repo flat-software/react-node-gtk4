@@ -97,7 +97,7 @@ function getTestValue(prop: GirProperty, gir: Gir) {
 export function widgetTest(widgetClass: GirClass, gir: Gir) {
   let ts = "";
 
-  ts += `import { ${widgetClass.name} } from "@/generated/widgets.ts"\n`;
+  ts += `import { ${widgetClass.name} } from "../widgets.js"\n`;
 
   for (const type of widgetClass.typeDependencies) {
     ts += `import ${type.import_.name} from "${type.import_.moduleName}"\n`;

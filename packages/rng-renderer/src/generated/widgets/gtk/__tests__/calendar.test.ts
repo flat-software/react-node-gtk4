@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Calendar} from "@/generated/widgets.ts";
+import {Calendar} from "../widgets.js";
 
 describe("Calendar", () => {
   let widget: Calendar;

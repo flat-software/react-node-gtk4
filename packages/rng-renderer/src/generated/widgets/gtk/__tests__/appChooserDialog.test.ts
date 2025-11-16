@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {AppChooserDialog} from "@/generated/widgets.ts";
+import {AppChooserDialog} from "../widgets.js";
 
 describe("AppChooserDialog", () => {
   let widget: AppChooserDialog;

@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {ActionRow} from "@/generated/widgets.ts";
+import {ActionRow} from "../widgets.js";
 
 describe("ActionRow", () => {
   let widget: ActionRow;

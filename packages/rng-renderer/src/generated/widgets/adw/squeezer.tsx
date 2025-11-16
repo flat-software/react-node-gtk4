@@ -1,7 +1,9 @@
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Widget} from "../gtk/widget.js";
+import {Widget as GtkWidget} from "../gtk/widget.js";
 
-export class Squeezer<T extends Adw.Squeezer = Adw.Squeezer> extends Widget<T> {
+export class Squeezer<
+  T extends Adw.Squeezer = Adw.Squeezer,
+> extends GtkWidget<T> {
   static createNode() {
     return new Adw.Squeezer({});
   }

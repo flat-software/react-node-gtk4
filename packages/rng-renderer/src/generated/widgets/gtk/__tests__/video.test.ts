@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Video} from "@/generated/widgets.ts";
+import {Video} from "../widgets.js";
 
 describe("Video", () => {
   let widget: Video;

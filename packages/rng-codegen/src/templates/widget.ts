@@ -5,7 +5,7 @@ export function widget(widgetClass: GirClass) {
   let ts = "";
 
   ts += `import ${widgetClass.type.import_.name} from "${widgetClass.type.import_.moduleName}"\n`;
-  ts += `import {${widgetClass.parentImport.name}} from "${widgetClass.parentImport.moduleName}"\n`;
+  ts += `import {${widgetClass.parentImport.name} as ${widgetClass.parentImport.importName}} from "${widgetClass.parentImport.moduleName}"\n`;
 
   if (widgetClass.isContainer) {
     ts += `import {AbstractWidget} from "@/abstractWidget.js"\n`;
@@ -15,7 +15,7 @@ export function widget(widgetClass: GirClass) {
   ts += `export class ${widgetClass.name}<`;
   ts += `  T extends ${widgetClass.type.name} = ${widgetClass.type.name}`;
   ts += `> `;
-  ts += `extends ${widgetClass.parentImport.name}<T> {\n`;
+  ts += `extends ${widgetClass.parentImport.importName}<T> {\n`;
 
   ts += `  static createNode(${
     widgetClass.constructOnlyProps.length > 0

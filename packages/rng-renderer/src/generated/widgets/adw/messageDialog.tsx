@@ -1,9 +1,9 @@
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Window} from "../gtk/window.js";
+import {Window as GtkWindow} from "../gtk/window.js";
 
 export class MessageDialog<
   T extends Adw.MessageDialog = Adw.MessageDialog,
-> extends Window<T> {
+> extends GtkWindow<T> {
   static createNode() {
     return new Adw.MessageDialog({});
   }

@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Image} from "@/generated/widgets.ts";
+import {Image} from "../widgets.js";
 
 describe("Image", () => {
   let widget: Image;

@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {GridView} from "@/generated/widgets.ts";
+import {GridView} from "../widgets.js";
 
 describe("GridView", () => {
   let widget: GridView;

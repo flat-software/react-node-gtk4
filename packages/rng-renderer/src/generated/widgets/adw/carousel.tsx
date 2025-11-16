@@ -1,7 +1,9 @@
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Widget} from "../gtk/widget.js";
+import {Widget as GtkWidget} from "../gtk/widget.js";
 
-export class Carousel<T extends Adw.Carousel = Adw.Carousel> extends Widget<T> {
+export class Carousel<
+  T extends Adw.Carousel = Adw.Carousel,
+> extends GtkWidget<T> {
   static createNode() {
     return new Adw.Carousel({});
   }

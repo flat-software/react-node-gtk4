@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {GraphicsOffload} from "@/generated/widgets.ts";
+import {GraphicsOffload} from "../widgets.js";
 
 describe("GraphicsOffload", () => {
   let widget: GraphicsOffload;

@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {AspectFrame} from "@/generated/widgets.ts";
+import {AspectFrame} from "../widgets.js";
 
 describe("AspectFrame", () => {
   let widget: AspectFrame;

@@ -1,9 +1,9 @@
 import Adw from "@/generated/girs/node-adw-1.js";
-import {Widget} from "../gtk/widget.js";
+import {Widget as GtkWidget} from "../gtk/widget.js";
 
 export class ViewSwitcherTitle<
   T extends Adw.ViewSwitcherTitle = Adw.ViewSwitcherTitle,
-> extends Widget<T> {
+> extends GtkWidget<T> {
   static createNode() {
     return new Adw.ViewSwitcherTitle({});
   }

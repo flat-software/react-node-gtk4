@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {PasswordEntry} from "@/generated/widgets.ts";
+import {PasswordEntry} from "../widgets.js";
 
 describe("PasswordEntry", () => {
   let widget: PasswordEntry;

@@ -1,5 +1,5 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import {Viewport} from "@/generated/widgets.ts";
+import {Viewport} from "../widgets.js";
 
 describe("Viewport", () => {
   let widget: Viewport;
