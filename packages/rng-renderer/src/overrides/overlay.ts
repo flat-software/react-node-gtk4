@@ -1,5 +1,5 @@
-import AbstractWidget from "../abstractWidget.js";
-import Overlay from "../generated/widgets/Overlay.js";
+import {AbstractWidget} from "@/abstractWidget.js";
+import {Overlay} from "@/generated/widgets/gtk/overlay.js";
 
 const parent = {
   appendChild: AbstractWidget.prototype.appendChild,

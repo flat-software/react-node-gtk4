@@ -1,5 +1,5 @@
-import AbstractWidget from "../abstractWidget.js";
-import Box from "../generated/widgets/Box.js";
+import {AbstractWidget} from "@/abstractWidget.js";
+import {Box} from "@/generated/widgets/gtk/box.js";
 
 const parent = {
   appendChild: Box.prototype.appendChild,
@@ -30,7 +30,7 @@ Box.prototype.insertBefore = function (
   if (afterIndex < 0) {
     this.node.prepend(child.node);
   } else {
-    const afterChild = this.children[afterIndex];
+    const afterChild = this.children[afterIndex]!;
     this.node.insertChildAfter(child.node, afterChild.node);
   }
 

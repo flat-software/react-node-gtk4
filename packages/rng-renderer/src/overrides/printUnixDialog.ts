@@ -1,11 +1,11 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import AboutDialog from "../generated/widgets/AboutDialog.js";
+import {PrintUnixDialog} from "@/generated/widgets/gtk/printUnixDialog.js";
 
 const parent = {
-  commitMount: AboutDialog.prototype.commitMount,
+  commitMount: PrintUnixDialog.prototype.commitMount,
 };
 
-AboutDialog.prototype.commitMount = function (this: AboutDialog) {
+PrintUnixDialog.prototype.commitMount = function (this: PrintUnixDialog) {
   parent.commitMount.call(this);
 
   const application = this.getClosestParentOfType(Gtk.Application);

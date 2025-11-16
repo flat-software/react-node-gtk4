@@ -2,17 +2,16 @@ import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import _ from "lodash";
 import ReactReconciler, {HostConfig} from "react-reconciler";
 import {DefaultEventPriority} from "react-reconciler/constants.js";
-import * as widgets from "./generated/widgets.js";
-import Label from "./generated/widgets/Label.js";
-import Widget from "./generated/widgets/Widget.js";
+import {Label} from "./generated/widgets/gtk/label.js";
+import {Widget} from "./generated/widgets/gtk/widget.js";
 import Node from "./node.js";
 
-type ElementType = keyof typeof widgets;
+type ElementType = never;
 type UpdatePayload = [string, any][];
 
-type WidgetConstructor = typeof Widget & {
-  createNode(props: Record<string, any>): Gtk.Widget;
-};
+// type WidgetConstructor = typeof Widget & {
+//   createNode(props: Record<string, any>): Gtk.Widget;
+// };
 
 function definedProps(obj: Record<string, any>) {
   return _.omitBy(
@@ -21,15 +20,15 @@ function definedProps(obj: Record<string, any>) {
   );
 }
 
-export function getWidgetClass(type: string): WidgetConstructor {
-  const Widget = widgets[type as keyof typeof widgets];
+// export function getWidgetClass(type: string): WidgetConstructor {
+//   const Widget = widgets[type as keyof typeof widgets];
 
-  if (!Widget) {
-    throw new Error(`Unknown widget type: ${type}`);
-  }
+//   if (!Widget) {
+//     throw new Error(`Unknown widget type: ${type}`);
+//   }
 
-  return Widget as WidgetConstructor;
-}
+//   return Widget as WidgetConstructor;
+// }
 
 const hostConfig: HostConfig<
   ElementType,
@@ -52,11 +51,12 @@ const hostConfig: HostConfig<
   supportsHydration: false,
   isPrimaryRenderer: true,
   noTimeout: -1,
-  createInstance(type, instanceProps) {
-    const Widget = getWidgetClass(type);
-    const props = definedProps(instanceProps);
-    const node = Widget.createNode(props);
-    return new Widget(props, node);
+  createInstance(_type, _instanceProps) {
+    throw new Error("No intrinsic types.");
+    // const Widget = getWidgetClass(type);
+    // const props = definedProps(instanceProps);
+    // const node = Widget.createNode(props);
+    // return new Widget(props, node);
   },
   createTextInstance(text) {
     const node = Label.createNode();

@@ -1,17 +1,17 @@
-import Entry from "../generated/widgets/Entry.js"
+import {Entry} from "@/generated/widgets/gtk/entry.js";
 
 const parent = {
   set: Entry.prototype.set,
-}
+};
 
 Entry.prototype.set = function (this: Entry, propName: string, value: any) {
   if (propName === "text") {
     if (this.node.text !== value) {
-      this.node.setText(value)
+      this.node.setText(value);
     }
 
-    return
+    return;
   }
 
-  parent.set.call(this, propName, value)
-}
+  parent.set.call(this, propName, value);
+};

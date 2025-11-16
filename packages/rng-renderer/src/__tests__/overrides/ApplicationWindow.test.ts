@@ -1,14 +1,14 @@
-import ApplicationWindow from "@/generated/widgets/ApplicationWindow.js"
-import "@/overrides/ApplicationWindow.js"
+import ApplicationWindow from "@/generated/widgets/ApplicationWindow.js";
+import "@/overrides/applicationWindow.js";
 
 describe("ApplicationWindow overrides", () => {
   describe("commitMount", () => {
     test("should present node", () => {
-      const window = new ApplicationWindow({}, ApplicationWindow.createNode())
+      const window = new ApplicationWindow({}, ApplicationWindow.createNode());
 
-      window.commitMount()
+      window.commitMount();
 
-      expect(window.node.present).toHaveBeenCalled()
-    })
-  })
-})
+      expect(window.node.present).toHaveBeenCalled();
+    });
+  });
+});

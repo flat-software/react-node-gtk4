@@ -1,22 +1,22 @@
-import AbstractWidget from "../abstractWidget.js";
-import ListBox from "../generated/widgets/ListBox.js";
+import {AbstractWidget} from "@/abstractWidget.js";
+import {FlowBox} from "@/generated/widgets/gtk/flowBox.js";
 
 const parent = {
-  appendChild: ListBox.prototype.appendChild,
-  removeChild: ListBox.prototype.removeChild,
-  insertBefore: ListBox.prototype.insertBefore,
+  appendChild: FlowBox.prototype.appendChild,
+  removeChild: FlowBox.prototype.removeChild,
+  insertBefore: FlowBox.prototype.insertBefore,
 };
 
-ListBox.prototype.appendChild = function (
-  this: ListBox,
+FlowBox.prototype.appendChild = function (
+  this: FlowBox,
   child: AbstractWidget
 ) {
   parent.appendChild.call(this, child);
   this.node.append(child.node);
 };
 
-ListBox.prototype.removeChild = function (
-  this: ListBox,
+FlowBox.prototype.removeChild = function (
+  this: FlowBox,
   child: AbstractWidget
 ) {
   parent.removeChild.call(this, child);
@@ -26,8 +26,8 @@ ListBox.prototype.removeChild = function (
   }
 };
 
-ListBox.prototype.insertBefore = function (
-  this: ListBox,
+FlowBox.prototype.insertBefore = function (
+  this: FlowBox,
   child: AbstractWidget,
   beforeChild: AbstractWidget
 ) {

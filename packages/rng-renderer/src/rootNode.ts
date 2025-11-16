@@ -1,8 +1,8 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
 import Application from "./application.js";
-import Widget from "./generated/widgets/Widget.js";
+import {Widget} from "./generated/widgets/gtk/widget.js";
 import Node from "./node.js";
-import {getWidgetClass} from "./reconciler.js";
+// import {getWidgetClass} from "./reconciler.js";
 
 export const ROOT_NODE_KEY = Symbol("react-node-gtk4.rootNode");
 
@@ -22,9 +22,9 @@ export function createRootNode<T>(node: WithRootNode<T>): RootNode<T> {
   if (!rootNode) {
     if (node instanceof Gtk.Application) {
       rootNode = new Application(node) as RootNode<T>;
-    } else if (node instanceof Gtk.Widget) {
-      const Widget = getWidgetClass(node.constructor.name.replace(/^Gtk/, ""));
-      rootNode = new Widget({}, node) as RootNode<T>;
+      // } else if (node instanceof Gtk.Widget) {
+      //   const Widget = getWidgetClass(node.constructor.name.replace(/^Gtk/, ""));
+      //   rootNode = new Widget({}, node) as RootNode<T>;
     } else {
       rootNode = new Node(node) as RootNode<T>;
     }

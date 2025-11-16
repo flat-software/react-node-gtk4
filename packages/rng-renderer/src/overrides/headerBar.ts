@@ -1,5 +1,5 @@
-import AbstractWidget from "../abstractWidget.js";
-import HeaderBar from "../generated/widgets/HeaderBar.js";
+import {AbstractWidget} from "@/abstractWidget.js";
+import {HeaderBar} from "@/generated/widgets/gtk/headerBar.js";
 
 const parent = {
   appendChild: HeaderBar.prototype.appendChild,

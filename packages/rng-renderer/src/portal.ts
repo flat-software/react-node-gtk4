@@ -1,9 +1,9 @@
-import { ReactPortal } from "react"
-import Gtk from "@/generated/girs/node-gtk-4.0.js"
-import Gio from "@/generated/girs/node-gio-2.0"
-import { createRootNode } from "./rootNode.js"
+import Gio from "@/generated/girs/node-gio-2.0.js";
+import Gtk from "@/generated/girs/node-gtk-4.0.js";
+import {ReactPortal} from "react";
+import {createRootNode} from "./rootNode.js";
 
-export const REACT_PORTAL_TYPE = Symbol.for("react.portal")
+export const REACT_PORTAL_TYPE = Symbol.for("react.portal");
 
 function createPortalImpl(
   children: React.ReactNode,
@@ -17,7 +17,7 @@ function createPortalImpl(
     children,
     containerInfo,
     implementation,
-  } as unknown as ReactPortal
+  } as unknown as ReactPortal;
 }
 
 export function createPortal<T = Gtk.Application>(
@@ -26,8 +26,8 @@ export function createPortal<T = Gtk.Application>(
   key: string | null = null
 ): ReactPortal {
   if (rootNode == null) {
-    throw new Error("Cannot create a portal without a root node")
+    throw new Error("Cannot create a portal without a root node");
   }
 
-  return createPortalImpl(children, createRootNode(rootNode), null, key)
+  return createPortalImpl(children, createRootNode(rootNode), null, key);
 }
