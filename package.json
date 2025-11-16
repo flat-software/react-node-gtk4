@@ -9,7 +9,8 @@
   ],
   "scripts": {
     "ts": "tsc --build --watch",
-    "build": "tsc --build"
+    "build": "tsc --build",
+    "rng-codegen:codegen": "yarn workspace @react-node-gtk4/codegen codegen"
   },
   "devDependencies": {
     "prettier": "3.6.2",

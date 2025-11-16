@@ -145,7 +145,7 @@ export function widgetTest(widgetClass: GirClass, gir: Gir) {
 
     const expectedProps = widgetClass.constructOnlyProps.reduce(
       (acc, prop) => {
-        acc[underscore(prop.rawName)] = `props.${prop.jsxName}`;
+        acc[underscore(prop.rawName)] = `props.${prop.name}`;
         return acc;
       },
       {} as Record<string, string>
