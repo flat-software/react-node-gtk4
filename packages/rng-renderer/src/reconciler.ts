@@ -1,7 +1,7 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import _ from "lodash";
 import ReactReconciler, {HostConfig} from "react-reconciler";
 import {DefaultEventPriority} from "react-reconciler/constants.js";
+import * as R from "remeda";
 import * as widgets from "./generated/widgets.js";
 import {Label} from "./generated/widgets/label.js";
 import {Widget} from "./generated/widgets/widget.js";
@@ -15,7 +15,7 @@ type WidgetConstructor = typeof Widget & {
 };
 
 function definedProps(obj: Record<string, any>) {
-  return _.omitBy(
+  return R.omitBy(
     obj,
     (value, key) => value === undefined || key === "children"
   );

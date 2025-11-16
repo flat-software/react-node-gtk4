@@ -1,5 +1,4 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import _ from "lodash";
 import {
   ForwardedRef,
   forwardRef,
@@ -8,6 +7,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import * as R from "remeda";
 import {ColumnView} from "../generated/intrinsics.js";
 import useForwardedRef from "../hooks/useForwardedRef.js";
 import useListItemFactory from "../hooks/useListItemFactory.js";
@@ -65,7 +65,7 @@ const Column = memo(function ColumnComponent<T>({
   }, []);
 
   return null;
-}, _.isEqual);
+}, R.isDeepEqual);
 
 export default forwardRef<Gtk.ColumnView, Props<any>>(
   function ColumnViewComponent<T>(

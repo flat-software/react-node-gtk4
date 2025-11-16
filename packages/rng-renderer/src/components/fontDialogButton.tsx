@@ -1,6 +1,6 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import _ from "lodash";
 import {forwardRef, useMemo} from "react";
+import * as R from "remeda";
 import {FontDialogButton} from "../generated/intrinsics.js";
 
 type Props = Omit<React.JSX.IntrinsicElements["FontDialogButton"], "dialog"> &
@@ -18,7 +18,7 @@ export default forwardRef<Gtk.FontDialogButton, Props>(
     const dialog = useMemo(
       () =>
         new Gtk.FontDialog(
-          _.omitBy(
+          R.omitBy(
             {
               title,
               modal,
@@ -26,7 +26,7 @@ export default forwardRef<Gtk.FontDialogButton, Props>(
               fontMap,
               language,
             },
-            _.isNil
+            R.isNullish
           )
         ),
       [title, modal, filter, fontMap, language]

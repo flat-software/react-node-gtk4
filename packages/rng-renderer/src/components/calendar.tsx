@@ -1,6 +1,6 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import _ from "lodash";
 import {forwardRef, memo, useEffect} from "react";
+import * as R from "remeda";
 import {Calendar} from "../generated/intrinsics.js";
 import useForwardedRef from "../hooks/useForwardedRef.js";
 
@@ -35,5 +35,5 @@ export default memo(
 
     return <Calendar ref={setInnerRef} {...props} />;
   }),
-  _.isEqual
+  R.isDeepEqual
 );

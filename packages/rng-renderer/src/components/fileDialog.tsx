@@ -1,7 +1,7 @@
 import Gio from "@/generated/girs/node-gio-2.0.js";
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import _ from "lodash";
 import {useEffect, useMemo} from "react";
+import * as R from "remeda";
 import useApplication from "../hooks/useApplication.js";
 
 type FileDialogProps = Partial<
@@ -44,7 +44,7 @@ const useFileDialog = ({
 }: Props) => {
   return useMemo(() => {
     return new Gtk.FileDialog(
-      _.omitBy(
+      R.pickBy(
         {
           accept_label: acceptLabel,
           default_filter: defaultFilter,
@@ -55,7 +55,7 @@ const useFileDialog = ({
           modal,
           title,
         },
-        _.isUndefined
+        R.isDefined
       )
     );
   }, [

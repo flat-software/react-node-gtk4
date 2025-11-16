@@ -1,6 +1,6 @@
 import Gtk from "@/generated/girs/node-gtk-4.0.js";
-import _ from "lodash";
 import {forwardRef, memo, useEffect} from "react";
+import * as R from "remeda";
 import {Scale} from "../generated/intrinsics.js";
 import useForwardedRef from "../hooks/useForwardedRef.js";
 
@@ -70,5 +70,5 @@ export default memo(
 
     return <Scale ref={setInnerRef} {...props}></Scale>;
   }),
-  _.isEqual
+  R.isDeepEqual
 );
