@@ -2,7 +2,7 @@
   "name": "@react-node-gtk4/renderer",
   "version": "1.0.0",
   "license": "MPL-2.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "ts": "tsc --build --watch",
     "build": "tsc --build",
@@ -13,7 +13,7 @@
   "types": "./build/src/index.d.ts",
   "exports": {
     ".": {
-      "import": "./build/src/index.js"
+      "require": "./build/src/index.js"
     }
   },
   "dependencies": {

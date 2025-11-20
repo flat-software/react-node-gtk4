@@ -2486,9 +2486,9 @@ __metadata:
   resolution: "@rouge/store@workspace:packages/app-store"
   dependencies:
     "@types/react": "npm:18.3.4"
+    chokidar: "npm:^4.0.3"
     node-gtk: "npm:1.0.0"
     react: "npm:18.3.1"
-    react-node-gtk4: "workspace:*"
     tslib: "npm:2.8.1"
     tsx: "npm:4.20.6"
     typescript: "npm:5.9.3"
