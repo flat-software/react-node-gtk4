@@ -1,5 +1,5 @@
-import Gtk from "./generated/girs/node-gtk-4.0.js";
 import Container from "./container.js";
+import Gtk from "./generated/girs/node-gtk-4.0.js";
 import "./generated/jsx.js";
 import "./overrides.js";
 import {createReconciler} from "./reconciler.js";
@@ -61,7 +61,12 @@ export default function render(
   const rootNode = createRootNode(application);
   const container = new Container(rootNode);
 
-  rootNode.run(() => {
-    container.render(element);
-  });
+  rootNode.run(
+    () => {
+      container.render(element);
+    },
+    () => {
+      container.render(null);
+    }
+  );
 }

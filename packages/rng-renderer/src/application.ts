@@ -1,7 +1,7 @@
+import {ApplicationContext} from "./components/applicationProvider.js";
 import GLib from "./generated/girs/node-glib-2.0.js";
 import Gtk from "./generated/girs/node-gtk-4.0.js";
 import gi from "./generated/girs/node-gtk.js";
-import {ApplicationContext} from "./components/applicationProvider.js";
 import {ApplicationWindow} from "./generated/widgets/applicationWindow.js";
 import Node from "./node.js";
 
@@ -29,7 +29,7 @@ export default class Application extends Node<Gtk.Application> {
     };
   }
 
-  run(callback: () => void) {
+  run(callback: () => void, onQuit?: () => void) {
     this.node.on("activate", () => {
       callback();
 
@@ -40,6 +40,7 @@ export default class Application extends Node<Gtk.Application> {
       loop();
       gi.startLoop();
       this.loop.run();
+      onQuit?.();
     });
 
     this.node.run([]);

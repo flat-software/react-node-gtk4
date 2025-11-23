@@ -7,6 +7,7 @@ import {
 } from "@react-node-gtk4/renderer";
 import * as fs from "node:fs/promises";
 import {FC, useEffect, useState} from "react";
+import {TestLabel} from "./label";
 
 export const App: FC = () => {
   const [count, setCount] = useState(0);
@@ -40,14 +41,18 @@ export const App: FC = () => {
 
   return (
     <ApplicationWindow
-      title="Hello World"
+      title="Hello World 2"
       onCloseRequest={quit}
       onShow={onWindowShow}
+      widthRequest={400}
+      heightRequest={300}
     >
-      <Box orientation={Gtk.Orientation.VERTICAL}>
-        <>Hello World! 5 You clicked {count} times.</>
+      <Box orientation={Gtk.Orientation.VERTICAL} spacing={10}>
+        <TestLabel />
+        <Box>You clicked {count} times</Box>
+        <Box>You clicked {count} times 2</Box>
         <Button
-          label="Click Me"
+          label="Click Me 3"
           onClicked={() => {
             setCount(count => count + 1);
           }}

@@ -1,7 +1,8 @@
-import Gtk from "./generated/girs/node-gtk-4.0.js";
+import * as React from "react";
 import ReactReconciler, {HostConfig} from "react-reconciler";
 import {DefaultEventPriority} from "react-reconciler/constants.js";
 import * as R from "remeda";
+import Gtk from "./generated/girs/node-gtk-4.0.js";
 import * as widgets from "./generated/widgets.js";
 import {Label} from "./generated/widgets/label.js";
 import {Widget} from "./generated/widgets/widget.js";
@@ -154,7 +155,43 @@ const hostConfig: HostConfig<
 };
 
 export function createReconciler(): Reconciler {
-  return ReactReconciler(hostConfig);
+  const reconciler = ReactReconciler(hostConfig);
+
+  // const baseInject = (globalThis as any).__REACT_DEVTOOLS_GLOBAL_HOOK__.inject;
+  // (globalThis as any).__REACT_DEVTOOLS_GLOBAL_HOOK__.inject = (
+  //   injected: unknown
+  // ) => {
+  //   console.log("Trying to inject:", injected);
+  //   baseInject.call(
+  //     (globalThis as any).__REACT_DEVTOOLS_GLOBAL_HOOK__,
+  //     injected
+  //   );
+  // };
+
+  // Register with the global DevTools hook so React Refresh can discover roots.
+  console.log(
+    "Got env:",
+    process.env.NODE_ENV,
+    "hasHook:",
+    typeof (globalThis as any).__REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined"
+  );
+  console.log("Hooks:", (global as any).__REACT_DEVTOOLS_GLOBAL_HOOK__);
+  const result = reconciler.injectIntoDevTools({
+    bundleType: process.env.NODE_ENV === "production" ? 0 : 1,
+    version: React.version,
+    rendererPackageName: "@react-node-gtk4/renderer",
+    findFiberByHostInstance: (reconciler as any).findFiberByHostInstance,
+  });
+  console.log(
+    "Injection result:",
+    result,
+    "rendererCount:",
+    0
+    // devtoolsHook.renderers?.size
+  );
+  console.log("Hooks:", (global as any).__REACT_DEVTOOLS_GLOBAL_HOOK__);
+
+  return reconciler;
 }
 
 export type Reconciler = ReturnType<typeof ReactReconciler>;
